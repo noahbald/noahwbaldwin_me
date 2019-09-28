@@ -1,0 +1,11 @@
+html {
+    background-color: #00315e;
+}
+
+#background {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
