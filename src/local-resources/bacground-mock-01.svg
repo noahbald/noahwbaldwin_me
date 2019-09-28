@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00315e;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1000px;
+      }
+
+      .cls-2 {
+        stroke: #0073de;
+      }
+
+      .cls-3 {
+        stroke: #e17381;
+      }
+
+      .cls-4 {
+        stroke: #c471ed;
+      }
+    </style>
+  </defs>
+  <title>bacground-mock</title>
+  <g id="background">
+    <rect class="cls-1" width="1920" height="1080"/>
+  </g>
+  <g id="Layer_1" data-name="Layer 1">
+    <circle class="cls-2" cx="960" cy="540" r="3240"/>
+    <rect class="cls-3" x="-2280" y="-2700" width="6480" height="6480"/>
+    <polygon class="cls-4" points="960 -2700.25 -2781.23 3779.75 4701.23 3779.75 960 -2700.25"/>
+  </g>
+</svg>
