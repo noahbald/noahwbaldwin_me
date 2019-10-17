@@ -1,0 +1,33 @@
+.gallery {
+    overflow-x: hidden;
+    position: relative;
+}
+.gallery-content {
+    width: calc(50% - 96px);
+    min-height: calc(67% + 8em);
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    opacity: 1;
+    transition: 1s;
+}
+.gallery-image {
+    display: inline-flex;
+    height: 256px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+.gallery .button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.gallery .button:first-child {
+    left: 0;
+}
+.gallery .button:last-child {
+    right: 0;
+}
