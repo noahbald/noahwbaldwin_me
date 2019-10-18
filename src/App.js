@@ -3,6 +3,7 @@ import React from 'react'
 // Files
 import './App.css'
 import profile from './scenes/index/profile.jpg'
+import resume from './scenes/index/Noah-Baldwin-Resume.pdf'
 
 // Scripts
 import uuid from './services/uid.js'
