@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'modern-css-reset'
+import 'typeface-lato'
 import './index.css'
-import './fonts.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
