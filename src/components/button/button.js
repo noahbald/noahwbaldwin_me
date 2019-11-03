@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Button as RSButton } from 'reactstrap'
 import './button.css'
 
 function Button(props) {
@@ -8,8 +9,6 @@ function Button(props) {
     text,
     disabled,
     className,
-    children,
-    onClick,
   } = props
   let newClassName = 'button'
   if (outline) {
@@ -24,13 +23,7 @@ function Button(props) {
     newClassName += ` ${className}`
   }
   return (
-    <button
-      className={newClassName}
-      type="button"
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    <RSButton {...props} className={`${className} ${newClassName}`} />
   )
 }
 
@@ -39,8 +32,6 @@ Button.propTypes = {
   text: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
 }
 
 Button.defaultProps = {
@@ -48,8 +39,6 @@ Button.defaultProps = {
   text: false,
   disabled: false,
   className: '',
-  children: null,
-  onClick: () => {},
 }
 
 export default Button

@@ -46,7 +46,7 @@ class Gallery extends React.Component {
           }
           return (
             <div key={x.uid + posOverflow} className="gallery-content" style={{ transform: translateX, opacity }}>
-              <img className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} alt={x.uid + posOverflow} />
+              <img className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} alt="" />
               <div className="card">
                 <h4>
                   <strong>{x.title}</strong>

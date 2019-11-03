@@ -19,15 +19,15 @@
     background-repeat: no-repeat;
     border-radius: 4px;
 }
-.gallery .button {
+.gallery button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
 }
-.gallery .button:first-child {
+.gallery button:first-child {
     left: 0;
 }
-.gallery .button:last-child {
+.gallery button:last-child {
     right: 0;
 }
