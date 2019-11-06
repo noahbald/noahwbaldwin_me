@@ -23,6 +23,7 @@ function Button(props) {
     newClassName += ` ${className}`
   }
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <RSButton {...props} className={`${className} ${newClassName}`} />
   )
 }
