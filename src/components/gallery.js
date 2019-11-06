@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import negIndex from '../../services/negIndex'
-import Button from '../button/button'
+import negIndex from '../services/negIndex'
+import Button from './button'
 
 import './gallery.css'
 
