@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 // Files
 import './App.css'
 import profile from './scenes/index/profile.jpg'
-import resume from './scenes/index/Noah-Baldwin-Resume.pdf'
+import resume from './scenes/index/resume/resume.md'
 
 // Scripts
 import uuid from './services/uid'
-import Gallery from './components/gallery/gallery'
+import Markdown from './components/markdown'
+import Gallery from './components/gallery'
 
 
 class App extends React.Component {
@@ -60,7 +61,7 @@ class App extends React.Component {
       <section id="resume" key={2}>
         <h2 className="highlight-tertiary">Resum‌&eacute;</h2>
         <p><a href="./scenes/index/Noah-Baldwin-Resume.pdf">PDF Version</a></p>
-        <embed src={`${resume}#view=fitH`} type="application/pdf" width="100%" height="100%" />
+        <Markdown fetch={() => fetch(resume)} importSrc={async (src) => {return await import('./media/' + src)}} />
       </section>,
       <Footer />,
     ]

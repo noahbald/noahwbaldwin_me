@@ -1,0 +1,66 @@
+.markdown {
+  grid-column: 3;
+  grid-row: 2;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.markdown.peek .content {
+  overflow-y: hidden;
+  max-height: 512px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.markdown .content {
+  margin: 0 auto 0 auto;
+}
+.markdown.peek .content::after {
+  content: "";
+  height: 256px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(247, 249, 249, 0), rgba(247, 249, 249, 1));
+}
+.markdown .button {
+  grid-column: 3;
+  grid-row: 2;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  width: 128px;
+}
+
+.content h1, .content h2, .content h3, .content p {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+.content h1 {
+  font-size: 1.875em;
+  font-weight: 600;
+}
+.content h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.content h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+.content p {
+  font-size: 16px;
+}
+.content li p {
+  margin: 0;
+}
+.content {
+  width: 100%;
+  max-width: 720px;
+}
+.content img {
+  width: 100%;
+}
+.content p, .content h1, .content h2, .content h3, .content ul, .content img {
+  margin: 0 0 32px 0;
+}
