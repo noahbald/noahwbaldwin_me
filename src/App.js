@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 // Files
 import './App.css'
 import profile from './scenes/index/profile.jpg'
-import resume from './scenes/index/resume/resume.md'
 
 // Scripts
 import uuid from './services/uid'
@@ -50,9 +49,8 @@ class App extends React.Component {
         src: 'https://via.placeholder.com/480x480?text=four',
       },
     ]
-
     return [
-      <Header src={profile} heading="Noah Baldwin" title="Lorem Ipsum Dolor" subtitle="Lorem Ipsum Dolor Lorem Ipsum Dolor" />,
+      <Header src={profile} heading="Noah Baldwin" title="Software Engineering Student" subtitle="Ask me about UI, UX, React, or Web Design" />,
       <section id="projects" key={1}>
         <h2 className="highlight-secondary">Projects</h2>
         <p><a href=".">View More</a></p>
@@ -61,7 +59,12 @@ class App extends React.Component {
       <section id="resume" key={2}>
         <h2 className="highlight-tertiary">Resum‌&eacute;</h2>
         <p><a href="./scenes/index/Noah-Baldwin-Resume.pdf">PDF Version</a></p>
-        <Markdown fetch={() => fetch(resume)} importSrc={async (src) => {return await import('./media/' + src)}} />
+        <Markdown
+          fetch={async () => {
+            const resume = await import('./scenes/index/resume/resume.md')
+            return fetch(resume.default)
+          }}
+          importSrc={async (src) => {return await import('./media/' + src)}} />
       </section>,
       <Footer />,
     ]
