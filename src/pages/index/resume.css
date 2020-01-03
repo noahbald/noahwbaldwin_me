@@ -1,0 +1,5 @@
+#resume .feature-box {
+  grid-column: 3;
+  grid-row: 2;
+  width: 100%;
+}
