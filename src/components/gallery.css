@@ -1,15 +1,27 @@
 .gallery {
     overflow-x: hidden;
     position: relative;
+    min-height: 512px;
+    margin-bottom: -32px;
+    margin-top: -32px;
 }
 .gallery-content {
     width: calc(50% - 96px);
-    min-height: calc(67% + 8em);
+    min-height: calc(100% - 96px);
+    margin-top: 32px;
     display: inline-flex;
     flex-direction: column;
     position: absolute;
     opacity: 1;
     transition: 1s;
+    border-radius: 4px;
+}
+.gallery-content .card {
+  max-height: 160px;
+  text-overflow: ellipsis;
+}
+.gallery-content .card h4 {
+  text-overflow: ellipsis;
 }
 .gallery-image {
     display: inline-flex;
@@ -17,7 +29,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 4px;
+    border-radius: 4px 4px 0 0;
 }
 .gallery button {
     position: absolute;
