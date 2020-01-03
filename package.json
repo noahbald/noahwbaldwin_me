@@ -8,9 +8,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
+    "react-transition-group": "^4.3.0",
     "reactstrap": "^8.1.1",
-    "typeface-lato": "0.0.75"
+    "typeface-lato": "0.0.75",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
