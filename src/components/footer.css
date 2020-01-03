@@ -1,0 +1,27 @@
+footer {
+  grid-template-rows: 256px 64px;
+  margin-bottom: 128px;
+}
+
+footer h2 {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: baseline;
+  padding: 0px 8px 0px 8px;
+}
+
+footer #email {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+footer .footer-links {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: right;
+  align-self: end;
+}
+footer .footer-links button {
+  margin: 0 8px;
+}
