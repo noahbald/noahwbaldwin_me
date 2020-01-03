@@ -1,0 +1,9 @@
+#projects {
+  grid-template-rows: 256px auto;
+  display: grid;
+  width: 100%;
+}
+#projects .gallery {
+  grid-column: 2 / 5;
+  width: 100%;
+}
