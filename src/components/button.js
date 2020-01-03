@@ -1,45 +1,57 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Button as RSButton } from 'reactstrap'
 import './button.css'
 
 function Button(props) {
   const {
-    outline,
-    text,
-    disabled,
+    type,
     className,
+    icon,
+    children,
+    to,
+    ...remainingProps
   } = props
-  let newClassName = 'button'
-  if (outline) {
-    newClassName += ' outline'
-  } else if (text) {
-    newClassName += ' text'
-  }
-  if (disabled) {
-    newClassName += ' disabled'
-  }
-  if (className) {
-    newClassName += ` ${className}`
-  }
-  return (
+
+  const button = (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <RSButton {...props} className={`${className} ${newClassName}`} />
+    <RSButton {...remainingProps} className={`button ${className} ${type} ${icon ? 'icon' : ''}`}>
+      {icon ? (
+        <div className="icon" style={{ backgroundImage: `url(${icon})` }} />
+      ) : (
+        null
+      )}
+      {children}
+    </RSButton>
   )
+  if (to) {
+    return (
+      <Link to={to}>
+        {button}
+      </Link>
+    )
+  }
+  return button
 }
 
 Button.propTypes = {
-  outline: PropTypes.bool,
-  text: PropTypes.bool,
-  disabled: PropTypes.bool,
+  type: PropTypes.oneOf([
+    'outline',
+    'text',
+    'disabled',
+    '',
+  ]),
   className: PropTypes.string,
+  icon: PropTypes.string,
+  children: PropTypes.node,
 }
 
 Button.defaultProps = {
-  outline: false,
-  text: false,
-  disabled: false,
+  type: '',
   className: '',
+  icon: '',
+  children: null,
 }
 
 export default Button

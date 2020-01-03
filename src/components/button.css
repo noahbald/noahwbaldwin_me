@@ -1,38 +1,68 @@
 button {
     border: 0;
-    background-color: #e17381;
-    color: #f9f9fa;
+    background-color: var(--color-primary);
+    color: var(--color-grey-lightest);
     display: inline-flex;
-    height: 36px;
+    height: 40px;
+    font-size: 1.3em;
     min-width: 36px;
     border-radius: 4px;
     justify-content: center;
     align-items: center;
     transition: .2s;
-    padding: 0 8px;
+    padding: 0 16px;
     font-weight: 700;
 }
 button:hover, button.disabled {
-    background-color: #e895a1;
+    background-color: var(--color-primary-light);
 }
 button:active {
-    background-color: #cb6775;
+    background-color: var(--color-primary);
 }
 button:focus {
     outline: none;
 }
 button.outline {
-    border: solid 3px #e17381;
+    border: solid 3px var(--color-primary);
 }
 button.text, button.outline {
-    color: #e17381;
+    color: var(--color-primary);
 }
 button.text, button.outline {
-    background-color: rgba(224, 114, 128, 0)
+    background-color: rgba(224, 114, 128, 0);
 }
 button.text:hover, button.outline:hover {
     background-color: rgba(224, 114, 128, 0.1)
 }
 button.text:active, button.outline:active {
     background-color: rgba(224, 114, 128, 0.3)
+}
+
+button a, button a:visited, button a:hover, button a:active {
+  color: inherit;
+}
+button a::after, button a:visited::after, button a:hover::after, button a:active::after {
+  display: none;
+}
+
+button.soft-shadow {
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow .2s;
+}
+button.soft-shadow:hover {
+  box-shadow: var(--shadow-soft-deep);
+}
+button.soft-shadow:active {
+  box-shadow: var(--shadow-soft-shallow);
+}
+
+.button .icon {
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+}
+
+.skeleton button {
+  animation: var(--skeleton-animation);
+  width: 128px;
 }
