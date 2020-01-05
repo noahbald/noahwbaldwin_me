@@ -7,3 +7,14 @@
   grid-column: 2 / 5;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  #projects {
+    grid-template-rows: 160px auto;
+  }
+}
+@media (max-width: 480px) {
+  #projects {
+    grid-template-columns: var(--grid-template-columns-mobile);
+  }
+}

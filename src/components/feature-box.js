@@ -37,9 +37,9 @@ export default class FeatureBox extends React.Component {
               <Button className="soft-shadow" />
             </div>
             <div className="highlight-grey icon" />
-            <p/>
+            <p />
             <div className="highlight-grey icon" />
-            <p/>
+            <p />
           </div>
         </div>
       )
@@ -121,7 +121,7 @@ export default class FeatureBox extends React.Component {
                 return (
                   <React.Fragment key={uid}>
                     <div
-                      style={{ backgroundImage: `url(${icon})`}}
+                      style={{ backgroundImage: `url(${icon})` }}
                       src={icon}
                       alt={title}
                       className={`highlight-${highlight} icon`}

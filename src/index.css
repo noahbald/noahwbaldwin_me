@@ -21,6 +21,11 @@
   --shadow-soft: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
   --shadow-soft-shallow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62, 70, 0.1);
   --shadow-soft-deep: 0 21px 53px rgba(61, 62, 70, 0.3), 0 5px 13px rgba(61, 62, 70, 0.1);
+
+  /* Columns */
+  --grid-template-columns-desktop: 64px 64px minmax(auto, 1184px) 64px 64px;
+  --grid-template-columns-tablet: 16px 64px calc(100% - 160px) 64px 16px;
+  --grid-template-columns-mobile: 16px 32px calc(100% - 96px) 32px 16px;
 }
 
 body {
@@ -32,9 +37,14 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
 }
 html {
   scroll-behavior: smooth;
+}
+#root {
+  width: 100%;
 }
 
 code {
@@ -58,7 +68,7 @@ a {
   color: var(--color-primary);
   text-decoration: none;
   position: relative;
-  transition: .2s
+  transition: color .2s
 }
 a:visited {
   color: var(--color-secondary);
@@ -75,7 +85,7 @@ a::after {
   opacity: 0;
   left: -5%;
   top: -2.5%;
-  transition: .2s;
+  transition: background-color .2s;
   border-radius: 2px;
 }
 a:visited::after {
@@ -87,13 +97,24 @@ a:hover::after {
 a:active::after {
   opacity: 0.3;
 }
+a > svg {
+  fill: var(--color-primary);
+  transition: fill .2s;
+}
+a:hover > svg, a:active > svg {
+  fill: var(--color-grey-darkest);
+}
+a:visited > svg {
+  fill: var(--color-secondary);
+}
+
 strong {
   font-weight: 900;
 }
 
 header, footer, section {
   display: grid;
-  grid-template-columns: 64px 64px minmax(auto, 1440px) 64px 64px;
+  grid-template-columns: var(--grid-template-columns-desktop);
 }
 
 .soft-shadow {
@@ -128,4 +149,36 @@ header, footer, section {
 }
 .highlight-grey::after {
   background-color: var(--color-grey);
+}
+
+@media (max-width: 1024px) {
+  header, footer, section {
+    grid-template-columns: 16px 64px calc(100% - 160px) 64px 16px;
+  }
+  h2 {
+    font-size: 7em;
+  }
+}
+/* Tablet */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 6em;
+  }
+  h3 {
+    font-size: 2em;
+  }
+}
+@media (max-width: 600px) {
+  h2 {
+    font-size: 5em;
+  }
+}
+/* Mobile */
+@media(max-width: 480px) {
+  h2 {
+    font-size: 3.5em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
 }
