@@ -22,6 +22,41 @@ footer .footer-links {
   justify-self: right;
   align-self: end;
 }
-footer .footer-links button {
+footer .footer-links a {
   margin: 0 8px;
+}
+footer .footer-links a:first-child {
+  margin-left: 0;
+}
+footer .footer-links a:last-child {
+  margin-right: 0;
+}
+footer .footer-links a svg {
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 1024px) {
+  footer .footer-links {
+    justify-self: baseline;
+    margin-bottom: -64px;
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    grid-template-rows: 160px 64px;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    grid-template-columns: var(--grid-template-columns-mobile);
+    margin-bottom: 64px;
+  }
+  footer .footer-links {
+    margin-bottom: -16px;
+  }
+  footer .footer-links a svg {
+    width: 20px;
+    height: 20px;
+  }
 }

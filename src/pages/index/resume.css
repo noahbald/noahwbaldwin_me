@@ -3,3 +3,9 @@
   grid-row: 2;
   width: 100%;
 }
+
+@media (max-width: 480px) {
+  #resume {
+    grid-template-columns: var(--grid-template-columns-mobile);
+  }
+}
