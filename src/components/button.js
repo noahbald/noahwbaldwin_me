@@ -45,6 +45,7 @@ Button.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   children: PropTypes.node,
+  to: PropTypes.string,
 }
 
 Button.defaultProps = {
@@ -52,6 +53,7 @@ Button.defaultProps = {
   className: '',
   icon: '',
   children: null,
+  to: '',
 }
 
 export default Button
