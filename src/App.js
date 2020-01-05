@@ -13,6 +13,7 @@ import './skeletons.css'
 import Index from './pages/index'
 
 export default function App() {
+  document.title = 'Noah Baldwin'
   return (
     <Router>
       <Switch>
