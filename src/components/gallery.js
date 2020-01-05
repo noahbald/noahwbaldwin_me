@@ -37,13 +37,18 @@ class Gallery extends React.Component {
     const visibleContent = this.getVisibleContent()
     return (
       <div className="gallery">
-        <Button type="text" icon={arrowLeft} onClick={() => this.changePosition(-1)} />
+        <Button
+          type="text"
+          icon={arrowLeft}
+          onClick={() => this.changePosition(-1)}
+          aria-label="Previous item in gallery"
+        />
         {visibleContent.map((x, i) => {
           const posOverflow = Math.floor((position + i) / contents.length)
           const iPos = i - 1
           const opacity = iPos < 0 || iPos > 1 ? 0 : 1
           const translateX = `translateX(calc(64px + (100% + 64px) * ${iPos}))`
-          
+
           return (
             <div key={x.uid + posOverflow} className="gallery-content soft-shadow" style={{ transform: translateX, opacity }}>
               <div className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} alt="" />
@@ -57,7 +62,12 @@ class Gallery extends React.Component {
             </div>
           )
         })}
-        <Button type="text" icon={arrowRight} onClick={() => this.changePosition(1)} />
+        <Button
+          type="text"
+          icon={arrowRight}
+          onClick={() => this.changePosition(1)}
+          aria-label="Next item in gallery"
+        />
       </div>
     )
   }

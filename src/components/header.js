@@ -9,7 +9,7 @@ export default function Header(props) {
     heading, src, title, subtitle,
   } = props
   return (
-    <section id="header" key={0}>
+    <header id="header" key={0}>
       <h1 className="highlight-light-grey">{heading}</h1>
       <div className="img-container soft-shadow" style={{ backgroundImage: `url("${src}")` }} />
       <Card className="soft-shadow">
@@ -20,7 +20,7 @@ export default function Header(props) {
           <br />
         </h4>
       </Card>
-    </section>
+    </header>
   )
 }
 
