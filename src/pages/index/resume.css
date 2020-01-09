@@ -1,11 +1,5 @@
 #resume .feature-box {
   grid-column: 3;
-  grid-row: 2;
+  grid-row: 3;
   width: 100%;
-}
-
-@media (max-width: 480px) {
-  #resume {
-    grid-template-columns: var(--grid-template-columns-mobile);
-  }
 }
