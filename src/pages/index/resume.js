@@ -33,8 +33,8 @@ class Resume extends React.Component {
     return (
       <section id="resume">
         <h2 className="highlight-tertiary">Résumé</h2>
-        <Button type="text">
-          <Link to=".">Download Résumé</Link>
+        <Button type="text" to="https://docs.google.com/document/d/15GdJKS1wCaYaHCohnCSZ1wRDol4p8ACvuRvPh2PIhho/edit?usp=sharing">
+          Download Résumé
         </Button>
         <FeatureBox content={resumeContent} loading={loadingResumeContent} />
       </section>
