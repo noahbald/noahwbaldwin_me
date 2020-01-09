@@ -26,6 +26,9 @@
   --grid-template-columns-desktop: 64px 64px minmax(auto, 1184px) 64px 64px;
   --grid-template-columns-tablet: 16px 64px calc(100% - 160px) 64px 16px;
   --grid-template-columns-mobile: 16px 32px calc(100% - 96px) 32px 16px;
+  --grid-row-1-desktop: 256px;
+  --grid-row-1-tablet: 160px;
+  --grid-row-1-mobile: 96px;
 }
 
 body {
@@ -42,6 +45,10 @@ body {
 }
 html {
   scroll-behavior: smooth;
+}
+#root {
+  width: 100%;
+  max-width: 1440px;
 }
 
 code {
@@ -150,7 +157,7 @@ header, footer, section {
 
 @media (max-width: 1024px) {
   header, footer, section {
-    grid-template-columns: 16px 64px calc(100% - 160px) 64px 16px;
+    grid-template-columns: var(--grid-template-columns-tablet);
   }
   h2 {
     font-size: 7em;
@@ -177,5 +184,8 @@ header, footer, section {
   }
   h3 {
     font-size: 1.5em;
+  }
+  header, footer, section {
+    grid-template-columns: var(--grid-template-columns-mobile);
   }
 }
