@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import negIndex from '../services/negIndex'
 import Button from './button'
+import Card from './card'
+
+import isProtocol from '../services/isProtocol'
 
 import './gallery.css'
 import arrowLeft from './component-assets/arrow-left.svg'
@@ -31,10 +35,51 @@ class Gallery extends React.Component {
     this.setState({ position: newPosition })
   }
 
+  changePage(url) {
+    const { history } = this.props
+    if (isProtocol(url)) {
+      window.location = url
+    } else {
+      history.push(url)
+    }
+  }
+
   render() {
-    const { contents } = this.props
+    const { contents, loading } = this.props
     const { position } = this.state
     const visibleContent = this.getVisibleContent()
+
+    if (loading) {
+      return (
+        <div className="gallery skeleton">
+          <Button
+            type="text"
+            aria-label="Previous item in gallery"
+          />
+          <div className="gallery-content soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 0))' }}>
+            <div className="gallery-image" />
+            <Card>
+              <h4>
+                &nbsp;
+              </h4>
+            </Card>
+          </div>
+          <div className="gallery-content soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 1))' }}>
+            <div className="gallery-image" />
+            <Card>
+              <h4>
+                &nbsp;
+              </h4>
+            </Card>
+          </div>
+          <Button
+            type="text"
+            aria-label="Next item in gallery"
+          />
+        </div>
+      )
+    }
+
     return (
       <div className="gallery">
         <Button
@@ -50,15 +95,33 @@ class Gallery extends React.Component {
           const translateX = `translateX(calc(64px + (100% + 64px) * ${iPos}))`
 
           return (
-            <div key={x.uid + posOverflow} className="gallery-content soft-shadow" style={{ transform: translateX, opacity }}>
-              <div className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} alt="" />
-              <div className="card">
+            <div
+              key={x.uid + posOverflow}
+              className="gallery-content soft-shadow"
+              style={{ transform: translateX, opacity }}
+              onClick={() => {
+                this.changePage(x.href)
+              }}
+              onKeyDown={(e) => {
+                if ((e.keyCode || e.which) === 13 || (e.keyCode || e.which) === 18) {
+                  this.changePage(x.href)
+                }
+                return false
+              }}
+              role="presentation"
+              tabIndex={opacity - 1}
+            >
+              <div className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} />
+              <Card
+                to={x.href}
+                className="test"
+              >
                 <h4>
                   <strong>{x.title}</strong>
                   &nbsp;&mdash;&nbsp;
                   {x.subtitle}
                 </h4>
-              </div>
+              </Card>
             </div>
           )
         })}
@@ -74,12 +137,18 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  contents: PropTypes.exact({
-    uid: PropTypes.string,
-    subtitle: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.string,
-  }),
+  contents: PropTypes.arrayOf(
+    PropTypes.shape({
+      uid: PropTypes.string,
+      subtitle: PropTypes.string,
+      href: PropTypes.string,
+      src: PropTypes.string,
+    }),
+  ),
+  loading: PropTypes.bool,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 }
 
 Gallery.defaultProps = {
@@ -89,5 +158,6 @@ Gallery.defaultProps = {
     href: '#',
     src: 'https://via.placeholder.com/480x480?text=N/A',
   },
+  loading: false,
 }
 export default Gallery
