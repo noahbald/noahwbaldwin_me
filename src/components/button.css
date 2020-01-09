@@ -12,6 +12,7 @@ button {
     transition: color .2s, background-color .2s;
     padding: 0 16px;
     font-weight: 700;
+    cursor: pointer;
 }
 button:hover, button.disabled {
     background-color: var(--color-primary-light);
@@ -54,6 +55,11 @@ button.soft-shadow:hover {
 }
 button.soft-shadow:active {
   box-shadow: var(--shadow-soft-shallow);
+}
+
+a.button-link::after {
+  width: initial;
+  height: initial;
 }
 
 .button .icon {
