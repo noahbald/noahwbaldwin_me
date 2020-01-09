@@ -27,7 +27,7 @@ function Button(props) {
   )
   if (to) {
     return (
-      <Link to={to}>
+      <Link to={to} className="button-link">
         {button}
       </Link>
     )
