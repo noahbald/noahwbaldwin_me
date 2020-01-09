@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Files
 import '../App.css'
 import './index.css'
-import profile from '../scenes/index/profile.jpg'
+import profile from './index/profile.jpg'
 
 // Components
 import Header from '../components/header'
@@ -21,13 +22,18 @@ export default class Index extends React.Component {
   }
 
   render() {
+    const { history } = this.props
     return (
       <>
         <Header src={profile} heading="Noah Baldwin" title="Software Engineering Student" subtitle="Ask me about UI, UX, React, or Web Design" />
-        <Projects galleryContents={this.galleryContents} />
+        <Projects galleryContents={this.galleryContents} history={history} />
         <Resume />
         <Footer />
       </>
     )
   }
+}
+
+Index.propTypes = {
+  history: PropTypes.shape().isRequired,
 }
