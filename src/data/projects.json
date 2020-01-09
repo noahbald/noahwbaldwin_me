@@ -1,0 +1,158 @@
+[
+  {
+    "title": "Facebook Messenger Counter",
+    "subtitle": "To exercise my skills, learn more about web development, and for a bit of fun, I developed a web app to generate statistics from facebook messages.",
+    "type": "Personal Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "bd5a563b-214d-43f8-8e11-621382c352e8",
+    "metadata": {
+      "year": 2019,
+      "topics": [
+        "Programming"
+      ],
+      "client": "Personal Project",
+      "featured": true
+    }
+  },
+  {
+    "title": "Online Portfolio",
+    "subtitle": "During the summer of 2018, I spent some of my copious spare time working on an online portfolio to exhibit my experience and work with potential employers.",
+    "type": "Personal Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "b46a6149-3d40-4452-90d1-cc4951f07662",
+    "metadata": {
+      "year": 2018,
+      "topics": [
+        "Programming"
+      ],
+      "client": "Personal Project",
+      "featured": false
+    }
+  },
+  {
+    "title": "Web Design Assignment",
+    "subtitle": "As a part of my studies at Monash University I was tasked with the design and development of a simple HTML and CSS webpage.",
+    "type": "University Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "https://beach-please.netlify.com/",
+    "uid": "2a5429aa-5c7a-4b1e-a447-c196096f31cc",
+    "metadata": {
+      "year": 2018,
+      "topics": [
+        "Programming",
+        "Design"
+      ],
+      "client": "Monash University",
+      "featured": true
+    }
+  },
+  {
+    "title": "Google Docs Tracking App",
+    "subtitle": "A university project to exercise our skills in software development methodolodies, in particular, Scrum. The group project advanced our ability to work together with deadlines, risks, and backlogs.",
+    "type": "University Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "9b3aea06-ded8-439e-8e60-1dfa19bbfe55",
+    "metadata": {
+      "year": 2018,
+      "topics": [
+        "Programming",
+        "Agile"
+      ],
+      "client": "Monash University",
+      "featured": true
+    }
+  },
+  {
+    "title": "Run Tracking App",
+    "subtitle": "An early university project to introduce information technology skills for engineering. Working in small teams, we were required to develop an in-browser application that can track a user's run.",
+    "type": "University Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "702505aa-b399-42c8-9471-e61a9ed2adf3",
+    "metadata": {
+      "year": 2017,
+      "topics": [
+        "Programming"
+      ],
+      "client":"Monash University",
+      "featured": false
+    }
+  },
+  {
+    "title": "Logo Design",
+    "subtitle": "As a part of my Visual Communication Design studies for VCE I synthesised a company with two design needs: a company logo and a pair of headphones; and to relate it to their namesake, the Goddess Minerva.",
+    "type": "VCE Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "cec9da18-9d11-4179-8a3c-931ded81853f",
+    "metadata": {
+      "year": 2016,
+      "topics": [
+        "Design"
+      ],
+      "client": "Victorian Certificate of Education",
+      "featured": false
+    }
+  },
+  {
+    "title": "Headphone Design",
+    "subtitle": "Following the development of a logo as a part of my Visual Communication Design studies, it was time to design a pair of headphones for the company, Minerva, to merchandise.",
+    "type": "VCE Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "7a23fac7-45ce-4f69-84bb-46757468aa6d",
+    "metadata": {
+      "year": 2016,
+      "topics": [
+        "Design"
+      ],
+      "client": "Victorian Certificate of Education",
+      "featured": false
+    }
+  },
+  {
+    "title": "Technical Drawing",
+    "subtitle": "As a part of my studies, I delved into the three pillars of Visual Communication Design: Industrial, Communication, and Environmental Design, and produced a final for each category.",
+    "type":"VCE Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "",
+    "uid": "d57adeac-5309-4b5b-9c6f-a6275249d6cd",
+    "metadata": {
+      "year": 2016,
+      "topics": [
+        "Design"
+      ],
+      "client": "St Leonard's College",
+      "featured": false
+    }
+  },
+  {
+    "title": "Wizard Film",
+    "subtitle": "",
+    "type":"Personal Project",
+    "src": "https://via.placeholder.com/560x256?text=N/A",
+    "relativeMarkdownLocation": "",
+    "href": "https://youtu.be/hgVLbZZze8k",
+    "uid": "53723688-b4c8-47c0-8341-cefdc24a9fa6",
+    "metadata": {
+      "year": 2015,
+      "topics": [
+        "Animation",
+        "Film"
+      ],
+      "client": "Personal Project",
+      "featured": false
+    }
+  }
+]
