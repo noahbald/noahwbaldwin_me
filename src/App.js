@@ -11,15 +11,23 @@ import './skeletons.css'
 
 // Pages
 import Index from './pages/index'
+import Projects from './pages/projects'
 
 export default function App() {
   document.title = 'Noah Baldwin'
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Index />
-        </Route>
+        <Route
+          exact
+          path="/"
+          component={Index}
+        />
+        <Route
+          exact
+          path="/projects"
+          component={Projects}
+        />
         <Route path="*" status={404}>
           <p>404 Error</p>
         </Route>
