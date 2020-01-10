@@ -9,11 +9,16 @@ import { ReactComponent as Instagram } from './component-assets/footer/instagram
 import { ReactComponent as Spotify } from './component-assets/footer/spotify.svg'
 import './footer.css'
 
+/**
+ * Footer to display at the bottom of every page
+ * @param {*} props { homeButton }
+ */
 export default function Footer(props) {
   const { homeButton } = props
   return (
     <footer key={3}>
       {
+        // If homeButton is given, render a button in footer to return user to index
         homeButton ? (
           <Button type="text" to="/">Return Home</Button>
         ) : (
@@ -57,6 +62,9 @@ export default function Footer(props) {
 }
 
 Footer.propTypes = {
+  /**
+   * Option to render button that returns user to index
+   */
   homeButton: PropTypes.bool,
 }
 

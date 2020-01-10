@@ -8,6 +8,12 @@ import Button from '../../components/button'
 
 import './resume.css'
 
+/**
+ * Display professional information with a title and feature box
+ * @param {*} props {}
+ * @example
+ * <Resume />
+ */
 class Resume extends React.Component {
   constructor(props) {
     super(props)
@@ -19,6 +25,10 @@ class Resume extends React.Component {
     this.loadFeatureBoxContents()
   }
 
+  /**
+   * Lazily load resume data
+   * TODO: convert './resumeFeatureBox' to JSON
+   */
   async loadFeatureBoxContents() {
     const resumeContent = await import('./resumeFeatureBox')
     this.setState({

@@ -11,6 +11,23 @@ import './gallery.css'
 import arrowLeft from './component-assets/arrow-left.svg'
 import arrowRight from './component-assets/arrow-right.svg'
 
+/**
+ * A carousel which displays up to two items at a time
+ * Each item of the `Gallery` is an image, title-subtitle pair
+ * @param {*} props
+ * @example
+ * <Gallery
+ *  contents={[
+ *    {
+ *      uid: '1234',
+ *      title: 'Example',
+ *      subtitle: 'This is an example Gallery',
+ *      href: "/",
+ *      src: galleryImage,
+ *    }
+ *  ]}
+ * />
+ */
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
@@ -19,6 +36,9 @@ class Gallery extends React.Component {
     }
   }
 
+  /**
+   * return four items from `this.props.content` based on `this.state.position`
+   */
   getVisibleContent() {
     const { contents } = this.props
     const { position } = this.state
@@ -29,12 +49,20 @@ class Gallery extends React.Component {
     return visibleContent
   }
 
+  /**
+   * Changes `this.state.position` by the given `delta`
+   * @param {number} delta The change in `this.state.position` to make
+   */
   changePosition(delta) {
     const { position } = this.state
     const newPosition = position + delta
     this.setState({ position: newPosition })
   }
 
+  /**
+   * The `onClick` event to be given to gallery items based on the url of each `content` item
+   * @param {string} url page location
+   */
   changePage(url) {
     const { history } = this.props
     if (isProtocol(url)) {
@@ -49,6 +77,7 @@ class Gallery extends React.Component {
     const { position } = this.state
     const visibleContent = this.getVisibleContent()
 
+    // If lazy loading is indicated render template
     if (loading) {
       return (
         <div className="gallery skeleton">
@@ -89,6 +118,7 @@ class Gallery extends React.Component {
           aria-label="Previous item in gallery"
         />
         {visibleContent.map((x, i) => {
+          // Get data ready to position each gallery item correctly
           const posOverflow = Math.floor((position + i) / contents.length)
           const iPos = i - 1
           const opacity = iPos < 0 || iPos > 1 ? 0 : 1
@@ -137,27 +167,38 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
+  /**
+   * Given content of `Gallery`
+   */
   contents: PropTypes.arrayOf(
     PropTypes.shape({
       uid: PropTypes.string,
+      title: PropTypes.string,
       subtitle: PropTypes.string,
       href: PropTypes.string,
       src: PropTypes.string,
     }),
   ),
+  /**
+   * Indicate whether lazy loading of gallery is in progress
+   */
   loading: PropTypes.bool,
+  /**
+   * `react-router-dom` history API
+   */
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
 }
 
 Gallery.defaultProps = {
-  contents: {
+  contents: [{
     uid: '',
-    subtitle: 'Gallery is Missing Props',
-    href: '#',
+    title: 'Missing Title',
+    subtitle: 'Missing Subtitle',
+    href: '.',
     src: 'https://via.placeholder.com/480x480?text=N/A',
-  },
+  }],
   loading: false,
 }
 export default Gallery
