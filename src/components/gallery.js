@@ -144,6 +144,7 @@ class Gallery extends React.Component {
               <div className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} />
               <Card
                 to={x.href}
+                toTitle={x.title}
                 className="test"
               >
                 <h4>
