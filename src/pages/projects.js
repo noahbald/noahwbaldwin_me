@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import Footer from '../components/footer'
-import Card from '../components/card'
 import FeatureList, {FeatureListItem} from '../components/feature-list'
-
-import isProtocol from '../services/isProtocol'
 
 import './projects.css'
 
@@ -28,7 +24,7 @@ function ProjectList(props) {
     )
   }
   if (!skeleton && !data) {
-    throw 'Failed to load project data'
+    throw new Error('Failed to load project data')
   }
   return (
     <section id="project-list">

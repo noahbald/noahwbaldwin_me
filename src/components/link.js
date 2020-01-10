@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link as ReactLink } from 'react-router-dom'
 
 import isProtocol from '../services/isProtocol'
