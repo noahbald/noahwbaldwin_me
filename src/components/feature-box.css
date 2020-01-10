@@ -15,6 +15,7 @@
   border-radius: 4px 0 0 4px;
 }
 .feature-image img {
+  animation: var(--skeleton-animation);
   min-width: 100%;
   min-height: 100%;
   max-width: initial;
