@@ -47,10 +47,15 @@ Card.propTypes = {
    * Optional url for Card to link to
    */
   to: PropTypes.string,
+  /**
+   * Accessible title for links when `to` is given
+   */
+  toTitle: PropTypes.string,
 }
 
 Card.defaultProps = {
   className: '',
   children: null,
   to: undefined,
+  toTitle: '',
 }

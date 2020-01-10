@@ -38,6 +38,7 @@ function ProjectList(props) {
               key={item.uid}
               src={item.src}
               to={item.href}
+              toTitle={item.title}
             >
               <h4>
                 <strong>{item.title}</strong>
