@@ -16,13 +16,13 @@ import './card.css'
  * </Card>
  */
 export default function Card(props) {
-  const { className, children, to } = props
+  const { className, children, to, toTitle } = props
 
   // If url is given create a link bar to display at bottom of `Card`
   // otherwise leave as null so that it doesn't render
   let link = null
   if (to || to === '') {
-    link = <Link to={to} tabIndex="-1" className="card-highlight" />
+    link = <Link to={to} tabIndex="-1" className="card-highlight" title={toTitle} />
   }
 
   // Render cards with content
