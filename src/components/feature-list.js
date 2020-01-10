@@ -24,6 +24,7 @@ export function FeatureListItem(props) {
     src,
     alt,
     to,
+    toTitle,
     skeleton,
     className,
   } = props
@@ -66,7 +67,7 @@ export function FeatureListItem(props) {
       <div className="feature-image">
         <img src={src} alt={alt} />
       </div>
-      <Card to={to}>
+      <Card to={to} toTitle={toTitle}>
         {children}
       </Card>
     </div>
@@ -91,6 +92,10 @@ FeatureListItem.propTypes = {
    */
   to: PropTypes.string,
   /**
+   * Give accessible title to `Card` link
+   */
+  toTitle: PropTypes.string,
+  /**
    * Is lazy loading in progress?
    */
   skeleton: PropTypes.bool,
@@ -105,6 +110,7 @@ FeatureListItem.defaultProps = {
   src: '',
   alt: '',
   to: undefined,
+  toTitle: '',
   skeleton: false,
   className: '',
 }
