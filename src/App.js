@@ -13,6 +13,9 @@ import './skeletons.css'
 import Index from './pages/index'
 import Projects from './pages/projects'
 
+/**
+ * Render an absolutely amazing website for an absolutely amazing human being
+ */
 export default function App() {
   document.title = 'Noah Baldwin'
   return (

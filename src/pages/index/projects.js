@@ -1,8 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-// Scripts
-import uuid from '../../services/uid'
 
 // Components
 import Gallery from '../../components/gallery'
@@ -10,6 +6,12 @@ import Button from '../../components/button'
 
 import './projects.css'
 
+/**
+ * Displays projects data with title and `Gallery`
+ * @param {*} props { `history` }
+ * @example
+ * <Projects history={history} />
+ */
 export default class Projects extends React.Component {
   constructor(props) {
     super(props)
@@ -20,10 +22,14 @@ export default class Projects extends React.Component {
     this.loadContents()
   }
 
+  /**
+   * Lazily load projects data when initialised
+   */
   async loadContents() {
     try {
       const galleryImport = await import('../../data/projects.json')
       let galleryContent = galleryImport.default
+      // Get only featured items from data
       galleryContent = galleryContent.filter(item => item.metadata.featured)
       this.setState({
         loading: false,

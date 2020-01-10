@@ -14,6 +14,12 @@ import Footer from '../components/footer'
 import Projects from './index/projects'
 import Resume from './index/resume'
 
+/**
+ * Renders `/` page content
+ * @param {*} props { history }
+ * @example
+ * <Index history={history} />
+ */
 export default class Index extends React.Component {
   constructor(props) {
     super(props)
@@ -35,5 +41,8 @@ export default class Index extends React.Component {
 }
 
 Index.propTypes = {
+  /**
+   * `react-router-dom` history API
+   */
   history: PropTypes.shape().isRequired,
 }

@@ -9,9 +9,14 @@ import isProtocol from '../services/isProtocol'
 
 import './projects.css'
 
+/**
+ * Renders `FeatureList` for `Projects`
+ * @param {*} props 
+ */
 function ProjectList(props) {
   const { skeleton, data } = props
 
+  // Return skeleton template is lazy loading is indicated
   if (skeleton) {
     return (
       <section id="project-list">
@@ -69,6 +74,11 @@ function ProjectList(props) {
   )
 }
 
+/**
+ * Renders `/projects` page content
+ * @example
+ * <Projects />
+ */
 export default class Projects extends React.Component {
   constructor(props) {
     super(props)
@@ -79,6 +89,9 @@ export default class Projects extends React.Component {
     this.loadData()
   }
 
+  /**
+   * Lazily load project data
+   */
   async loadData() {
     try {
       const dataImport = await import('../data/projects.json')
