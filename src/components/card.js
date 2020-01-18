@@ -16,7 +16,12 @@ import './card.css'
  * </Card>
  */
 export default function Card(props) {
-  const { className, children, to, toTitle } = props
+  const {
+    className,
+    children,
+    to,
+    toTitle,
+  } = props
 
   // If url is given create a link bar to display at bottom of `Card`
   // otherwise leave as null so that it doesn't render
