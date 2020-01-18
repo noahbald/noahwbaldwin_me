@@ -7,7 +7,7 @@ import Card from './card'
 /**
  * Header with image to display at top of page
  * If no title or subtitle is given then no card will render
- * @param {*} props { `heading`, `src', `title`, `subtitle` }
+ * @param {*} props { `heading`, `src`, `title`, `subtitle` }
  */
 export default function Header(props) {
   const {
