@@ -6,83 +6,47 @@ import Button from './button'
 
 import './markdown.css'
 
+/**
+ * Render markdown document and style it
+ * @param {*} props { `fetch` }
+ */
 class Markdown extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true,
-      error: false,
       peek: true,
-      data: '',
+      html: null,
+    }
+    if (props.markdown) {
+      this.parseMarkdown()
     }
   }
 
-  componentDidMount() {
-    this.fetchMarkdown()
-  }
+  componentDidUpdate(prevProps) {
+    const { markdown: prevMarkdown } = prevProps
+    const { markdown } = this.props
 
-
-  getMarkup() {
-    const { data } = this.state
-    return { __html: data }
-  }
-
-  async fetchMarkdown() {
-    const { fetch, importSrc, path } = this.props
-    const regImage = /<img.+?src=[\\]?["|'](?:.+?)["|'].+?[/img|/>|>]/g
-    const regSrc = /(?:<img .*?src=[\\]?["|'])(.*?)(?:["|'].*?[/img|/>|>])/
-
-    // Fetch markdown from server
-    const response = await fetch()
-    if (!response.ok) {
-      // Failed to fetch
-      this.setState({ loading: false, error: true })
-      console.log(`Failed to get ok response from ${path}`)
-    } else {
-      // Handle markdown
-      const text = await response.text()
-      let markup = marked(text, { sanitize: true })
-      const images = markup.match(regImage)
-      const replacement = images.slice()
-
-      let imageSources = []
-      let src
-      for (let i = 0; i < images.length; i += 1) {
-        [, src] = images[i].match(regSrc)
-        try {
-          src = importSrc(src)
-        } catch (e) {
-          src = ''
-        }
-        imageSources.push(src)
-      }
-      imageSources = await Promise.all(imageSources)
-      for (let i = 0; i < images.length; i += 1) {
-        src = imageSources[i].default
-        replacement[i] = replacement[i].replace(/(<img .*?src=[\\]?["|'])(.*?)(["|'].*?[/img|/>|>])/, `$1${src}$3`)
-      }
-      for (let i = 0; i < images.length; i += 1) {
-        markup = markup.replace(`<p>${images[i]}</p>`, replacement[i])
-      }
-      this.setState({ loading: false, data: markup })
+    if (markdown && (prevMarkdown !== markdown)) {
+      this.parseMarkdown()
     }
+  }
+
+  parseMarkdown() {
+    const { markdown } = this.props
+    const html = marked(markdown, { sanitise: true })
+    this.setState({
+      html: { __html: html }
+    })
   }
 
   render() {
-    const { peek: statePeek, error, loading } = this.state
-    const { peek: propsPeek, id } = this.props
-    let peek = ''
-    if (statePeek || propsPeek) {
-      peek = 'peek'
-    }
-    if (error) {
+    const { peek, html } = this.state
+    const { loading } = this.props
+
+    if (loading || !html) {
       return (
-        <div className="markdown" id={id}>Error Loading Markup</div>
-      )
-    } if (loading) {
-      return (
-        <div className="markdown peek" id={id}>
-          <div className="content skeleton" id={id}>
+        <div className="markdown peek">
+          <div className="content skeleton">
             <h1>&nbsp;</h1>
             <h2>&nbsp;</h2>
             <br />
@@ -108,28 +72,22 @@ class Markdown extends React.Component {
       )
     }
     return (
-      <div className={`markdown ${peek}`}>
-        <div className="content" id={id} dangerouslySetInnerHTML={this.getMarkup()} />
-        {peek ? (<Button className="soft-shadow" outline onClick={() => this.setState({ peek: false })}>Read More</Button>) : null}
+      <div className={`markdown ${peek ? 'peek' : ''}`}>
+        <div className="content" dangerouslySetInnerHTML={html} />
+        {peek ? (<Button className="soft-shadow" type="outline" onClick={() => this.setState({ peek: false })}>Read More</Button>) : null}
       </div>
     )
   }
 }
 
 Markdown.propTypes = {
-  fetch: PropTypes.func,
-  importSrc: PropTypes.func,
-  path: PropTypes.string,
-  peek: PropTypes.string,
-  id: PropTypes.string,
+  loading: PropTypes.bool,
+  markdown: PropTypes.string,
 }
 
 Markdown.defaultProps = {
-  fetch: async () => {},
-  importSrc: async () => {},
-  path: '',
-  peek: '',
-  id: '',
+  loading: false,
+  markdown: '',
 }
 
 export default Markdown

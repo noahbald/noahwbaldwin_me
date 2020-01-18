@@ -11,9 +11,13 @@
   max-height: 512px;
   position: relative;
   margin-bottom: 32px;
+  padding: 0 96px;
 }
 .markdown .content {
   margin: 0 auto 0 auto;
+}
+.markdown.peek .content {
+  max-width: 912px;
 }
 .markdown.peek .content::after {
   content: "";
@@ -29,8 +33,9 @@
   grid-row: 2;
   transform: translateX(-50%);
   margin-left: 50%;
-  width: 128px;
+  width: fit-content;
 }
+
 .content h1, .content h2, .content h3 {
   font-weight: 900;
 }
@@ -50,7 +55,11 @@
 .content h3 {
   font-size: 1.5em;
 }
+
 .content p, .content li {
+  font-size: 1.3em;
+}
+.content li * {
   font-size: 1em;
 }
 .content p strong {
@@ -59,13 +68,77 @@
 .content li p {
   margin: 0;
 }
+
 .content {
   width: 100%;
   max-width: 720px;
 }
+
 .content img {
   width: 100%;
+  border-radius: 4px;
+  box-shadow: var(--shadow-soft);
 }
-.content p, .content h1, .content h2, .content h3, .content ul, .content img {
-  margin: 0 0 32px 0;
+.content p img + em {
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+}
+
+.content p, .content h1, .content h2, .content h3, .content img {
+  margin: 32px 0 0 0;
+}
+
+.content pre {
+  position: relative;
+  counter-reset: (line);
+  color: #f9f9fa;
+  padding: 8px 16px;
+  box-shadow: var(--shadow-soft-shallow);
+  white-space: pre-wrap;
+}
+.content pre::before {
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: #5a66b1;
+  border-radius: 4px;
+}
+.content pre code::before {
+  content: counter(line) " ";
+  opacity: 0.67;
+}
+.content pre code {
+  counter-increment: line;
+  font-size: 1em;
+}
+
+.content blockquote {
+  margin: 8px 0;
+  padding-left: 32px;
+  position: relative;
+}
+.content blockquote::after {
+  position: absolute;
+  content: "";
+  display: inline-flex;
+  width: 8px;
+  height: calc(100% - 8px);
+  left: 0px;
+  top: 4px;
+  background-color: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .content p, .content li {
+    font-size: 1em;
+  }
+  .content pre code {
+    font-size: 0.8em;
+  }
 }
