@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import Card from './card'
 
+import isProtocol from '../services/isProtocol'
+
 import './feature-list.css'
 
 /**
@@ -22,11 +24,11 @@ export function FeatureListItem(props) {
   const {
     children,
     src,
-    alt,
     to,
     toTitle,
     skeleton,
     className,
+    history,
   } = props
 
   // If lazy loading display template item
@@ -62,11 +64,28 @@ export function FeatureListItem(props) {
     )
   }
 
+  const onClick = () => {
+    if (isProtocol(to)) {
+      window.location = to
+    } else {
+      history.push(to)
+    }
+  }
   return (
-    <div className={`feature-list-item ${className}`}>
-      <div className="feature-image">
-        <img src={src} alt={alt} />
-      </div>
+    <div
+      className={`feature-list-item ${className}`}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if ((e.keyCode || e.which) === 13 || (e.keyCode || e.which) === 18) {
+          onClick()
+        }
+      }}
+      role="presentation"
+    >
+      <div
+        className="feature-image"
+        style={{ backgroundImage: `url(${src})` }}
+      />
       <Card to={to} toTitle={toTitle}>
         {children}
       </Card>
