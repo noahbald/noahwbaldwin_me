@@ -4,6 +4,9 @@ import React from 'react'
 import FeatureBox from '../../components/feature-box'
 import Button from '../../components/button'
 
+import isProtocol from '../../services/isProtocol'
+import isStatic from '../../services/isStatic'
+
 import './resume.css'
 
 /**
@@ -28,10 +31,25 @@ class Resume extends React.Component {
    * TODO: convert './resumeFeatureBox' to JSON
    */
   async loadFeatureBoxContents() {
-    const resumeContent = await import('./resumeFeatureBox')
+    const resumeContent = [...(await import('./resumeFeatureBox.json')).default]
+    
+    // Map images in JSON to object of imported images
+    for (let i = 0; i < resumeContent.length; i++) {
+      for (let j = 0; j < resumeContent[i].contents.length; j++) {
+        const icon = resumeContent[i].contents[j].icon
+        resumeContent[i].contents[j].icon = isProtocol(icon) || isStatic(icon) ? icon : import(`./resumeMedia/${icon}`)
+      }
+    }
+    for (let i = 0; i < resumeContent.length; i++) {
+      for (let j = 0; j < resumeContent[i].contents.length; j++) {
+        const iconModule = resumeContent[i].contents[j].icon
+        resumeContent[i].contents[j].icon = typeof iconModule === 'string' ? iconModule : (await iconModule).default
+      }
+    }
+
     this.setState({
       loadingResumeContent: false,
-      resumeContent: resumeContent.default
+      resumeContent,
     })
   }
 
