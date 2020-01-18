@@ -1,11 +1,11 @@
 [
   {
     "title": "Facebook Messenger Counter",
-    "subtitle": "To exercise my skills, learn more about web development, and for a bit of fun, I developed a web app to generate statistics from facebook messages.",
+    "subtitle": "A web app that aggregates data from a user's facebook messages.",
     "type": "Personal Project",
-    "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "src": "facebook-messenger-counter.png",
+    "markdown": "facebook-messenger-counter.md",
+    "href": "facebook-messenger-counter",
     "uid": "bd5a563b-214d-43f8-8e11-621382c352e8",
     "metadata": {
       "year": 2019,
@@ -18,11 +18,11 @@
   },
   {
     "title": "Online Portfolio",
-    "subtitle": "During the summer of 2018, I spent some of my copious spare time working on an online portfolio to exhibit my experience and work with potential employers.",
+    "subtitle": "A personal portfolio I developed for myself in vanilla HTML, CSS, and JS",
     "type": "Personal Project",
-    "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "src": "online-portfolio-2018.png",
+    "markdown": "online-portfolio-2018.md",
+    "href": "online-portfolio-2018",
     "uid": "b46a6149-3d40-4452-90d1-cc4951f07662",
     "metadata": {
       "year": 2018,
@@ -35,10 +35,10 @@
   },
   {
     "title": "Web Design Assignment",
-    "subtitle": "As a part of my studies at Monash University I was tasked with the design and development of a simple HTML and CSS webpage.",
+    "subtitle": "A single page website written in HTML and CSS as a part of a University assignment",
     "type": "University Project",
-    "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
+    "src": "beach-please.png",
+    "markdown": "",
     "href": "https://beach-please.netlify.com/",
     "uid": "2a5429aa-5c7a-4b1e-a447-c196096f31cc",
     "metadata": {
@@ -53,11 +53,11 @@
   },
   {
     "title": "Google Docs Tracking App",
-    "subtitle": "A university project to exercise our skills in software development methodolodies, in particular, Scrum. The group project advanced our ability to work together with deadlines, risks, and backlogs.",
+    "subtitle": "A Python application which allows a user to monitor Google Document changes within a user interface",
     "type": "University Project",
-    "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "src": "google-docs-tracking-app.png",
+    "markdown": "google-docs-tracking-app.md",
+    "href": "google-docs-tracking-app",
     "uid": "9b3aea06-ded8-439e-8e60-1dfa19bbfe55",
     "metadata": {
       "year": 2018,
@@ -71,11 +71,11 @@
   },
   {
     "title": "Run Tracking App",
-    "subtitle": "An early university project to introduce information technology skills for engineering. Working in small teams, we were required to develop an in-browser application that can track a user's run.",
+    "subtitle": "An app that tracks a users runs using Google Maps",
     "type": "University Project",
     "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "markdown": "run-tracking-app.md",
+    "href": "run-tracking-app",
     "uid": "702505aa-b399-42c8-9471-e61a9ed2adf3",
     "metadata": {
       "year": 2017,
@@ -88,11 +88,11 @@
   },
   {
     "title": "Logo Design",
-    "subtitle": "As a part of my Visual Communication Design studies for VCE I synthesised a company with two design needs: a company logo and a pair of headphones; and to relate it to their namesake, the Goddess Minerva.",
+    "subtitle": "A communication design for a logo",
     "type": "VCE Project",
     "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "markdown": "logo-design.md",
+    "href": "logo-design",
     "uid": "cec9da18-9d11-4179-8a3c-931ded81853f",
     "metadata": {
       "year": 2016,
@@ -105,11 +105,11 @@
   },
   {
     "title": "Headphone Design",
-    "subtitle": "Following the development of a logo as a part of my Visual Communication Design studies, it was time to design a pair of headphones for the company, Minerva, to merchandise.",
+    "subtitle": "An industrial design for a pair of headphones",
     "type": "VCE Project",
     "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "markdown": "headphone-design.md",
+    "href": "headphone-design",
     "uid": "7a23fac7-45ce-4f69-84bb-46757468aa6d",
     "metadata": {
       "year": 2016,
@@ -122,11 +122,11 @@
   },
   {
     "title": "Technical Drawing",
-    "subtitle": "As a part of my studies, I delved into the three pillars of Visual Communication Design: Industrial, Communication, and Environmental Design, and produced a final for each category.",
+    "subtitle": "A third angle projection of a drink bottle design",
     "type":"VCE Project",
     "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
-    "href": "",
+    "markdown": "technical-drawing.md",
+    "href": "technical-drawing",
     "uid": "d57adeac-5309-4b5b-9c6f-a6275249d6cd",
     "metadata": {
       "year": 2016,
@@ -139,10 +139,10 @@
   },
   {
     "title": "Wizard Film",
-    "subtitle": "",
+    "subtitle": "A short animation I made with my friend over a summer",
     "type":"Personal Project",
     "src": "https://via.placeholder.com/560x256?text=N/A",
-    "relativeMarkdownLocation": "",
+    "markdown": "",
     "href": "https://youtu.be/hgVLbZZze8k",
     "uid": "53723688-b4c8-47c0-8341-cefdc24a9fa6",
     "metadata": {
