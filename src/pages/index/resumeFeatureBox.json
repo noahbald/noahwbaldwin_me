@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Experience",
+    "image": "https://picsum.photos/512/512",
+    "uid": "54222860-3990-11ea-b069-631bc9c31d8e",
+    "contents": [
+      {
+        "body": "Intensive work experience covering teams in front end development, mobile development, and emerging technologies.",
+        "icon": "Deloitte.svg",
+        "title": "Deloitte Vacationer",
+        "uid": "54222861-3990-11ea-b069-631bc9c31d8e"
+      },
+      {
+        "body": "Six-month internship working alongside integration technology, creating send service applications in React, and redesigning the staff intranet.",
+        "icon": "monash-logo-mono.svg",
+        "title": "Monash eSolutions",
+        "uid": "54222862-3990-11ea-b069-631bc9c31d8e"
+      }
+    ]
+  },
+  {
+    "title": "Skills",
+    "image": "https://picsum.photos/512/512",
+    "uid": "54224f70-3990-11ea-b069-631bc9c31d8e",
+    "contents": [
+      {
+        "body": "I can work with you and your next team's project in React, or quickly pick up your team's preferred framework.",
+        "icon": "react.svg",
+        "title": "React",
+        "uid": "54224f71-3990-11ea-b069-631bc9c31d8e"
+      },
+      {
+        "body": "Let me create human focused experiences for your next project",
+        "icon": "material-design.svg",
+        "title": "User Experience & Design",
+        "uid": "54224f72-3990-11ea-b069-631bc9c31d8e"
+      }
+    ]
+  },
+  {
+    "title": "Education",
+    "image": "https://picsum.photos/512/512",
+    "uid": "54224f73-3990-11ea-b069-631bc9c31d8e",
+    "contents": [
+      {
+        "body": "Studied software engineering, minoring in computer networks and security. I'll have graduated completing notable units including usability and intelligent systems and activities such as peer mentoring, IBL, and editor of The Byte.",
+        "icon": "monash-logo-mono.svg",
+        "title": "Software B.E at Monash",
+        "uid": "54224f74-3990-11ea-b069-631bc9c31d8e"
+      },
+      {
+        "body": "I've completed my VCE, achieving an ATAR of 87.3 and a student award for visual communication design as I was at the top of my class.",
+        "icon": "school.svg",
+        "title": "VCE at St Leonard's",
+        "uid": "54224f75-3990-11ea-b069-631bc9c31d8e"
+      }
+    ]
+  }
+]
