@@ -2,6 +2,9 @@
   display: grid;
   width: 100%;
 }
+#projects > .button-link {
+  z-index: 1;
+}
 #projects .gallery {
   grid-column: 2 / 5;
   grid-row: 3;

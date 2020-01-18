@@ -73,7 +73,7 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { contents, loading } = this.props
+    const { contents, loading, prefix } = this.props
     const { position } = this.state
     const visibleContent = this.getVisibleContent()
 
@@ -124,17 +124,19 @@ class Gallery extends React.Component {
           const opacity = iPos < 0 || iPos > 1 ? 0 : 1
           const translateX = `translateX(calc(64px + (100% + 64px) * ${iPos}))`
 
+          const href = `${prefix}${x.href}`
+
           return (
             <div
               key={x.uid + posOverflow}
               className="gallery-content soft-shadow"
               style={{ transform: translateX, opacity }}
               onClick={() => {
-                this.changePage(x.href)
+                this.changePage(href)
               }}
               onKeyDown={(e) => {
                 if ((e.keyCode || e.which) === 13 || (e.keyCode || e.which) === 18) {
-                  this.changePage(x.href)
+                  this.changePage(href)
                 }
                 return false
               }}
@@ -143,7 +145,7 @@ class Gallery extends React.Component {
             >
               <div className="gallery-image" style={{ backgroundImage: `url(${x.src})` }} />
               <Card
-                to={x.href}
+                to={href}
                 toTitle={x.title}
                 className="test"
               >
@@ -190,6 +192,7 @@ Gallery.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  prefix: PropTypes.string,
 }
 
 Gallery.defaultProps = {
@@ -201,5 +204,6 @@ Gallery.defaultProps = {
     src: 'https://via.placeholder.com/480x480?text=N/A',
   }],
   loading: false,
+  prefix: '',
 }
 export default Gallery
