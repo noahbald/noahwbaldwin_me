@@ -4,13 +4,15 @@ import Footer from '../components/footer'
 import FeatureList, {FeatureListItem} from '../components/feature-list'
 
 import './projects.css'
+import isProtocol from '../services/isProtocol'
+import isStatic from '../services/isStatic'
 
 /**
  * Renders `FeatureList` for `Projects`
  * @param {*} props 
  */
 function ProjectList(props) {
-  const { skeleton, data } = props
+  const { skeleton, data, history } = props
 
   // Return skeleton template is lazy loading is indicated
   if (skeleton) {
@@ -24,7 +26,7 @@ function ProjectList(props) {
     )
   }
   if (!skeleton && !data) {
-    throw new Error('Failed to load project data')
+    console.error('Failed to load project data')
   }
   return (
     <section id="project-list">
@@ -37,8 +39,9 @@ function ProjectList(props) {
             <FeatureListItem
               key={item.uid}
               src={item.src}
-              to={item.href}
+              to={isProtocol(item.href) ? item.href : `projects/${item.href}`}
               toTitle={item.title}
+              history={history}
             >
               <h4>
                 <strong>{item.title}</strong>
@@ -83,6 +86,9 @@ export default class Projects extends React.Component {
       loading: true,
       data: undefined,
     }
+  }
+
+  componentDidMount() {
     this.loadData()
   }
 
@@ -92,23 +98,53 @@ export default class Projects extends React.Component {
   async loadData() {
     try {
       const dataImport = await import('../data/projects.json')
+      const data = dataImport.default
+      let sources = []
+      for (let i = 0; i < data.length; i++) {
+        let source = data[i].src
+        // If external resource or already imported, don't import
+        source = isProtocol(source) || isStatic(source) ? source : import(`./projects/feature-images/${source}`)
+        sources.push(source)
+      }
+      sources = await Promise.all(sources)
+      for (let i = 0; i < data.length; i++) {
+        data[i].src = typeof sources[i] === 'string' ? sources[i] : sources[i].default
+      }
       this.setState({
         loading: false,
-        data: dataImport.default,
+        data: data,
       })
     } catch(e) {
       this.setState({
         loading: false,
-        data: null,
+        data: [
+          {
+            title: "Failed to get projects",
+            subtitle: "Sorry, seems like something went wrong on our end",
+            type: "",
+            href: '',
+            src: "https://via.placeholder.com/560x256?text=N/A",
+            uid: "error",
+            metadata: {
+              year: '',
+              topics: [
+                ""
+              ],
+              "client": "",
+              "featured": false,
+            }
+          },
+        ],
       })
     }
   }
 
   render() {
     const { loading, data } = this.state
+    const { history } = this.props
     return (
       <>
-        <ProjectList skeleton={loading} data={data} />
+        <ProjectList skeleton={loading} data={data} history={history} />
         <Footer homeButton />
       </>
     )
