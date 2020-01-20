@@ -57,7 +57,7 @@ Header.propTypes = {
 
 Header.defaultProps = {
   heading: '',
-  src: 'https://via.placeholder.com/480x480?text=N/A',
+  src: '',
   title: '',
   subtitle: '',
 }
