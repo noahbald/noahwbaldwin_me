@@ -1,7 +1,8 @@
 [
   {
     "title": "Experience",
-    "image": "https://picsum.photos/512/512",
+    "image": "experience.jpg",
+    "imageAlt": "Man walking through alleyway.",
     "uid": "54222860-3990-11ea-b069-631bc9c31d8e",
     "contents": [
       {
@@ -20,7 +21,8 @@
   },
   {
     "title": "Skills",
-    "image": "https://picsum.photos/512/512",
+    "image": "skill.jpg",
+    "imageAlt": "Laptop with code in it next to stack of books.",
     "uid": "54224f70-3990-11ea-b069-631bc9c31d8e",
     "contents": [
       {
@@ -30,7 +32,7 @@
         "uid": "54224f71-3990-11ea-b069-631bc9c31d8e"
       },
       {
-        "body": "Let me create human focused experiences for your next project",
+        "body": "Let me create human focused experiences for your next project.",
         "icon": "material-design.svg",
         "title": "User Experience & Design",
         "uid": "54224f72-3990-11ea-b069-631bc9c31d8e"
@@ -39,7 +41,8 @@
   },
   {
     "title": "Education",
-    "image": "https://picsum.photos/512/512",
+    "image": "education.jpg",
+    "imageAlt": "Crowd of students raising their hands.",
     "uid": "54224f73-3990-11ea-b069-631bc9c31d8e",
     "contents": [
       {
