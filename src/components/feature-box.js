@@ -70,11 +70,12 @@ export default class FeatureBox extends React.Component {
     const selectedContent = content[option]
     // Image of selected option
     const featureImage = selectedContent.image
+    const featureImageAlt = selectedContent.imageAlt
 
     return (
       <div className={`feature-box ${className}`}>
         <div className="feature-image">
-          <img alt="placeholder" src={featureImage} loading="lazy" />
+          <img alt={featureImageAlt} src={featureImage} />
         </div>
         <div className="feature-content">
           <div className="feature-titlebar">
