@@ -35,12 +35,16 @@ class Resume extends React.Component {
     
     // Map images in JSON to object of imported images
     for (let i = 0; i < resumeContent.length; i++) {
+      const image = resumeContent[i].image
+      resumeContent[i].image = isProtocol(image) || isStatic(image) ? image : import(`./resumeMedia/${image}`)
       for (let j = 0; j < resumeContent[i].contents.length; j++) {
         const icon = resumeContent[i].contents[j].icon
         resumeContent[i].contents[j].icon = isProtocol(icon) || isStatic(icon) ? icon : import(`./resumeMedia/${icon}`)
       }
     }
     for (let i = 0; i < resumeContent.length; i++) {
+      const imageModule = resumeContent[i].image
+      resumeContent[i].image = typeof imageModule === 'string' ? imageModule : (await imageModule).default
       for (let j = 0; j < resumeContent[i].contents.length; j++) {
         const iconModule = resumeContent[i].contents[j].icon
         resumeContent[i].contents[j].icon = typeof iconModule === 'string' ? iconModule : (await iconModule).default
