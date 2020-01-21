@@ -85,7 +85,7 @@
   }
   .gallery-content .card {
     max-height: calc(64px + 5em);
-    height: calc(64px + 5em;)
+    height: calc(64px + 5em);
   }
   .gallery {
     min-height: calc(256px + 64px + 5em + 96px);
