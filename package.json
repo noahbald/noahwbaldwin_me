@@ -12,6 +12,7 @@
     "react-scripts": "3.0.1",
     "react-transition-group": "^4.3.0",
     "reactstrap": "^8.1.1",
+    "sanitize-html": "^1.21.1",
     "typeface-lato": "0.0.75",
     "uuid": "^3.3.3"
   },

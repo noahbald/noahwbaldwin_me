@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import marked from 'marked'
+import sanitizeHtml from 'sanitize-html'
 
 import Button from './button'
 
@@ -34,8 +35,16 @@ class Markdown extends React.Component {
   parseMarkdown() {
     const { markdown } = this.props
     const html = marked(markdown, { sanitise: true })
+    const sanitized = sanitizeHtml(html, {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat('img'),
+      allowedAttributes: {
+        img: ['src', 'alt'],
+        a: ['href', 'name', 'target', 'title'],
+      },
+      selfClosing: ['img'],
+    })
     this.setState({
-      html: { __html: html }
+      html: { __html: sanitized },
     })
   }
 
@@ -46,7 +55,7 @@ class Markdown extends React.Component {
     if (loading || !html) {
       return (
         <div className="markdown peek">
-          <div className="content skeleton">
+          <article className="content skeleton">
             <h1>&nbsp;</h1>
             <h2>&nbsp;</h2>
             <br />
@@ -67,13 +76,13 @@ class Markdown extends React.Component {
             <p>&nbsp;</p>
             <br />
             <h2>nbsp;</h2>
-          </div>
+          </article>
         </div>
       )
     }
     return (
       <div className={`markdown ${peek ? 'peek' : ''}`}>
-        <div className="content" dangerouslySetInnerHTML={html} />
+        <article className="content" dangerouslySetInnerHTML={html} />
         {peek ? (<Button className="soft-shadow" type="outline" onClick={() => this.setState({ peek: false })}>Read More</Button>) : null}
       </div>
     )
