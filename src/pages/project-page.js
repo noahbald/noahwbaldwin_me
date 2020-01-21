@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../components/header'
 import Markdown from '../components/markdown'
 import Footer from '../components/footer'
+import Error404 from './404'
 
 import isProtocol from '../services/isProtocol'
 import isStatic from '../services/isStatic'
@@ -17,6 +18,7 @@ export default class ProjectPage extends React.Component {
       loading: true,
       data: null,
       markdown: null,
+      error404: false,
     }
     this.getDataFromMarkdown()
   }
@@ -25,18 +27,36 @@ export default class ProjectPage extends React.Component {
     const { match } = this.props
     const mdRegImage = /!\[.*?\]\(.*?[\s"]?\)/g
     // Import project data
-    const dataImport = await import('../data/projects.json')
+    let dataImport
+    try {
+      dataImport = await import('../data/projects.json')
+    } catch (error) {
+      console.error('Failed to load projects')
+      return this.setState({ error404: true })
+    }
     const projects = dataImport.default
     const projectData = projects.find((elem) => elem.href === match.params.href)
-    const src = isProtocol(projectData.src) || isStatic(projectData.src) ? projectData.src : await import(`./projects/feature-images/${projectData.src}`)
+    let src
+    try {
+      src = isProtocol(projectData.src) || isStatic(projectData.src) ? projectData.src : await import(`./projects/feature-images/${projectData.src}`)
+    } catch (error) {
+      console.error('Failed to load header image')
+      return this.setState({ error404: true })
+    }
     projectData.src = typeof src === 'string' ? src : src.default
     this.setState({
       data: projectData
     })
 
     // Import markdown
-    const mdImport = await import(`./projects/${projectData.markdown}`)
-    let markdown = await (await fetch(mdImport.default)).text()
+    let mdImport, markdown
+    try {
+      mdImport = await import(`./projects/${projectData.markdown}`)
+      markdown = await (await fetch(mdImport.default)).text()
+    } catch (error) {
+      console.error('Failed to load markdown')
+      return this.setState({ error404: true })
+    }
 
     // Import Images
     let images = markdown.match(mdRegImage)
@@ -76,7 +96,12 @@ export default class ProjectPage extends React.Component {
         newImages.push(images[i])
       }
     }
-    newImages = await Promise.all(newImages)
+    try {
+      newImages = await Promise.all(newImages)
+    } catch (error) {
+      console.error('Failed to load markdown images')
+      this.setState({ error404: true })
+    }
     // Get static address for images
     newImages = newImages.map((module) => {
       if (typeof module === 'string') {
@@ -103,7 +128,14 @@ export default class ProjectPage extends React.Component {
   }
 
   render() {
-    const { loading, data, markdown } = this.state
+    const { loading, data, markdown, error404 } = this.state
+
+    if (error404) {
+      return (
+        <Error404 />
+      )
+    }
+
     let header = data ? (
       <Header heading={data.type} title={data.title} subtitle={data.subtitle} src={data.src} />
     ) : (
