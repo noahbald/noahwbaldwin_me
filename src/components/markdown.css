@@ -115,6 +115,7 @@
 .content pre code {
   counter-increment: line;
   font-size: 1em;
+  display: block;
 }
 
 .content blockquote {
