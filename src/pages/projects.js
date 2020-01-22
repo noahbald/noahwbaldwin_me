@@ -86,6 +86,7 @@ export default class Projects extends React.Component {
       loading: true,
       data: undefined,
     }
+    document.title = 'Noah Baldwin | Projects'
   }
 
   componentDidMount() {
