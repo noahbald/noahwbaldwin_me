@@ -25,6 +25,7 @@ export default class Index extends React.Component {
     super(props)
     this.state = {
     }
+    document.title = 'Noah Baldwin | Student Software Engineer'
   }
 
   render() {

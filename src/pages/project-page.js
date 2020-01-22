@@ -36,6 +36,7 @@ export default class ProjectPage extends React.Component {
     }
     const projects = dataImport.default
     const projectData = projects.find((elem) => elem.href === match.params.href)
+    document.title = `Noah Baldwin | ${projectData.title}`
     let src
     try {
       src = isProtocol(projectData.src) || isStatic(projectData.src) ? projectData.src : await import(`./projects/feature-images/${projectData.src}`)
