@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Button as RSButton } from 'reactstrap'
+
+import Link from './link'
+
 import './button.css'
 
 /**
