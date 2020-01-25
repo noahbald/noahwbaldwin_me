@@ -124,7 +124,7 @@ class Gallery extends React.Component {
           const opacity = iPos < 0 || iPos > 1 ? 0 : 1
           const translateX = `translateX(calc(64px + (100% + 64px) * ${iPos}))`
 
-          const href = `${prefix}${x.href}`
+          const href = `${isProtocol(x.href) ? '' : prefix}${x.href}`
 
           return (
             <div
