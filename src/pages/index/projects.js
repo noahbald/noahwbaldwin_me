@@ -36,7 +36,6 @@ export default class Projects extends React.Component {
       let sources = []
       for (let i = 0; i < galleryContent.length; i++) {
         let source = galleryContent[i].src
-        console.log(isProtocol(source) || isStatic(source))
         source = isProtocol(source) || isStatic(source) ? source : import(`../projects/feature-images/${source}`)
         sources.push(source)
       }
