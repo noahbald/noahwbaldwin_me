@@ -4,6 +4,7 @@ import Header from '../components/header'
 import Markdown from '../components/markdown'
 import Footer from '../components/footer'
 import Error404 from './404'
+import Page from '../components/page'
 
 import isProtocol from '../services/isProtocol'
 import isStatic from '../services/isStatic'
@@ -144,13 +145,13 @@ export default class ProjectPage extends React.Component {
     )
 
     return (
-      <>
+      <Page>
         {header}
         <section id="project-page">
           <Markdown loading={loading} markdown={markdown} />
         </section>
         <Footer homeButton />
-      </>
+      </Page>
     )
   }
 }

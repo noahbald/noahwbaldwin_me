@@ -2,6 +2,7 @@ import React from 'react'
 
 import Footer from '../components/footer'
 import FeatureList, {FeatureListItem} from '../components/feature-list'
+import Page from '../components/page'
 
 import './projects.css'
 import isProtocol from '../services/isProtocol'
@@ -144,10 +145,10 @@ export default class Projects extends React.Component {
     const { loading, data } = this.state
     const { history } = this.props
     return (
-      <>
+      <Page>
         <ProjectList skeleton={loading} data={data} history={history} />
         <Footer homeButton />
-      </>
+      </Page>
     )
   }
 }
