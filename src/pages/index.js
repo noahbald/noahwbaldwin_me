@@ -9,6 +9,7 @@ import profile from './index/profile.jpg'
 // Components
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Page from '../components/page'
 
 // Page Specific Components
 import Projects from './index/projects'
@@ -31,12 +32,12 @@ export default class Index extends React.Component {
   render() {
     const { history } = this.props
     return (
-      <>
+      <Page>
         <Header src={profile} heading="Noah Baldwin" title="Software Engineering Student" subtitle="Ask me about UI, UX, React, or Web Design" />
         <Projects galleryContents={this.galleryContents} history={history} />
         <Resume />
         <Footer />
-      </>
+      </Page>
     )
   }
 }
