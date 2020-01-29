@@ -8,7 +8,7 @@
   height: 256px;
   display: inline-flex;
   flex-direction: row;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
   border-radius: 4px;
   margin-bottom: 32px;
   cursor: pointer;
