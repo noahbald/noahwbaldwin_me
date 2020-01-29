@@ -32,8 +32,8 @@
 }
 
 body {
-  background-color: var(--color-grey-lightest);
-  color: var(--color-grey-darkest);
+  background-color: #f9f9fa;
+  color: #3d3e46;
   margin: 0;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -68,23 +68,23 @@ h4 {
   font-weight: 400;
 }
 a {
-  color: var(--color-primary);
+  color: #e17381;
   text-decoration: none;
   position: relative;
   transition: color .2s
 }
 a:visited {
-  color: var(--color-secondary);
+  color: #7382e1;
 }
 a:hover, a:active {
-  color: var(--color-grey-darkest);
+  color: #3d3e46;
 }
 a::after {
   content: "";
   width: 110%;
   height: 110%;
   position: absolute;
-  background-color: var(--color-primary);
+  background-color: #e17381;
   opacity: 0;
   left: -5%;
   top: -2.5%;
@@ -92,7 +92,7 @@ a::after {
   border-radius: 2px;
 }
 a:visited::after {
-  background-color: var(--color-secondary);
+  background-color: #7382e1;
 }
 a:hover::after {
   opacity: 0.2;
@@ -101,14 +101,14 @@ a:active::after {
   opacity: 0.3;
 }
 a > svg {
-  fill: var(--color-primary);
+  fill: #e17381;
   transition: fill .2s;
 }
 a:hover > svg, a:active > svg {
-  fill: var(--color-grey-darkest);
+  fill: #3d3e46;
 }
 a:visited > svg {
-  fill: var(--color-secondary);
+  fill: #7382e1;
 }
 
 strong {
@@ -121,7 +121,7 @@ header, footer, section {
 }
 
 .soft-shadow {
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
 }
 
 [class*=" highlight-"], [class^="highlight-"] {
@@ -136,22 +136,22 @@ header, footer, section {
   left: 0;
   border-radius: 4px;
   z-index: -1;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
 }
 .highlight-primary::after {
-  background-color: var(--color-primary);
+  background-color: #e17381;
 }
 .highlight-secondary::after {
-  background-color: var(--color-secondary);
+  background-color: #7382e1;
 }
 .highlight-tertiary::after {
-  background-color: var(--color-tertiary);
+  background-color: #bd67cb;
 }
 .highlight-light-grey::after {
-  background-color: var(--color-grey-light);
+  background-color: #dfe0e6;
 }
 .highlight-grey::after {
-  background-color: var(--color-grey);
+  background-color: #c1c3cf;
 }
 
 @media (max-width: 1024px) {

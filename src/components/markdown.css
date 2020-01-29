@@ -77,7 +77,7 @@
 .content img {
   width: 100%;
   border-radius: 4px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
 }
 .content p img + em {
   margin-top: 1em;
@@ -94,7 +94,7 @@
   counter-reset: (line);
   color: #f9f9fa;
   padding: 8px 16px;
-  box-shadow: var(--shadow-soft-shallow);
+  box-shadow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62, 70, 0.1);
   white-space: pre-wrap;
 }
 .content pre::before {
@@ -131,7 +131,7 @@
   height: calc(100% - 8px);
   left: 0px;
   top: 4px;
-  background-color: var(--color-primary-light);
+  background-color: #e895a1;
   border-radius: 4px;
 }
 
