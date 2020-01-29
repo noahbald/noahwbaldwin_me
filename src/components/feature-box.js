@@ -74,9 +74,12 @@ export default class FeatureBox extends React.Component {
 
     return (
       <div className={`feature-box ${className}`}>
-        <div className="feature-image">
-          <img alt={featureImageAlt} src={featureImage} />
-        </div>
+        <div
+          className="feature-image"
+          style={{
+            backgroundImage: `url(${featureImage})`,
+          }}
+        />
         <div className="feature-content">
           <div className="feature-titlebar">
             {
