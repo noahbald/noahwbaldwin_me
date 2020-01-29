@@ -33,7 +33,17 @@ class Gallery extends React.Component {
     super(props)
     this.state = {
       position: 0,
+      clicked: false,
+      intervalId: null,
     }
+  }
+
+  componentDidMount() {
+    const { clicked } = this.state
+    const INTERVAL_TIMEOUT = 3000
+    this.setState({
+      intervalId: window.setInterval(() => this.changePosition(1), INTERVAL_TIMEOUT)
+    })
   }
 
   /**
@@ -74,7 +84,7 @@ class Gallery extends React.Component {
 
   render() {
     const { contents, loading, prefix } = this.props
-    const { position } = this.state
+    const { position, intervalId } = this.state
     const visibleContent = this.getVisibleContent()
 
     // If lazy loading is indicated render template
@@ -114,7 +124,10 @@ class Gallery extends React.Component {
         <Button
           type="text"
           icon={arrowLeft}
-          onClick={() => this.changePosition(-1)}
+          onClick={() => {
+            this.changePosition(-1)
+            window.clearInterval(intervalId)
+          }}
           aria-label="Previous item in gallery"
         />
         {visibleContent.map((x, i) => {
@@ -161,7 +174,10 @@ class Gallery extends React.Component {
         <Button
           type="text"
           icon={arrowRight}
-          onClick={() => this.changePosition(1)}
+          onClick={() => {
+            window.clearInterval(intervalId)
+            this.changePosition(1)
+          }}
           aria-label="Next item in gallery"
         />
       </div>
