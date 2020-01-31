@@ -8,7 +8,6 @@ import Page from '../components/page'
 
 import isProtocol from '../services/isProtocol'
 import isStatic from '../services/isStatic'
-import { PropTypes } from 'prop-types'
 
 import './project-page.css'
 
@@ -78,7 +77,7 @@ export default class ProjectPage extends React.Component {
         let imageFile
         // Try slicing image
         try {
-          imageFile = images[i].match(/\(.+?[\s"\)]/g)[0].slice(1, -1)
+          imageFile = images[i].match(/\(.+?[\s")]/g)[0].slice(1, -1)
         } catch (error) {
           newImages.push("")
           continue
