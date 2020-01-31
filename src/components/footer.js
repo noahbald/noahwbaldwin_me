@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from './button'
+import Link from './link'
 
 import { ReactComponent as GitHub } from './component-assets/footer/github.svg'
 import { ReactComponent as LinkedIn } from './component-assets/footer/linkedin.svg'
@@ -28,34 +29,38 @@ export default function Footer(props) {
       <h2 className="highlight-primary">Say Hi,</h2>
       <h3 id="email"><a href="mailto:hi@noahwbaldwin.me">hi@noahwbaldwin.me</a></h3>
       <div className="footer-links">
-        <a
+        <Link
           href="https://github.com/noahbald"
           style={{ display: 'inline-flex' }}
           title="Github"
+          rel="external nofollow"
         >
           <GitHub />
-        </a>
-        <a
+        </Link>
+        <Link
           href="https://www.linkedin.com/in/noahwbaldwin/"
           style={{ display: 'inline-flex' }}
           title="LinkedIn"
+          rel="external nofollow"
         >
           <LinkedIn />
-        </a>
-        <a
+        </Link>
+        <Link
           href="https://www.instagram.com/noahbald/"
           style={{ display: 'inline-flex' }}
           title="Instagram"
+          rel="external nofollow"
         >
           <Instagram />
-        </a>
-        <a
+        </Link>
+        <Link
           href="https://www.instagram.com/noahbald/"
           style={{ display: 'inline-flex' }}
           title="Instagram"
+          rel="external nofollow"
         >
           <Spotify />
-        </a>
+        </Link>
       </div>
     </footer>
   )
