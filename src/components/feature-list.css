@@ -12,6 +12,7 @@
   border-radius: 4px;
   margin-bottom: 32px;
   cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
 }
 .feature-list-item .feature-image {
   width: 256px;
@@ -26,6 +27,14 @@
 }
 .feature-list-item a.card-highlight::after {
   border-radius: 0 0 4px 0;
+}
+.feature-list-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 21px 53px rgba(61, 62, 70, 0.3), 0 5px 13px rgba(61, 62, 70, 0.1);
+}
+.feature-list-item:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62, 70, 0.1);
 }
 .feature-list-item:hover a.card-highlight {
   height: 10px;

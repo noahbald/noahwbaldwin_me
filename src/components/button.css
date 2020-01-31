@@ -9,16 +9,18 @@ button {
     border-radius: 4px;
     justify-content: center;
     align-items: center;
-    transition: color 1s, background-color 1s;
+    transition: color .2s, background-color .2s, transform .2s;
     padding: 0 16px;
     font-weight: 700;
     cursor: pointer;
 }
 button:hover, button.disabled {
     background-color: #e895a1;
+    transform: translateY(-1px);
 }
 button:active {
     background-color: #e17381;
+    transform: translateY(-2px);
 }
 button:focus {
     outline: none;
