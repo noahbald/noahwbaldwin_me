@@ -25,7 +25,6 @@ function Button(props) {
     className,
     icon,
     children,
-    to,
     ...remainingProps
   } = props
 
@@ -42,9 +41,10 @@ function Button(props) {
     </RSButton>
   )
   // If a url is given, wrap button in a link, otherwise continue and return normal button
-  if (to) {
+  if (remainingProps.to) {
     return (
-      <Link to={to} className="button-link">
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      <Link {...remainingProps} className="button-link">
         {button}
       </Link>
     )
