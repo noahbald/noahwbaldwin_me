@@ -33,16 +33,14 @@ class Gallery extends React.Component {
     super(props)
     this.state = {
       position: 0,
-      clicked: false,
       intervalId: null,
     }
   }
 
   componentDidMount() {
-    const { clicked } = this.state
     const INTERVAL_TIMEOUT = 3000
     this.setState({
-      intervalId: window.setInterval(() => this.changePosition(1), INTERVAL_TIMEOUT)
+      intervalId: window.setInterval(() => this.changePosition(1), INTERVAL_TIMEOUT),
     })
   }
 
