@@ -33,15 +33,17 @@ class Gallery extends React.Component {
     super(props)
     this.state = {
       position: 0,
-      intervalId: null,
+      dragging: false,
+      dragInitialX: 0,
+      dragDeltaX: 0,
     }
+
+    this.intervalId = null
   }
 
   componentDidMount() {
     const INTERVAL_TIMEOUT = 3000
-    this.setState({
-      intervalId: window.setInterval(() => this.changePosition(1), INTERVAL_TIMEOUT),
-    })
+    this.intervalId = window.setInterval(() => this.changePosition(1), INTERVAL_TIMEOUT)
   }
 
   /**
@@ -67,6 +69,60 @@ class Gallery extends React.Component {
     this.setState({ position: newPosition })
   }
 
+  startDrag(e) {
+    const { dragging } = this.state
+    const { target, clientX, button } = e
+    // Only left mouse button
+    if (!dragging && (e.button === 0 || e.touches)) {
+      // Remove autoscroll
+      window.clearInterval(this.intervalId)
+
+      // Mark beginning of dragging
+      this.setState({
+        dragging: true,
+        dragInitialX: e.pageX || e.touches[0].pageX,
+        dragDeltaX: e.pageX || e.touches[0].pageX,
+      })
+
+      e.stopPropagation()
+      e.preventDefault()
+    }
+  }
+
+  updateDrag(e) {
+    const { dragging } = this.state
+    if (dragging) {
+      this.setState({
+        dragDeltaX: e.pageX || e.touches[0].pageX,
+      })
+
+      e.preventDefault()
+      e.stopPropagation()
+    }
+  }
+
+  cancelDrag(e) {
+    this.setState({
+      dragging: false,
+    })
+  }
+
+  stopDrag(e, href) {
+    const { dragInitialX, dragDeltaX } = this.state
+    const finalDragDeltaX = dragInitialX - (e.pageX || dragDeltaX)
+    this.setState({
+      dragging: false,
+    })
+
+    if (finalDragDeltaX > 128 || finalDragDeltaX < -128) {
+      this.changePosition(Math.sign(finalDragDeltaX))
+      e.stopPropagation()
+      e.preventDefault()
+    } else if (finalDragDeltaX > 64 || finalDragDeltaX < -64 || finalDragDeltaX === 0) {
+      this.changePage(href)
+    }
+  }
+
   /**
    * The `onClick` event to be given to gallery items based on the url of each `content` item
    * @param {string} url page location
@@ -82,7 +138,7 @@ class Gallery extends React.Component {
 
   render() {
     const { contents, loading, prefix } = this.props
-    const { position, intervalId } = this.state
+    const { position } = this.state
     const visibleContent = this.getVisibleContent()
 
     // If lazy loading is indicated render template
@@ -118,22 +174,25 @@ class Gallery extends React.Component {
     }
 
     return (
-      <div className="gallery">
+      <div
+        className="gallery"
+      >
         <Button
           type="text"
           icon={arrowLeft}
           onClick={() => {
             this.changePosition(-1)
-            window.clearInterval(intervalId)
+            window.clearInterval(this.intervalId)
           }}
           aria-label="Previous item in gallery"
         />
         {visibleContent.map((x, i) => {
+          const { dragging, dragDeltaX, dragInitialX } = this.state
           // Get data ready to position each gallery item correctly
           const posOverflow = Math.floor((position + i) / contents.length)
           const iPos = i - 1
           const opacity = iPos < 0 || iPos > 1 ? 0 : 1
-          const translateX = `translateX(calc(64px + (100% + 64px) * ${iPos}))`
+          const translateX = `translateX(calc(${dragging ? dragDeltaX - dragInitialX : 0}px + 64px + (100% + 64px) * ${iPos}))`
 
           const href = `${isProtocol(x.href) ? '' : prefix}${x.href}`
 
@@ -141,9 +200,28 @@ class Gallery extends React.Component {
             <div
               key={x.uid + posOverflow}
               className="gallery-content soft-shadow"
-              style={{ transform: translateX, opacity }}
-              onClick={() => {
-                this.changePage(href)
+              style={{
+                transform: translateX,
+                transition: dragging ? 'none' : undefined,
+                opacity: dragging && (dragInitialX - dragDeltaX !== 0) ? 1 : opacity,
+              }}
+              onMouseDown={(e) => this.startDrag(e)}
+              onMouseMove={(e) => this.updateDrag(e)}
+              onMouseUp={(e) => {
+                if (dragging) {
+                  this.stopDrag(e, href)
+                } else {
+                  this.changePage(href)
+                }
+              }}
+              onTouchStart={(e) => this.startDrag(e)}
+              onTouchMove={(e) => this.updateDrag(e)}
+              onTouchEnd={(e) => {
+                if (dragging) {
+                  this.stopDrag(e, href)
+                } else {
+                  this.changePage(href)
+                }
               }}
               onKeyDown={(e) => {
                 if ((e.keyCode || e.which) === 13 || (e.keyCode || e.which) === 18) {
@@ -173,7 +251,7 @@ class Gallery extends React.Component {
           type="text"
           icon={arrowRight}
           onClick={() => {
-            window.clearInterval(intervalId)
+            window.clearInterval(this.intervalId)
             this.changePosition(1)
           }}
           aria-label="Next item in gallery"
