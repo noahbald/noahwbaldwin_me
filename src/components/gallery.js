@@ -71,37 +71,50 @@ class Gallery extends React.Component {
 
   startDrag(e) {
     const { dragging } = this.state
-    const { target, clientX, button } = e
+    const {
+      pageX,
+      touches,
+      button,
+      stopPropagation,
+      preventDefault,
+    } = e
     // Only left mouse button
-    if (!dragging && (e.button === 0 || e.touches)) {
+    if (!dragging && (button === 0 || touches)) {
       // Remove autoscroll
       window.clearInterval(this.intervalId)
 
       // Mark beginning of dragging
       this.setState({
         dragging: true,
-        dragInitialX: e.pageX || e.touches[0].pageX,
-        dragDeltaX: e.pageX || e.touches[0].pageX,
+        dragInitialX: pageX || touches[0].pageX,
+        dragDeltaX: pageX || touches[0].pageX,
       })
 
-      e.stopPropagation()
-      e.preventDefault()
+      stopPropagation()
+      preventDefault()
     }
   }
 
   updateDrag(e) {
     const { dragging } = this.state
+    const {
+      pageX,
+      touches,
+      preventDefault,
+      stopPropagation,
+    } = e
+
     if (dragging) {
       this.setState({
-        dragDeltaX: e.pageX || e.touches[0].pageX,
+        dragDeltaX: pageX || touches[0].pageX,
       })
 
-      e.preventDefault()
-      e.stopPropagation()
+      preventDefault()
+      stopPropagation()
     }
   }
 
-  cancelDrag(e) {
+  cancelDrag() {
     this.setState({
       dragging: false,
     })
@@ -109,15 +122,16 @@ class Gallery extends React.Component {
 
   stopDrag(e, href) {
     const { dragInitialX, dragDeltaX } = this.state
-    const finalDragDeltaX = dragInitialX - (e.pageX || dragDeltaX)
+    const { pageX, stopPropagation, preventDefault } = e
+    const finalDragDeltaX = dragInitialX - (pageX || dragDeltaX)
     this.setState({
       dragging: false,
     })
 
     if (finalDragDeltaX > 128 || finalDragDeltaX < -128) {
       this.changePosition(Math.sign(finalDragDeltaX))
-      e.stopPropagation()
-      e.preventDefault()
+      stopPropagation()
+      preventDefault()
     } else if (finalDragDeltaX > 64 || finalDragDeltaX < -64 || finalDragDeltaX === 0) {
       this.changePage(href)
     }
