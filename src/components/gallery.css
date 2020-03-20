@@ -59,23 +59,23 @@
     background-repeat: no-repeat;
     border-radius: 4px 4px 0 0;
 }
-.gallery button {
+.gallery .button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
 }
-.gallery button:first-child {
+.gallery .button:first-child {
     left: 0;
 }
-.gallery button:last-child {
+.gallery .button:last-child {
     right: 0;
 }
 
 .gallery.skeleton .gallery-image {
   animation: var(--skeleton-animation);
 }
-.gallery.skeleton button {
+.gallery.skeleton .button {
   width: 48px;
 }
 

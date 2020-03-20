@@ -36,7 +36,7 @@ footer .footer-links a svg {
   height: 40px;
 }
 
-footer a.button-link {
+footer .button {
   grid-column: 3;
   grid-row: 2;
   align-self: flex-end;
@@ -50,7 +50,7 @@ footer a.button-link {
     justify-self: baseline;
     margin-bottom: -64px;
   }
-  footer a.button-link {
+  footer .button {
     margin-bottom: 32px;
   }
 }
@@ -58,7 +58,7 @@ footer a.button-link {
   footer {
     grid-template-rows: 0px var(--grid-row-1-tablet) 64px;
   }
-  footer a.button-link {
+  footer .button {
     grid-row: 1;
     margin-bottom: -40px;
     justify-self: baseline;
@@ -80,7 +80,7 @@ footer a.button-link {
   footer h3 {
     font-size: 1.4em;
   }
-  footer a.button-link {
+  footer .button {
     margin-bottom: -20px;
   }
 }
