@@ -9,7 +9,7 @@
   justify-self: baseline;
   padding: 0px 8px 0px 8px;
 }
-#projects > a.button-link, #resume > a.button-link {
+#projects > .button, #resume > .button {
   grid-column: 3;
   grid-row: 1;
   align-self: end;
@@ -17,7 +17,7 @@
   margin-bottom: 16px;
 }
 @media (max-width: 1024px) {
-  #projects > a.button-link, #resume > a.button-link {
+  #projects > .button, #resume > .button {
     margin-bottom: 32px;
   }
 }
@@ -25,7 +25,7 @@
   #resume, #projects {
     grid-template-rows: 160px auto auto;
   }
-  #resume > a.button-link, #projects > a.button-link {
+  #resume > .button, #projects > .button {
     grid-row: 2;
     align-self: baseline;
     justify-self: baseline;
