@@ -1,14 +1,15 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button as RSButton } from 'reactstrap'
 
 import Link from './link'
 
 import './button.css'
 
 /**
- * A clickable button which
- * `Button` is based on `Button` from `reactstrap`, for accessibility and base styles
+ * A clickable button.
+ * Returns a button-like link if `to` is given
  * @param {*} props { `type`, `className`, `icon`, `children`, `to`, `...remainingProps` }
  * @example
  * <Button
@@ -29,24 +30,28 @@ function Button(props) {
   } = props
 
   // Define button based on given props
-  const button = (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <RSButton {...remainingProps} className={`button ${className} ${type} ${icon ? 'icon' : ''}`}>
-      {icon ? (
-        <div className="icon" style={{ backgroundImage: `url(${icon})` }} />
-      ) : (
-        null
-      )}
-      {children}
-    </RSButton>
+  const iconElement = (
+    icon ? (
+      <div className="icon" style={{ backgroundImage: `url(${icon})` }} />
+    ) : (
+      null
+    )
   )
-  // If a url is given, wrap button in a link, otherwise continue and return normal button
+  let button
   if (remainingProps.to) {
-    return (
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      <Link {...remainingProps} className="button-link">
-        {button}
+    button = (
+      <Link {...remainingProps} className={`button ${className} ${type} ${icon ? 'icon' : ''}`}>
+        {iconElement}
+        {children}
       </Link>
+    )
+  } else {
+    button = (
+      // eslint-disable-next-line react/button-has-type
+      <button {...remainingProps} className={`button ${className} ${type} ${icon ? 'icon' : ''}`}>
+        {iconElement}
+        {children}
+      </button>
     )
   }
   return button
