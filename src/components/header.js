@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import './header.css'
 
 import Card from './card'
+import Button from './button'
 
 /**
  * Header with image to display at top of page
  * If no title or subtitle is given then no card will render
- * @param {*} props { `heading`, `src`, `title`, `subtitle` }
+ * @param {*} props { `heading`, `src`, `title`, `subtitle`, `callToAction` }
  */
 export default function Header(props) {
   const {
-    heading, src, title, subtitle,
+    heading, src, title, subtitle, callToAction,
   } = props
 
   return (
@@ -27,6 +28,7 @@ export default function Header(props) {
               { subtitle }
               <br />
             </h4>
+            { callToAction }
           </Card>
         ) : (
           null
@@ -53,6 +55,7 @@ Header.propTypes = {
    * Subtitle to display within header card
    */
   subtitle: PropTypes.string,
+  callToAction: PropTypes.instanceOf(Button),
 }
 
 Header.defaultProps = {
@@ -60,4 +63,5 @@ Header.defaultProps = {
   src: '',
   title: '',
   subtitle: '',
+  callToAction: null,
 }

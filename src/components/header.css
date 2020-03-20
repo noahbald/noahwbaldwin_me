@@ -38,6 +38,12 @@
   animation: grow-fade-in 1s ease;
 }
 
+#header .button {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+}
+
 @keyframes grow-fade-in {
   from {
     opacity: 0;
@@ -110,6 +116,9 @@
   }
   #header .card h4 {
     font-size: 1.3em;
+  }
+  #header .button {
+    top: -20px;
   }
 }
 /* Mobile */
