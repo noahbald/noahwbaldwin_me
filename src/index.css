@@ -154,6 +154,20 @@ header, footer, section {
   background-color: #c1c3cf;
 }
 
+::-webkit-scrollbar {
+  background-color: var(--color-grey-lightest);
+  width: 8px;
+  margin: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey);
+  transition: background-color 5s ease-out;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-grey-dark);
+}
+
 @media (max-width: 1024px) {
   header, footer, section {
     grid-template-columns: var(--grid-template-columns-tablet);
