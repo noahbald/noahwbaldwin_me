@@ -75,8 +75,6 @@ class Gallery extends React.Component {
       pageX,
       touches,
       button,
-      stopPropagation,
-      preventDefault,
     } = e
     // Only left mouse button
     if (!dragging && (button === 0 || touches)) {
@@ -90,8 +88,8 @@ class Gallery extends React.Component {
         dragDeltaX: pageX || touches[0].pageX,
       })
 
-      stopPropagation()
-      preventDefault()
+      e.stopPropagation()
+      e.preventDefault()
     }
   }
 
@@ -100,8 +98,6 @@ class Gallery extends React.Component {
     const {
       pageX,
       touches,
-      preventDefault,
-      stopPropagation,
     } = e
 
     if (dragging) {
@@ -109,8 +105,8 @@ class Gallery extends React.Component {
         dragDeltaX: pageX || touches[0].pageX,
       })
 
-      preventDefault()
-      stopPropagation()
+      e.preventDefault()
+      e.stopPropagation()
     }
   }
 
@@ -122,7 +118,7 @@ class Gallery extends React.Component {
 
   stopDrag(e, href) {
     const { dragInitialX, dragDeltaX } = this.state
-    const { pageX, stopPropagation, preventDefault } = e
+    const { pageX } = e
     const finalDragDeltaX = dragInitialX - (pageX || dragDeltaX)
     this.setState({
       dragging: false,
@@ -130,8 +126,8 @@ class Gallery extends React.Component {
 
     if (finalDragDeltaX > 128 || finalDragDeltaX < -128) {
       this.changePosition(Math.sign(finalDragDeltaX))
-      stopPropagation()
-      preventDefault()
+      e.stopPropagation()
+      e.preventDefault()
     } else if (finalDragDeltaX > 64 || finalDragDeltaX < -64 || finalDragDeltaX === 0) {
       this.changePage(href)
     }
@@ -219,15 +215,7 @@ class Gallery extends React.Component {
                 transition: dragging ? 'none' : undefined,
                 opacity: dragging && (dragInitialX - dragDeltaX !== 0) ? 1 : opacity,
               }}
-              onMouseDown={(e) => this.startDrag(e)}
-              onMouseMove={(e) => this.updateDrag(e)}
-              onMouseUp={(e) => {
-                if (dragging) {
-                  this.stopDrag(e, href)
-                } else {
-                  this.changePage(href)
-                }
-              }}
+              onClick={() => this.changePage(href)}
               onTouchStart={(e) => this.startDrag(e)}
               onTouchMove={(e) => this.updateDrag(e)}
               onTouchEnd={(e) => {
