@@ -45,7 +45,7 @@ export default function App() {
                       <Route exact path="/" component={Index} />
                       <Route exact path="/projects" component={Projects} />
                       <Route path="/projects/:href" component={ProjectPage} />
-                      <Route component={Error404} />
+                      <Route component={Error404} status={404} />
                     </Switch>
                   )}
                 />
