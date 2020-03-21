@@ -18,7 +18,9 @@ export default function Header(props) {
   return (
     <header id="header" key={0}>
       <h1 className="highlight-light-grey">{heading}</h1>
-      <div className="img-container soft-shadow" style={{ backgroundImage: `url("${src}")` }} />
+      <div className="img-container soft-shadow">
+        <img src={src} alt="" />
+      </div>
       {
         title && subtitle ? (
           <Card className="soft-shadow">
