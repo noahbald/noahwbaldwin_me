@@ -69,16 +69,15 @@ export default class FeatureBox extends React.Component {
     // Content of selected option
     const selectedContent = content[option]
     // Image of selected option
-    const featureImage = selectedContent.image
+    const { image: featureImage, imageAlt: featureAlt } = selectedContent
 
     return (
       <div className={`feature-box ${className}`}>
         <div
           className="feature-image"
-          style={{
-            backgroundImage: `url(${featureImage})`,
-          }}
-        />
+        >
+          <img src={featureImage} alt={featureAlt} />
+        </div>
         <div className="feature-content">
           <div className="feature-titlebar">
             {
@@ -176,6 +175,7 @@ FeatureBox.propTypes = {
       title: PropTypes.string.isRequired,
       uid: PropTypes.string,
       image: PropTypes.string,
+      imageAlt: PropTypes.string,
       contents: PropTypes.arrayOf(
         PropTypes.shape({
           icon: PropTypes.string,
@@ -195,6 +195,7 @@ FeatureBox.defaultProps = {
       title: '',
       uid: '',
       image: '',
+      imageAlt: '',
       contents: [],
     },
   ],

@@ -14,6 +14,11 @@
   background-position: center center;
   background-size: cover;
 }
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .feature-content {
   grid-column: 2;
