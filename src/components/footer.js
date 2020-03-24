@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import Button from './button'
 import Link from './link'
+import ExternalLinks, { ExternalLink } from './external-links'
 
 import { ReactComponent as GitHub } from './component-assets/footer/github.svg'
 import { ReactComponent as LinkedIn } from './component-assets/footer/linkedin.svg'
@@ -28,40 +29,32 @@ export default function Footer(props) {
       }
       <h2 className="highlight-primary">Say Hi,</h2>
       <h3 id="email"><a href="mailto:hi@noahwbaldwin.me">hi@noahwbaldwin.me</a></h3>
-      <div className="footer-links">
-        <Link
+      <ExternalLinks>
+        <ExternalLink
           href="https://github.com/noahbald"
-          style={{ display: 'inline-flex' }}
           title="Github"
-          rel="external nofollow"
         >
           <GitHub />
-        </Link>
-        <Link
+        </ExternalLink>
+        <ExternalLink
           href="https://www.linkedin.com/in/noahwbaldwin/"
-          style={{ display: 'inline-flex' }}
           title="LinkedIn"
-          rel="external nofollow"
         >
           <LinkedIn />
-        </Link>
-        <Link
+        </ExternalLink>
+        <ExternalLink
           href="https://www.instagram.com/noahbald/"
-          style={{ display: 'inline-flex' }}
           title="Instagram"
-          rel="external nofollow"
         >
           <Instagram />
-        </Link>
-        <Link
-          href="https://www.instagram.com/noahbald/"
-          style={{ display: 'inline-flex' }}
-          title="Instagram"
-          rel="external nofollow"
+        </ExternalLink>
+        <ExternalLink
+          href="spotify:user:12101435749"
+          title="Spotify"
         >
           <Spotify />
-        </Link>
-      </div>
+        </ExternalLink>
+      </ExternalLinks>
     </footer>
   )
 }
