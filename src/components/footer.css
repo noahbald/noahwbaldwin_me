@@ -16,24 +16,11 @@ footer #email {
   grid-row: 3;
 }
 
-footer .footer-links {
+footer .external-links {
   grid-column: 3;
   grid-row: 3;
   justify-self: right;
   align-self: end;
-}
-footer .footer-links a {
-  margin: 0 8px;
-}
-footer .footer-links a:first-child {
-  margin-left: 0;
-}
-footer .footer-links a:last-child {
-  margin-right: 0;
-}
-footer .footer-links a svg {
-  width: 40px;
-  height: 40px;
 }
 
 footer .button {
@@ -46,7 +33,7 @@ footer .button {
 }
 
 @media (max-width: 1024px) {
-  footer .footer-links {
+  footer .external-links {
     justify-self: baseline;
     margin-bottom: -64px;
   }
@@ -63,6 +50,9 @@ footer .button {
     margin-bottom: -40px;
     justify-self: baseline;
   }
+  footer .external-links {
+    margin-bottom: -48px;
+  }
 }
 @media (max-width: 480px) {
   footer {
@@ -70,12 +60,13 @@ footer .button {
     grid-template-rows: 20px var(--grid-row-1-mobile) 64px;
     margin-bottom: 64px;
   }
-  footer .footer-links {
-    margin-bottom: -16px;
+  footer .external-links {
+    margin-bottom: 0;
   }
-  footer .footer-links a svg {
+  footer .external-links a {
     width: 20px;
     height: 20px;
+    margin: 0 4px;
   }
   footer h3 {
     font-size: 1.4em;

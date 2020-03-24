@@ -87,7 +87,7 @@ a::after {
   background-color: #e17381;
   opacity: 0;
   left: -5%;
-  top: -2.5%;
+  top: -5%;
   transition: background-color .2s;
   border-radius: 2px;
 }
@@ -99,16 +99,6 @@ a:hover::after {
 }
 a:active::after {
   opacity: 0.3;
-}
-a > svg {
-  fill: #e17381;
-  transition: fill .2s;
-}
-a:hover > svg, a:active > svg {
-  fill: #3d3e46;
-}
-a:visited > svg {
-  fill: #7382e1;
 }
 
 strong {
