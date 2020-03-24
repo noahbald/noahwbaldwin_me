@@ -5,11 +5,30 @@ import Markdown from '../components/markdown'
 import Footer from '../components/footer'
 import Error404 from './404'
 import Page from '../components/page'
+import Button from '../components/button'
+import ExternalLinks, { ExternalLink } from '../components/external-links'
 
 import isProtocol from '../services/isProtocol'
 import isStatic from '../services/isStatic'
 
 import './project-page.css'
+import { ReactComponent as GitHubIcon } from '../components/component-assets/footer/github.svg'
+import { ReactComponent as ProjectIcon } from '../components/component-assets/external-links/open-in-new.svg'
+
+
+function ExternalLinkIcon(props) {
+  const { icon } = props
+  switch (icon) {
+    case 'project':
+      return <ProjectIcon />
+    
+    case 'github':
+      return <GitHubIcon />
+  
+    default:
+      return null
+  }
+}
 
 export default class ProjectPage extends React.Component {
   constructor(props) {
@@ -138,15 +157,43 @@ export default class ProjectPage extends React.Component {
     }
 
     let header = data ? (
-      <Header heading={data.type} title={data.title} subtitle={data.subtitle} src={data.src} />
+      <Header
+        heading={data.type}
+        title={data.title}
+        subtitle={data.subtitle}
+        src={data.src}
+        callToAction={(
+          <Button
+            to="/"
+          >
+            Return Home
+          </Button>
+        )}
+      />
     ) : (
       <Header />
     )
+    const externalLinks = data && data.externalLinks ? (
+      <ExternalLinks>
+        {Object.keys(data.externalLinks).map((key, i) => {
+          return (
+            <ExternalLink
+              key={i}
+              title={key}
+              href={data.externalLinks[key]}
+            >
+              <ExternalLinkIcon icon={key} />
+            </ExternalLink>
+          )
+        })}
+      </ExternalLinks>
+    ) : null
 
     return (
       <Page>
         {header}
         <section id="project-page">
+          {externalLinks}
           <Markdown loading={loading} markdown={markdown} />
         </section>
         <Footer homeButton />

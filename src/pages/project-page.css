@@ -8,6 +8,17 @@
 #project-page .markdown.peek .content {
   padding: 0 80px;
 }
+
+#project-page .external-links {
+  grid-column: 3;
+  justify-self: end;
+}
+
+@media (max-width: 768px) {
+  #project-page .external-links {
+    justify-self: center;
+  }
+}
 @media (max-width: 480px) {
   #project-page .markdown.peek .content {
     padding: 0 48px;

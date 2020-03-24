@@ -14,6 +14,10 @@
       ],
       "client": "Personal Project",
       "featured": true
+    },
+    "externalLinks": {
+      "github": "https://github.com/noahbald/facebook-messenger-counter-react",
+      "project": "https://fbmc.noahwbaldwin.me"
     }
   },
   {
@@ -31,6 +35,10 @@
       ],
       "client": "Personal Project",
       "featured": false
+    },
+    "externalLinks": {
+      "github": "https://github.com/noahbald/personal_website",
+      "project": "https://old.noahwbaldwin.me"
     }
   },
   {
