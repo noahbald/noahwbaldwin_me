@@ -2,7 +2,7 @@
   display: grid;
   width: 100%;
 }
-#projects > .button-link {
+#projects > .button {
   z-index: 1;
 }
 #projects .gallery {

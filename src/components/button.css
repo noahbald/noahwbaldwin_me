@@ -70,7 +70,7 @@ a.button::after {
   background-size: contain;
 }
 
-.skeleton button {
+.skeleton .button {
   animation: var(--skeleton-animation);
   width: 128px;
 }
