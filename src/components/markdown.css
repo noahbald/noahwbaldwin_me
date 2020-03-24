@@ -17,7 +17,7 @@
   margin: 0 auto 0 auto;
 }
 .markdown.peek .content {
-  max-width: 912px;
+  max-width: 880px;
 }
 .markdown.peek .content::after {
   content: "";
