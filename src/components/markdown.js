@@ -36,7 +36,7 @@ class Markdown extends React.Component {
     const { markdown } = this.props
     const html = marked(markdown, { sanitise: true })
     const sanitized = sanitizeHtml(html, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat('img'),
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat('img', 'h1', 'h2', 'h3'),
       allowedAttributes: {
         img: ['src', 'alt'],
         a: ['href', 'name', 'target', 'title'],
@@ -83,7 +83,17 @@ class Markdown extends React.Component {
     return (
       <div className={`markdown ${peek ? 'peek' : ''}`}>
         <article className="content" dangerouslySetInnerHTML={html} />
-        {peek ? (<Button className="soft-shadow" type="outline" onClick={() => this.setState({ peek: false })}>Read More</Button>) : null}
+        {
+          peek ? (
+            <Button
+              className="soft-shadow"
+              type="outline"
+              onClick={() => this.setState({ peek: false })}
+            >
+              Read More
+            </Button>
+          ) : null
+        }
       </div>
     )
   }
