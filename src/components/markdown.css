@@ -143,3 +143,14 @@
     font-size: 0.8em;
   }
 }
+@media (max-width: 425px) {
+  .content h1 {
+    font-size: 2em;
+  }
+  .content h2 {
+    font-size: 1.5em;
+  }
+  .content h3 {
+    font-size: 1.25em;
+  }
+}
