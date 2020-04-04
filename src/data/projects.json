@@ -1,5 +1,28 @@
 [
   {
+    "title": "Personal Website",
+    "subtitle": "The site which you're viewing my projects from now",
+    "type": "Personal Website",
+    "src": "personal-portfolio.jpg",
+    "markdown": "personal-website.md",
+    "href": "personal_portfolio",
+    "uid": "8f723111-cc78-4544-a671-f015112cb02b",
+    "metadata": {
+      "year": 2020,
+      "topics": [
+        "Programming",
+        "Design"
+      ],
+      "client": "Personal Project",
+      "featured": true
+    },
+    "externalLinks": {
+      "github": "https://github.com/noahbald/noahwbaldwin_me",
+      "figma": "https://www.figma.com/file/ecyYeYDhNwzZbvc3YBx9JY/Web-Portfolio?node-id=0%3A1",
+      "project": "/"
+    }
+  },
+  {
     "title": "Facebook Messenger Counter",
     "subtitle": "A web app that aggregates data from a user's facebook messages.",
     "type": "Personal Project",
@@ -74,7 +97,7 @@
         "Agile"
       ],
       "client": "Monash University",
-      "featured": true
+      "featured": false
     }
   },
   {
