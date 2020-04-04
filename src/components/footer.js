@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from './button'
-import Link from './link'
 import ExternalLinks, { ExternalLink } from './external-links'
 
 import { ReactComponent as GitHub } from './component-assets/footer/github.svg'
