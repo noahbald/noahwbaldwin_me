@@ -13,6 +13,7 @@ import isStatic from '../services/isStatic'
 
 import './project-page.css'
 import { ReactComponent as GitHubIcon } from '../components/component-assets/footer/github.svg'
+import { ReactComponent as FigmaIcon } from '../components/component-assets/external-links/figma.svg'
 import { ReactComponent as ProjectIcon } from '../components/component-assets/external-links/open-in-new.svg'
 
 
@@ -25,8 +26,11 @@ function ExternalLinkIcon(props) {
     case 'github':
       return <GitHubIcon />
   
+    case 'figma':
+      return <FigmaIcon />
+  
     default:
-      return null
+      return <ProjectIcon />
   }
 }
 
