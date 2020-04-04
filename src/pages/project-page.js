@@ -25,7 +25,7 @@ function ExternalLinkIcon(props) {
     
     case 'github':
       return <GitHubIcon />
-  
+    
     case 'figma':
       return <FigmaIcon />
   
@@ -43,7 +43,9 @@ export default class ProjectPage extends React.Component {
       markdown: null,
       error404: false,
     }
-    this.getDataFromMarkdown()
+    this.getDataFromMarkdown().catch((e) => {
+      this.setState({ error404: true })
+    })
   }
 
   async getDataFromMarkdown() {
