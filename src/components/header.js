@@ -19,7 +19,13 @@ export default function Header(props) {
     <header id="header" key={0}>
       <h1 className="highlight-light-grey">{heading}</h1>
       <div className="img-container soft-shadow">
-        <img src={src} alt="" />
+        { src.match(/.webm$/) ? (
+          <video src={src} autoPlay loop muted>
+            <source src={src} type="video/webm" />
+          </video>
+        ) : (
+          <img src={src} alt="" />
+        )}
       </div>
       {
         title && subtitle ? (

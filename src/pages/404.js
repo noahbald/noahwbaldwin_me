@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 import Page from '../components/page'
 import Button from '../components/button'
 
-import image from './404.gif'
+import image from './404.webm'
 
 export default function Error404() {
   return (
