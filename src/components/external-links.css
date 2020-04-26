@@ -21,11 +21,5 @@
 }
 
 a svg {
-  fill: #e17381;
-}
-a:visited svg {
-  fill: #7382e1;
-}
-a:hover svg, a:active svg {
-  fill: #3d3e46;
+  fill: currentColor;
 }
