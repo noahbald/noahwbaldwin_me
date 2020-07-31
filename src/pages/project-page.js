@@ -1,4 +1,5 @@
 import React from 'react'
+import MetaTags from 'react-meta-tags'
 
 import Header from '../components/header'
 import Markdown from '../components/markdown'
@@ -197,9 +198,16 @@ export default class ProjectPage extends React.Component {
 
     return (
       <Page>
+        <MetaTags>
+          <meta name="title" content={data && data.title ? data.title : ''} />
+          <meta name="displaydate" content={data && data.metadata && data.metadata.year ? data.metadata.year : ''} />
+          <meta content="noahwbaldwin.me" property="og:site_name" />
+          <meta name="copyright" content={data && data.metadata && data.metadata.year ? data.metadata.year : ''} />
+        </MetaTags>
         {header}
         <section id="project-page">
           {externalLinks}
+          <div class="byline-name" style={{display: 'none'}}>Noah Baldwin</div>
           <Markdown loading={loading} markdown={markdown} />
         </section>
         <Footer homeButton />
