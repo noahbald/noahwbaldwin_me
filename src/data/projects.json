@@ -1,5 +1,27 @@
 [
   {
+    "title": "The Byte Redesign",
+    "subtitle": "A rebranding project for Monash FIT's The Byte",
+    "type": "Work Project",
+    "src": "the-byte-rd.jpg",
+    "markdown": "the-byte-rd.md",
+    "href": "the_byte_redesign",
+    "uid": "1c542540-e214-4d36-b1ba-4c1be9a4a2fe",
+    "metadata": {
+      "year": 2020,
+      "topics": [
+        "Design",
+        "Copy"
+      ],
+      "client": "Monash University",
+      "featured": true
+    },
+    "externalLinks": {
+      "figma": "https://www.figma.com/file/jjt03lCu1AeklFjicOY6Yg/The-Byte?node-id=1%3A2",
+      "project": "https://www.monash.edu/it/current-students/student-newsletters"
+    }
+  },
+  {
     "title": "Personal Website",
     "subtitle": "The site which you're viewing my projects from now",
     "type": "Personal Website",
@@ -79,7 +101,7 @@
         "Design"
       ],
       "client": "Monash University",
-      "featured": true
+      "featured": false
     }
   },
   {
