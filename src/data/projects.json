@@ -1,5 +1,25 @@
 [
   {
+    "title": "El Carousel",
+    "subtitle": "An easy to use carousel library",
+    "type": "Personal Project",
+    "src": "el-carousel.jpg",
+    "markdown": "el-carousel.md",
+    "href": "el-carousel",
+    "uid": "63e7dd82-b752-4f7f-bc17-d33a0d6cc8a5",
+    "metadata": {
+      "year": 2021,
+      "topics": [
+        "Web Development"
+      ],
+      "client": "Personal Project",
+      "featured": true
+    },
+    "externalLinks": {
+      "project": "https://github.com/noahbald/el-carousel"
+    }
+  },
+  {
     "title": "The Byte Redesign",
     "subtitle": "A rebranding project for Monash FIT's The Byte",
     "type": "Work Project",
@@ -58,7 +78,7 @@
         "Programming"
       ],
       "client": "Personal Project",
-      "featured": true
+      "featured": false
     },
     "externalLinks": {
       "github": "https://github.com/noahbald/facebook-messenger-counter-react",
