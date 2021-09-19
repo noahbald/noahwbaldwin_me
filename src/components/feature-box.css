@@ -9,7 +9,6 @@
   grid-row: 1;
   width: 100%;
   height: 100%;
-  border-radius: 4px 0 0 4px;
   animation: var(--skeleton-animation);
   background-position: center center;
   background-size: cover;
@@ -17,6 +16,7 @@
 .feature-image img {
   width: 100%;
   height: 100%;
+  border-radius: 4px 0 0 4px;
   object-fit: cover;
 }
 
