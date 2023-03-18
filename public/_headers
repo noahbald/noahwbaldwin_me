@@ -1,0 +1,6 @@
+/api/*
+    X-Access-Key="$REACT_APP_JSON_BIN_KEY"
+    Content-Type=application/json
+$REACT_APP_JSON_BIN_RESUME/*
+    X-Access-Key="$REACT_APP_JSON_BIN_KEY"
+    Content-Type=application/json

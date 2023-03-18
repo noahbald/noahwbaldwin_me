@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { Helmet } from 'react-helmet'
 
 import FeatureList, { FeatureListItem } from '../components/feature-list'
 
@@ -18,66 +19,56 @@ export interface ProjectListProps {
 export const ProjectList: React.FC<ProjectListProps> = ({
   skeleton,
   data,
-}) => {
-  if (skeleton) {
-    return (
-      <section className="project-list">
-        <h1 className="highlight--secondary">
-          Projects
-        </h1>
-        <FeatureList skeleton />
-      </section>
-    )
-  }
-
-  return (
-    <section className="project-list">
-      <h1 className="highlight--secondary">
-        Projects
-      </h1>
-      <FeatureList>
-        {data.map((item) => (
-          <FeatureListItem
-            key={item.uid}
-            src={item.src}
-            to={item.href}
-            toTitle={item.title}
+}) => (
+  <section className="project-list">
+    <Helmet>
+      <title>Noah Baldwin | Projects</title>
+    </Helmet>
+    <h1 className="highlight--secondary">
+      Projects
+    </h1>
+    <FeatureList skeleton={skeleton}>
+      {data.map((item) => (
+        <FeatureListItem
+          key={item.uid}
+          src={item.src}
+          to={item.href}
+          toTitle={item.title}
+        >
+          <h4>
+            <strong>{item.title}</strong>
+          </h4>
+          <p>{item.subtitle}</p>
+          <p
+            style={{
+              color: '#858898',
+            }}
           >
-            <h4>
-              <strong>{item.title}</strong>
-            </h4>
-            <p>{item.subtitle}</p>
-            <p
-              style={{
-                color: '#858898',
-              }}
-            >
-              {item.type}
-            </p>
-            <p
-              style={{
-                position: 'absolute',
-                bottom: 32,
-                left: 32,
-              }}
-            >
-              {item.metadata.year}
-            </p>
-            <p
-              style={{
-                position: 'absolute',
-                bottom: 32,
-                right: 32,
-              }}
-            >
-              {item.metadata.topics.join(', ')}
-            </p>
-          </FeatureListItem>
-        ))}
-      </FeatureList>
-    </section>
-  )
-}
+            {item.type}
+          </p>
+          <p
+            style={{
+              position: 'absolute',
+              bottom: 32,
+              left: 32,
+            }}
+          >
+            {item.metadata.year}
+          </p>
+          <p
+            style={{
+              position: 'absolute',
+              bottom: 32,
+              right: 32,
+            }}
+          >
+            {item.metadata.topics.join(', ')}
+          </p>
+        </FeatureListItem>
+      ))}
+    </FeatureList>
+  </section>
+)
 
 export interface ProjectsProps {}
 
@@ -111,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = () => {
 
   return (
     <ProjectList
-      skeleton={data === null}
+      skeleton={data === null || navigator.userAgent === 'ReactSnap'}
       data={data || []}
     />
   )
