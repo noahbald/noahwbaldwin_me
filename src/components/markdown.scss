@@ -1,0 +1,166 @@
+@import "../variables";
+
+.markdown {
+  grid-column: 3;
+  grid-row: 2;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 32px;
+
+  &__content {
+    margin: 0 auto;
+  }
+  
+  &.peek .markdown__content {
+    overflow-y: hidden;
+    max-height: 512px;
+    max-width: 912px;
+    position: relative;
+    margin-bottom: 32px;
+    padding: 0 96px;
+
+    &::after {
+      content: "";
+      height: 256px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(rgba(247, 249, 249, 0), rgba(247, 249, 249, 1));
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  strong {
+    font-weight: 900;
+  }
+  
+  h1 {
+    font-size: 3.375em;
+  }
+  
+  h2 {
+    font-size: 2.25em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  p {
+    margin-bottom: 32px;
+  }
+  
+  p,
+  li {
+    font-size: 1.3em;
+  }
+  
+  li * {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 16px 40px rgba(61, 62, 70, 0.3), 0 4px 10px rgba(61, 62, 70, 0.1);
+  }
+  
+  em {
+    margin-top: 1em;
+    display: block;
+    text-align: center;
+  }
+  
+  pre {
+    position: relative;
+    counter-reset: (line);
+    color: $color-grey-lightest;
+    padding: 8px 16px;
+    box-shadow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62, 70, 0.1);
+    white-space: pre-wrap;
+    
+    &::before {
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      background-color: $color-secondary-dark;
+      border-radius: 4px;
+    }
+    
+    code {
+      counter-increment: line;
+      font-size: 1em;
+      display: block;
+    }
+  }
+  
+  blockquote {
+    margin: 8px 0;
+    padding-left: 32px;
+    position: relative;
+    
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-flex;
+      width: 8px;
+      height: calc(100% - 8px);
+      left: 0px;
+      top: 4px;
+      background-color: $color-primary-light;
+      border-radius: 4px;
+    }
+  }
+  
+  
+  &__content {
+    width: 100%;
+    max-width: 720px;
+    
+  }
+  
+  .button {
+    grid-column: 3;
+    grid-row: 2;
+    transform: translateX(-50%);
+    margin-left: 50%;
+    width: fit-content;
+  }
+  
+  @media (max-width: 768px) {
+    p,
+    li {
+      font-size: 1em;
+    }
+    
+    pre code {
+      font-size: 0.8em;
+    }
+  }
+
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 2em;
+    }
+    
+    h2 {
+      font-size: 1.5em;
+    }
+    
+    h3 {
+      font-size: 1.25em;
+    }
+  }
+}
+
+

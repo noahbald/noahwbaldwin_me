@@ -1,0 +1,299 @@
+@import "./variables";
+
+:root {
+  /* Main Colours */
+  --color-primary-light: #e895a1;
+  --color-primary: #e17381;
+  --color-primary-dark: #cb6775;
+  --color-secondary-light: #b0b8ee;
+  --color-secondary: #7382e1;
+  --color-secondary-dark: #5a66b1;
+  --color-tertiary-light: #dd95e8;
+  --color-tertiary: #bd67cb;
+  --color-tertiary-dark: #894b93;
+
+  /* Grey Colours */
+  --color-grey-lightest: #f9f9fa;
+  --color-grey-light: #dfe0e6;
+  --color-grey: #c1c3cf;
+  --color-grey-dark: #858898;
+  --color-grey-darkest: #3d3e46;
+
+  /* Shadows */
+  --shadow-soft: 0 16px 40px rgba($color-grey-darkest, 0.3), 0 4px 10px rgba($color-grey-darkest, 0.1);
+  --shadow-soft-shallow: 0 10px 27px rgba($color-grey-darkest, 0.3), 0 3px 12px rgba($color-grey-darkest, 0.1);
+  --shadow-soft-deep: 0 21px 53px rgba($color-grey-darkest, 0.3), 0 5px 13px rgba($color-grey-darkest, 0.1);
+  --shadow-soft-drop: drop-shadow(0 16px 40px rgba($color-grey-darkest, 0.3)) drop-shadow(0 4px 10px rgba($color-grey-darkest, 0.1));
+
+  /* Columns */
+  --grid-template-columns-desktop: 64px 64px minmax(auto, 1184px) 64px 64px;
+  --grid-template-columns-tablet: 16px 64px calc(100% - 160px) 64px 16px;
+  --grid-template-columns-mobile: 16px 32px calc(100% - 96px) 32px 16px;
+  --grid-row-1-desktop: 256px;
+  --grid-row-1-tablet: 160px;
+  --grid-row-1-mobile: 96px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 10px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background-color: $color-grey-lightest;
+  color: $color-grey-darkest;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: $size-3;
+}
+
+[id=root] {
+  width: 100%;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+h1,
+.h1
+h2,
+.h2
+h3,
+.h3
+h4,
+.h4,
+strong {
+  font-weight: $font-bold;
+  margin: 0;
+}
+
+h1,
+.h1 {
+  font-size: $size-10;
+
+  @media (max-width: 1024px) {
+    font-size: $size-9;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $size-8;
+  }
+
+  @media(max-width: 480px) {
+    font-size: $size-7; 
+  }
+}
+
+h2,
+.h2 {
+  font-size: $size-9;
+
+  @media (max-width: 1024px) {
+    font-size: $size-8;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $size-7;
+  }
+
+  @media(max-width: 480px) {
+    font-size: $size-6; 
+  }
+}
+
+h3,
+.h3 {
+  font-size: $size-8;
+
+  @media (max-width: 1024px) {
+    font-size: $size-7;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $size-6;
+  }
+
+  @media(max-width: 480px) {
+    font-size: $size-5; 
+  }
+}
+
+h4,
+.h4 {
+  font-size: $size-7;
+  font-weight: 400;
+
+  @media (max-width: 1024px) {
+    font-size: $size-6;
+  }
+
+  @media (max-width: 768px) {
+    font-size: $size-5;
+  }
+
+  @media(max-width: 480px) {
+    font-size: $size-4; 
+  }
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  position: relative;
+  transition: color .2s;
+  
+  &::after {
+    content: "";
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    background-color: $color-primary;
+    opacity: 0;
+    left: -5%;
+    top: -5%;
+    transition: background-color .2s, opacity .2s;
+    border-radius: 2px;
+  }
+
+  &:visited {
+    color: $color-secondary;
+
+    &::after {
+      background-color: $color-secondary;
+    }
+  }
+
+  &:hover,
+  &:active {
+    color: $color-grey-darkest;
+  }
+
+  a:hover::after {
+    opacity: 0.2;
+  }
+
+  a:active::after {
+    opacity: 0.3;
+  }
+}
+
+header,
+footer,
+section {
+  display: grid;
+  grid-template-columns: var(--grid-template-columns-desktop);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: var(--grid-template-columns-tablet);
+  }
+
+  @media(max-width: 480px) {
+    grid-template-columns: var(--grid-template-columns-mobile);
+  }
+}
+
+.soft-shadow {
+  box-shadow: $shadow-soft;
+
+  &.button {
+    transition: box-shadow .2s, color .2s, background-color .2s, transform .2s;
+
+    &:hover {
+      box-shadow: $shadow-soft-deep;
+    }
+
+    &:active {
+      box-shadow: $shadow-soft-shallow;
+    }
+  }
+}
+
+@mixin highlight($color: $color-grey) {
+  // Encode color
+  @if type-of($color) == 'color' {
+    $hex: str-slice(ie-hex-str($color), 4);
+    $color:unquote("#{$hex}");
+  }
+  $color: '%23' + $color;
+
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0' y='0' width='100%25' height='100%25' viewBox='0 0 100%25 100%25' xml:space='preserve'%3E%3Crect y='50%25' width='100%25' height='50%25' rx='4' fill='#{$color}' /%3E%3C/svg%3E");
+}
+
+.highlight {
+  @include highlight;
+
+  &--primary {
+    @include highlight($color-primary);
+  }
+
+  &--secondary {
+    @include highlight($color-secondary);
+  }
+
+  &--tertiary {
+    @include highlight($color-tertiary);
+  }
+
+  &--grey-light {
+    @include highlight($color-grey-light);
+  }
+}
+
+[class*=" highlight-"],
+[class^="highlight-"] {
+  position: relative;
+  
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 4px;
+    box-shadow: $shadow-soft;
+  }
+}
+
+.highlight {
+  &-primary::before {
+    background-color: $color-primary;
+  }
+  &-secondary::before {
+    background-color: $color-secondary;
+  }
+  &-tertiary::before {
+    background-color: $color-tertiary;
+  }
+  &-light-grey::before {
+    background-color: $color-grey-light;
+  }
+  &-grey::before {
+    background-color: $color-grey;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: $color-grey-lightest;
+  width: 8px;
+  margin: 2px;
+
+  &-thumb {
+    background-color: $color-grey;
+    transition: background-color 5s ease-out;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $color-grey-dark;
+    }
+  }
+}
