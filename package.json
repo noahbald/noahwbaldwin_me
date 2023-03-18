@@ -22,12 +22,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap --debug && npm run postbuild:_redirects && npm run postbuild:_headers",
+    "postbuild:_redirects": "envsubst < public/_redirects > build/_redirects",
+    "postbuild:_headers": "envsubst < public/_headers > build/_headers",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "reactSnap": {
+    "include": [
+      "/projects/href"
+    ]
   },
   "browserslist": {
     "production": [

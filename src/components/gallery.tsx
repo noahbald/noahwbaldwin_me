@@ -58,7 +58,7 @@ const Gallery: React.FC<GalleryProps> = ({
   const navigate = useNavigate()
 
   const visibleContent = useMemo(() => (
-    Array.from(new Array(4), (_, i) => contents.at(
+    Array.from(new Array(4), (_, i) => contents.at && contents.at(
       (((position + i - 1) % contents.length) + contents.length) % contents.length,
     ))
   ), [contents, position])
