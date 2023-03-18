@@ -1,6 +1,5 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const https = require('https')
-const curlify = require('request-as-curl')
 
 const agent = new https.Agent({
   rejectUnauthorized: false,
