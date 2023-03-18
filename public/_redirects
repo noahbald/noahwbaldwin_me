@@ -1,3 +1,4 @@
+# _redirects
 /*  /404.html   404
 /   /index.html 200
 /projects/* /projects/href/index.html   200
