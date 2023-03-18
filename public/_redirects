@@ -1,8 +1,9 @@
 # _redirects
-/*  /404.html  404
 /  /index.html  200
-/projects/*  /projects/href/index.html  200
 /projects  /projects/index.html  200
+/projects/*  /projects/href/index.html  200
+
+# _redirects proxies
 /media/*  https://storage.googleapis.com/$REACT_APP_BUCKET/:splat
 /api/projects/*  $REACT_APP_JSON_BIN_PROJECTS/:splat
 /api/resume/*  $REACT_APP_JSON_BIN_RESUME/:splat
