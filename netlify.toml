@@ -1,23 +1,23 @@
 [[redirects]]
   from = "/media/*"
-  to = "https://storage.googleapis.com/REACT_APP_BUCKET/:splat"
+  to = "https://storage.googleapis.com/${REACT_APP_BUCKET}/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/api/projects"
-  to = "https://api.jsonbin.io/v3/b/REACT_APP_JSON_BIN_PROJECTS"
+  to = "https://api.jsonbin.io/v3/b/${REACT_APP_JSON_BIN_PROJECTS}"
   status = 200
   force = true
   [redirects.headers]
-    X-Access-Key = "REACT_APP_JSON_BIN_KEY"
+    X-Access-Key = "${REACT_APP_JSON_BIN_KEY}"
     Content-Type = "application/json"
 
 [[redirects]]
   from = "/api/resume"
-  to = "https://api.jsonbin.io/v3/b/REACT_APP_JSON_BIN_RESUME"
+  to = "https://api.jsonbin.io/v3/b/${REACT_APP_JSON_BIN_RESUME}"
   status = 200
   force = true
   [redirects.headers]
-    X-Access-Key = "REACT_APP_JSON_BIN_KEY"
+    X-Access-Key = "${REACT_APP_JSON_BIN_KEY}"
     Content-Type = "application/json"
