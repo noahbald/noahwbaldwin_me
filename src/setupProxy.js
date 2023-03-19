@@ -14,7 +14,7 @@ module.exports = function (app) {
     },
   }))
   app.use('/api/projects', createProxyMiddleware({
-    target: process.env.REACT_APP_JSON_BIN_PROJECTS,
+    target: `https://api.jsonbin.io/v3/b/${process.env.REACT_APP_JSON_BIN_PROJECTS}`,
     changeOrigin: true,
     headers: {
       'X-Access-Key': process.env.REACT_APP_JSON_BIN_KEY,
@@ -27,7 +27,7 @@ module.exports = function (app) {
     agent,
   }))
   app.use('/api/resume', createProxyMiddleware({
-    target: process.env.REACT_APP_JSON_BIN_RESUME,
+    target: `https://api.jsonbin.io/v3/b/${process.env.REACT_APP_JSON_BIN_RESUME}`,
     changeOrigin: true,
     headers: {
       'X-Access-Key': process.env.REACT_APP_JSON_BIN_KEY,
