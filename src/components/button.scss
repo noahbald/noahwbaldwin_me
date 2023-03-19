@@ -1,0 +1,76 @@
+@import "../variables";
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 36px;
+  height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 4px;
+  background-color: $color-primary;
+  color: $color-grey-lightest;
+  font-size: 1.3em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .2s, background-color .2s, transform .2s;
+
+  &:hover,
+  &.disabled {
+    background-color: $color-primary-light;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background-color: $color-primary;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.outline {
+    border: solid 3px $color-primary;
+  }
+
+  &[href] {
+    color: $color-grey-lightest;
+
+    &::after {
+      display: none;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &--text,
+  &--outline {
+    background-color: rgba(224, 114, 128, 0);
+
+    &,
+    &[href] {
+      color: $color-primary;
+    }
+
+    &:hover {
+      background-color: rgba(224, 114, 128, 0.1)
+    }
+
+    &:active {
+      background-color: rgba(224, 114, 128, 0.3)
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+  }
+
+  .skeleton & {
+    animation: var(--skeleton-animation);
+    width: 128px;
+  }
+}
