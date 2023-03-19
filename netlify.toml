@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "/api/projects"
-  to = "REACT_APP_JSON_BIN_PROJECTS"
+  to = "https://api.jsonbin.io/v3/b/REACT_APP_JSON_BIN_PROJECTS"
   status = 200
   force = true
   headers = {
@@ -16,7 +16,7 @@
 
 [[redirects]]
   from = "/api/resume"
-  to = "REACT_APP_JSON_BIN_RESUME"
+  to = "https://api.jsonbin.io/v3/b/REACT_APP_JSON_BIN_RESUME"
   status = 200
   force = true
   headers = {
