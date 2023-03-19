@@ -22,10 +22,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap --debug && npm run postbuild:_redirects && npm run postbuild:_headers && npm run postbuild:info",
+    "postbuild": "react-snap --debug && npm run postbuild:_redirects && npm run postbuild:_headers && npm run postbuild:netlify && npm run postbuild:info",
     "postbuild:_redirects": "envsubst < public/_redirects > build/_redirects",
     "postbuild:_headers": "envsubst < public/_headers > build/_headers",
-    "postbuild:info": "cat build/_redirects && cat build/_headers",
+    "postbuild:netlify": "envsubst < template.netlify.toml > netlify.toml",
+    "postbuild:info": "cat build/_redirects && cat build/_headers && cat netlify.toml",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
