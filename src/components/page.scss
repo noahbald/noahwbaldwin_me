@@ -7,6 +7,18 @@
   }
 }
 
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .page {
   position: absolute;
   top: 0;
@@ -43,5 +55,17 @@
 
   &--delayed {
     animation-delay: 500ms;
+  }
+}
+
+.blink {
+  &:empty {
+    background: currentColor;
+    animation: blink 1.5s both infinite ease;
+    animation-delay: 2s;
+
+    &::after {
+      content: "_";
+    }
   }
 }

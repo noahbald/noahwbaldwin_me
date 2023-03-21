@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({
           <span className="fade fade--delayed">&nbsp;&mdash;&nbsp;</span>
           <span className="fade fade--delayed">
             {subtitle && (
-              <span className="fade">{subtitle}</span>
+              <span className="blink">{subtitle}</span>
             )}
           </span>
         </h4>
