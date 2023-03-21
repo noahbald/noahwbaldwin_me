@@ -25,8 +25,8 @@ const Projects: React.FC<ProjectsProps> = () => {
   )
 
   return (
-    <section className="projects">
-      <h2 className="highlight--secondary h1">Projects</h2>
+    <section className="index__section projects">
+      <h2 className="highlight highlight--secondary h1">Projects</h2>
       <Button
         as={Link}
         type="text"

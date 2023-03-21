@@ -1,24 +1,26 @@
+@import "../variables";
+
 .project-page {
-  margin-top: 64px;
+  margin-top: 20px;
   
-  .markdown.peek {
-    grid-column: 1 / 6;
-    
-    .content {
-      padding: 0 80px;
-      
-      @media (max-width: 480px) {
-        padding: 0 48px;
-      }
+  .markdown {
+    grid-column: 3;
+
+    @media (min-width: $bp-mobile) {
+      grid-column: 2 / 5;
+    }
+
+    @media (min-width: $bp-tablet) {
+      grid-column: 3;
     }
   }
   
   .external-links {
     grid-column: 3;
-    justify-self: end;
-    
-    @media (max-width: 768px) {
-      justify-self: center;
+    justify-self: center;
+
+    @media (min-width: $bp-tablet) {
+      justify-self: end;
     }
   }
 }

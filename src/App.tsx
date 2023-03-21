@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom'
 
 // Files
-import './App.scss'
 import './skeletons.scss'
 
 // Pages

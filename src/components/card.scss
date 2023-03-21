@@ -1,8 +1,10 @@
+@import "../variables";
+
 .card {
   position: relative;
-  padding: 32px;
+  padding: 20px;
   border-radius: 4px;
-  background-color: #f8f9f9;
+  background-color: $color-grey-lightest;
 
   &__highlight {
     position: absolute;
