@@ -102,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = () => {
         skeleton={data === null || navigator.userAgent === 'ReactSnap'}
         data={data || []}
       />
-      <Footer />
+      <Footer homeButton />
     </>
   )
 }
