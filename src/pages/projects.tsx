@@ -7,6 +7,7 @@ import './projects.scss'
 
 import useWithProjectData from '../hooks/useWithProjectData'
 import IProjects from '../data/IProjects'
+import Footer from '../components/footer'
 
 export interface ProjectListProps {
   skeleton: boolean
@@ -24,10 +25,25 @@ export const ProjectList: React.FC<ProjectListProps> = ({
     <Helmet>
       <title>Noah Baldwin | Projects</title>
     </Helmet>
-    <h1 className="highlight--secondary">
+    <h1 className="highlight highlight--secondary">
       Projects
     </h1>
-    <FeatureList skeleton={skeleton}>
+    <FeatureList
+      skeleton={skeleton}
+      skeletonChild={(
+        <>
+          <h4>
+            <strong>&nbsp;</strong>
+          </h4>
+          <p className="project-list__subtitle">&nbsp;</p>
+          <p className="project-list__type">&nbsp;</p>
+          <span className="project-list__metadata">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+          </span>
+        </>
+      )}
+    >
       {data.map((item) => (
         <FeatureListItem
           key={item.uid}
@@ -38,32 +54,12 @@ export const ProjectList: React.FC<ProjectListProps> = ({
           <h4>
             <strong>{item.title}</strong>
           </h4>
-          <p>{item.subtitle}</p>
-          <p
-            style={{
-              color: '#858898',
-            }}
-          >
-            {item.type}
-          </p>
-          <p
-            style={{
-              position: 'absolute',
-              bottom: 32,
-              left: 32,
-            }}
-          >
-            {item.metadata.year}
-          </p>
-          <p
-            style={{
-              position: 'absolute',
-              bottom: 32,
-              right: 32,
-            }}
-          >
-            {item.metadata.topics.join(', ')}
-          </p>
+          <p className="project-list__subtitle">{item.subtitle}</p>
+          <p className="project-list__type">{item.type}</p>
+          <span className="project-list__metadata">
+            <p>{item.metadata.year}</p>
+            <p>{item.metadata.topics.join(', ')}</p>
+          </span>
         </FeatureListItem>
       ))}
     </FeatureList>
@@ -101,10 +97,13 @@ const Projects: React.FC<ProjectsProps> = () => {
   }, [projectData])
 
   return (
-    <ProjectList
-      skeleton={data === null || navigator.userAgent === 'ReactSnap'}
-      data={data || []}
-    />
+    <>
+      <ProjectList
+        skeleton={data === null || navigator.userAgent === 'ReactSnap'}
+        data={data || []}
+      />
+      <Footer homeButton />
+    </>
   )
 }
 export default Projects

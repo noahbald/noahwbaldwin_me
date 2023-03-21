@@ -19,38 +19,40 @@ export interface FooterProps {
  * Footer to display at the bottom of every page
  */
 const Footer: React.FC<FooterProps> = ({ homeButton }) => (
-  <footer key={3}>
+  <footer className="footer">
     {homeButton && (
       <Button as={Link} type="text" to="/">Return Home</Button>
     )}
-    <h2 className="highlight--primary h1">Say Hi,</h2>
-    <h3 id="email"><a href="mailto:hi@noahwbaldwin.me">hi@noahwbaldwin.me</a></h3>
-    <ExternalLinks>
-      <ExternalLink
-        to="https://github.com/noahbald"
-        title="Github"
-      >
-        <GitHub />
-      </ExternalLink>
-      <ExternalLink
-        to="https://www.linkedin.com/in/noahwbaldwin/"
-        title="LinkedIn"
-      >
-        <LinkedIn />
-      </ExternalLink>
-      <ExternalLink
-        to="https://www.instagram.com/noahbald/"
-        title="Instagram"
-      >
-        <Instagram />
-      </ExternalLink>
-      <ExternalLink
-        to="spotify:user:12101435749"
-        title="Spotify"
-      >
-        <Spotify />
-      </ExternalLink>
-    </ExternalLinks>
+    <h2 className="highlight highlight--primary h1">Say Hi,</h2>
+    <div className="footer__links">
+      <h3 id="email"><a href="mailto:hi@noahwbaldwin.me">hi@noahwbaldwin.me</a></h3>
+      <ExternalLinks>
+        <ExternalLink
+          to="https://github.com/noahbald"
+          title="Github"
+        >
+          <GitHub />
+        </ExternalLink>
+        <ExternalLink
+          to="https://www.linkedin.com/in/noahwbaldwin/"
+          title="LinkedIn"
+        >
+          <LinkedIn />
+        </ExternalLink>
+        <ExternalLink
+          to="https://www.instagram.com/noahbald/"
+          title="Instagram"
+        >
+          <Instagram />
+        </ExternalLink>
+        <ExternalLink
+          to="spotify:user:12101435749"
+          title="Spotify"
+        >
+          <Spotify />
+        </ExternalLink>
+      </ExternalLinks>
+    </div>
   </footer>
 )
 export default Footer

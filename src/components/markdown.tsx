@@ -75,7 +75,7 @@ const Markdown: React.FC<MarkdownProps> = ({
       {peek && (
         <Button
           softShadow
-          type="outline"
+          type="solid"
           onClick={() => setPeek(false)}
         >
           Read More

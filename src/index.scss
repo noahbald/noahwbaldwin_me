@@ -26,9 +26,9 @@
   --shadow-soft-drop: drop-shadow(0 16px 40px rgba($color-grey-darkest, 0.3)) drop-shadow(0 4px 10px rgba($color-grey-darkest, 0.1));
 
   /* Columns */
-  --grid-template-columns-desktop: 64px 64px minmax(auto, 1184px) 64px 64px;
-  --grid-template-columns-tablet: 16px 64px calc(100% - 160px) 64px 16px;
-  --grid-template-columns-mobile: 16px 32px calc(100% - 96px) 32px 16px;
+  --grid-template-columns-desktop: #{$grid-template-columns-desktop};
+  --grid-template-columns-tablet: #{$grid-template-columns-tablet};
+  --grid-template-columns-mobile: #{$grid-template-columns-mobile};
   --grid-row-1-desktop: 256px;
   --grid-row-1-tablet: 160px;
   --grid-row-1-mobile: 96px;
@@ -51,6 +51,7 @@ body {
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
   font-size: $size-3;
+  line-height: $line-height;
 }
 
 [id=root] {
@@ -77,70 +78,50 @@ strong {
 
 h1,
 .h1 {
-  font-size: $size-10;
-
-  @media (max-width: 1024px) {
+  font-size: $size-8;
+  
+  @media (min-width: $bp-tablet) {
     font-size: $size-9;
   }
-
-  @media (max-width: 768px) {
-    font-size: $size-8;
-  }
-
-  @media(max-width: 480px) {
-    font-size: $size-7; 
-  }
+  
+    @media (min-width: $bp-desktop) {
+      font-size: $size-10;
+    }
 }
 
 h2,
 .h2 {
-  font-size: $size-9;
-
-  @media (max-width: 1024px) {
+  font-size: $size-7;
+  
+  @media (min-width: $bp-tablet) {
     font-size: $size-8;
-  }
-
-  @media (max-width: 768px) {
-    font-size: $size-7;
-  }
-
-  @media(max-width: 480px) {
-    font-size: $size-6; 
-  }
+  } 
+  
+    @media (min-width: $bp-desktop) {
+      font-size: $size-9;
+    }
 }
 
 h3,
 .h3 {
-  font-size: $size-8;
-
-  @media (max-width: 1024px) {
+  font-size: $size-6;
+  
+  @media (min-width: $bp-tablet) {
     font-size: $size-7;
   }
-
-  @media (max-width: 768px) {
-    font-size: $size-6;
-  }
-
-  @media(max-width: 480px) {
-    font-size: $size-5; 
-  }
+  
+    @media (min-width: $bp-desktop) {
+      font-size: $size-8;
+    }
 }
 
 h4,
 .h4 {
-  font-size: $size-7;
+  font-size: $size-5;
   font-weight: 400;
-
-  @media (max-width: 1024px) {
+  
+  @media (min-width: $bp-tablet) {
     font-size: $size-6;
-  }
-
-  @media (max-width: 768px) {
-    font-size: $size-5;
-  }
-
-  @media(max-width: 480px) {
-    font-size: $size-4; 
   }
 }
 
@@ -183,20 +164,24 @@ a {
   a:active::after {
     opacity: 0.3;
   }
+
+  svg {
+    fill: currentColor;
+  }
 }
 
 header,
-footer,
-section {
+section,
+footer {
   display: grid;
-  grid-template-columns: var(--grid-template-columns-desktop);
+  grid-template-columns: var(--grid-template-columns-mobile);
 
-  @media (max-width: 1024px) {
+  @media (min-width: $bp-tablet) {
     grid-template-columns: var(--grid-template-columns-tablet);
   }
 
-  @media(max-width: 480px) {
-    grid-template-columns: var(--grid-template-columns-mobile);
+  @media(min-width: $bp-desktop) {
+    grid-template-columns: var(--grid-template-columns-desktop);
   }
 }
 
@@ -229,6 +214,10 @@ section {
 
 .highlight {
   @include highlight;
+  padding: $space-2;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 100%;
 
   &--primary {
     @include highlight($color-primary);
