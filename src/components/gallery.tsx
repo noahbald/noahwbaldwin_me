@@ -119,7 +119,7 @@ const Gallery: React.FC<GalleryProps> = ({
   }, [])
 
   return (
-    <div className={classNames('gallery', { skeleton: loading })}>
+    <div className={classNames('gallery h4', { skeleton: loading })}>
       {loading ? (
         <>
           <Button
@@ -127,7 +127,7 @@ const Gallery: React.FC<GalleryProps> = ({
             type="text"
             aria-label="Previous item in gallery"
           />
-          <div className="gallery__content soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 0))' }}>
+          <div className="gallery__content galllery__content--in soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 0))' }}>
             <div className="gallery__image" />
             <Card>
               <h4>
@@ -135,7 +135,7 @@ const Gallery: React.FC<GalleryProps> = ({
               </h4>
             </Card>
           </div>
-          <div className="gallery__content soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 1))' }}>
+          <div className="gallery__content gallery__content--in soft-shadow" style={{ transform: 'translateX(calc(64px + (100% + 64px) * 1))' }}>
             <div className="gallery__image" />
             <Card>
               <h4>
@@ -169,11 +169,12 @@ const Gallery: React.FC<GalleryProps> = ({
             return item && (
               <div
                 key={item.uid + String(positionOverflow)}
-                className="gallery__content soft-shadow"
+                className={classNames('gallery__content soft-shadow', {
+                  'gallery__content--in': opacity || (dragging && (dragInitialX - dragDeltaX !== 0)),
+                })}
                 style={{
                   transform: translateX,
                   transition: dragging ? 'none' : undefined,
-                  opacity: dragging && (dragInitialX - dragDeltaX !== 0) ? 1 : opacity,
                 }}
                 onClick={() => navigate(item.href)}
                 onTouchStart={handleDragStart}

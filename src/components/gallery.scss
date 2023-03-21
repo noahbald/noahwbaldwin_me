@@ -1,77 +1,80 @@
-@import "../variables"; 
+@import "../variables";
 
 .gallery {
-    overflow-x: hidden;
-    position: relative;
-    min-height: calc(256px + 64px + 6em + 96px);
-    margin-bottom: -32px;
-    margin-top: -32px;
+  $gallery__content-margin: 32px;
+  $gallery__image-height: 256px;
+  $gallery__card-padding: 20px;
+  $gallery__shadow-depth: 56px;
+  overflow-x: hidden;
+  position: relative;
+  min-height: calc(($line-height * 3em) + ($gallery__content-margin + $gallery__image-height + (2 * $gallery__card-padding) + $gallery__shadow-depth));
+  margin: -32px -4px;
     
-    &__content {
-      position: absolute;
-      display: inline-flex;
-      flex-direction: column;
-      width: calc(50% - 96px);
-      min-height: calc(100% - 96px);
-      margin-top: 32px;
-      border-radius: 4px;
+  &__content {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    width: calc(100% - $space-6);
+    margin-top: $gallery__content-margin;
+    border-radius: 4px;
+    opacity: 0;
+    transition: transform 1s ease-in-out, opacity 1s, box-shadow .2s;
+
+    &:hover {
+      box-shadow: $shadow-soft-deep;
+      cursor: pointer;
+
+      .card-highlight {
+        height: 10px;
+      }
+    }
+
+    &:active {
+      .card-highlight {
+        height: 12px;
+      }
+    }
+    
+    &:active,
+    &:focus {
+      box-shadow: $shadow-soft-shallow;
+      outline: none;
+    }
+
+    &--in {
       opacity: 1;
-      transition: transform 1s ease-in-out, opacity 1s, box-shadow .2s;
 
-      h4 {
-        text-overflow: ellipsis;
-      }
-      
-      .card {
-        max-height: calc(64px + (2 * $line-height * $size-7));
-        height: calc(64px + (2 * $line-height * $size-7));
-        border-radius: 0 0 4px 4px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      + .gallery__content--in {
+        opacity: 0;
 
-      &:hover {
-        box-shadow: 0 21px 53px rgba(61, 62, 70, 0.3), 0 5px 13px rgba(61, 62, 70, 0.1);
-        cursor: pointer;
-
-        .card-highlight {
-          height: 10px;
+        @media (min-width: $bp-tablet) {
+          opacity: 1;
         }
       }
+    }
 
-      &:active {
-        .card-highlight {
-          height: 12px;
-        }
-      }
-      
-      .card::after {
-        border-radius: 4px;
-        content: "";
-        width: 100%;
-        height: 32px;
-        background-color: $color-grey-lightest;
-        left: 0;
-        bottom: 0;
-        z-index: 1;
-        position: absolute;
-      }
-      
-      &:active,
-      &:focus {
-        box-shadow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62, 70, 0.1);
-        outline: none;
-      }
+    @media (min-width: $bp-tablet) {
+      width: calc(50% - 96px);
+    }
   }
   
   &__image {
       display: inline-flex;
-      height: 256px;
+      height: $gallery__image-height;
       border-radius: 4px 4px 0 0;
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       object-fit: cover;
+  }
+
+  .card {
+    border-radius: 0 0 4px 4px;
+    
+    h4 {
+      height: calc($line-height * 3em);
+      overflow: hidden;
+    }
   }
   
   .button {
@@ -94,46 +97,6 @@
     }
     .button {
       width: 48px;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    min-height: calc(256px + 64px + 5em + 96px);
-
-    &__content {
-      h4 {
-        font-size: 1.5em;
-      }
-
-      .card {
-        max-height: calc(64px + 5em);
-        height: calc(64px + 5em);
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    &__content {
-      width: calc(100% - 128px);
-      
-      &:nth-child(4n) {
-        opacity: 0 !important;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    min-height: calc(256px + 64px + 3em + 96px);
-
-    &__content {
-      h4 {
-        font-size: 1em;
-      }
-      
-      .card {
-        max-height: calc(64px + 3em);
-        height: calc(64px + 3em);
-      }
     }
   }
 }

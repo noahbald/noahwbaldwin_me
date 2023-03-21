@@ -25,7 +25,6 @@ const Header: React.FC<HeaderProps> = ({
   callToAction,
 }) => (
   <header className="header">
-    <h1 className="highlight--grey-light">{heading}</h1>
     <div className="header__image soft-shadow">
       {src?.endsWith('.webm') ? (
         <video src={src} autoPlay loop muted controls={false}>
@@ -35,8 +34,9 @@ const Header: React.FC<HeaderProps> = ({
         <img src={src} alt="" />
       )}
     </div>
+    <h1 className="highlight highlight--grey-light">{heading}</h1>
     {title && (
-      <Card className="soft-shadow">
+      <Card className="soft-shadow h4">
         <h4>
           <strong>{title}</strong>
           <span className="fade fade--delayed">&nbsp;&mdash;&nbsp;</span>

@@ -29,8 +29,8 @@ const Resume: React.FC = () => {
     : resumeData.record.items
 
   return (
-    <section className="resume">
-      <h2 className="highlight--tertiary h1">Résumé</h2>
+    <section className="index__section resume">
+      <h2 className="highlight highlight--tertiary h1">Résumé</h2>
       <Button
         as={Link}
         type="text"
