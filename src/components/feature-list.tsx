@@ -13,6 +13,7 @@ export interface FeatureListItemProps extends React.PropsWithChildren {
   to: string
   toTitle?: string
   skeleton?: boolean;
+  skeletonChild?: React.ReactNode
 }
 
 /**
@@ -35,6 +36,7 @@ export const FeatureListItem: React.FC<FeatureListItemProps> = ({
   to,
   toTitle,
   skeleton,
+  skeletonChild,
 }) => {
   const navigate = useNavigate()
 
@@ -53,35 +55,9 @@ export const FeatureListItem: React.FC<FeatureListItemProps> = ({
         to={to}
         toTitle={toTitle}
       >
-        {skeleton ? (
-          <>
-            <h4>&nbsp;</h4>
-            <p>&nbsp;</p>
-            <p
-              style={{
-                width: '15%',
-              }}
-            >
-              &nbsp;
-            </p>
-            <p
-              style={{
-                position: 'absolute',
-                bottom: 32,
-                left: 32,
-                width: '33%',
-              }}
-            />
-            <p
-              style={{
-                position: 'absolute',
-                bottom: 32,
-                right: 32,
-                width: '33%',
-              }}
-            />
-          </>
-        ) : children}
+        {skeleton
+          ? skeletonChild
+          : children}
       </Card>
     </div>
   )
@@ -93,6 +69,7 @@ export interface FeatureListProps {
     React.ReactElement<typeof FeatureListItem> | React.ReactElement<typeof FeatureListItem>[]
   )
   skeleton?: boolean
+  skeletonChild?: React.ReactElement
 }
 
 /**
@@ -109,13 +86,14 @@ const FeatureList: React.FC<FeatureListProps> = ({
   children,
   className,
   skeleton,
+  skeletonChild,
 }) => {
   if (skeleton) {
     return (
       <FeatureList className="skeleton">
-        <FeatureListItem skeleton to="" />
-        <FeatureListItem skeleton to="" />
-        <FeatureListItem skeleton to="" />
+        <FeatureListItem skeleton skeletonChild={skeletonChild} to="" />
+        <FeatureListItem skeleton skeletonChild={skeletonChild} to="" />
+        <FeatureListItem skeleton skeletonChild={skeletonChild} to="" />
       </FeatureList>
     )
   }

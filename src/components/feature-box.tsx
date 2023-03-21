@@ -80,7 +80,7 @@ const FeatureBox: React.FC<FeatureBoxProps> = ({
               >
                 {content?.[prevIndex]?.title}
               </Button>
-              <h3>{title}</h3>
+              <h3 className="h2">{title}</h3>
               <Button
                 softShadow
                 onClick={() => setOption(nextIndex)}
@@ -101,7 +101,7 @@ const FeatureBox: React.FC<FeatureBoxProps> = ({
               key={uid}
             >
               <img
-                className={classNames('icon', {
+                className={classNames('icon highight', {
                   'highlight--primary': (i + option) % 3 === 0,
                   'highlight--secondary': (i + option) % 3 === 1,
                   'highlight--tertiary': (i + option) % 3 === 2,
@@ -109,7 +109,7 @@ const FeatureBox: React.FC<FeatureBoxProps> = ({
                 src={icon}
                 alt={contentTitle}
               />
-              <p>
+              <p className="h4">
                 <strong>{contentTitle}</strong>
                 &nbsp;&mdash;&nbsp;
                 {body}

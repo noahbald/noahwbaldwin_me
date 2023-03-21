@@ -3,10 +3,10 @@ import { hydrateRoot, createRoot } from 'react-dom/client'
 import 'modern-css-reset'
 import 'typeface-lato'
 
+import './index.scss'
+
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-
-import './index.scss'
 
 const rootNode = document.getElementById('root')
 if (rootNode) {

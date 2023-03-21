@@ -22,8 +22,9 @@ $shadow-soft-shallow: 0 10px 27px rgba(61, 62, 70, 0.3), 0 3px 12px rgba(61, 62,
 $shadow-soft-deep: 0 21px 53px rgba(61, 62, 70, 0.3), 0 5px 13px rgba(61, 62, 70, 0.1);
 $shadow-soft-drop: drop-shadow(0 16px 40px rgba($color-grey-darkest, 0.3)) drop-shadow(0 4px 10px rgba($color-grey-darkest, 0.1));
 
+// Typography
 $font-bold: 900;
-$line-height: 1.5;
+$line-height: 1.17;
 $size-1: 1.2rem;
 $size-2: 1.4rem;
 $size-3: 1.6rem;
@@ -34,3 +35,26 @@ $size-7: 3.6rem;
 $size-8: 4.8rem;
 $size-9: 7.2rem;
 $size-10: 12.8rem;
+
+// Spacers
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 16px;
+$space-4: 32px;
+$space-5: 64px;
+$space-6: 128px;
+$space-7: 256px;
+$space-8: 512px;
+
+// Breakpoints
+$bp-desktop: 1200px;
+$bp-tablet: 768px;
+$bp-mobile: 480px;
+
+// Grid
+$grid-template-columns-desktop: 40px 60px 1fr 60px 40px;
+$grid-template-columns-tablet: 20px 60px 1fr 60px 20px;
+$grid-template-columns-mobile: 20px 20px 1fr 20px 20px;
+$grid-row-1-desktop: 256px;
+$grid-row-1-tablet: 160px;
+$grid-row-1-mobile: 96px;
