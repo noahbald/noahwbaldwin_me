@@ -1,0 +1,30 @@
+@import '../../custom-media.css';
+
+.project-page {
+	margin-top: var(--size-8);
+
+	@media (--bp-mobile) {
+		margin-top: var(--size-5);
+	}
+
+	.markdown {
+		grid-column: 3;
+
+		@media (--bp-mobile) {
+			grid-column: 2 / 5;
+		}
+
+		@media (--bp-tablet) {
+			grid-column: 3;
+		}
+	}
+
+	.external-links {
+		grid-column: 3;
+		justify-self: center;
+
+		@media (--bp-tablet) {
+			justify-self: end;
+		}
+	}
+}
