@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-    <meta name="Description" content={intro} />
+	<meta name="Description" content={intro} />
 </svelte:head>
 
 <Header src="/media/profile.jpg" heading="Noah Baldwin" title="Hello!" subtitle={intro}>

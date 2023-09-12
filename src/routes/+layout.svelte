@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-    <title>Noah Baldwin | Frontend Engineer</title>
+	<title>Noah Baldwin | Frontend Engineer</title>
 </svelte:head>
 
 <main
