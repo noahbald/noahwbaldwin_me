@@ -73,7 +73,7 @@
 
 	--grid-template-columns-desktop: 4rem 6rem 1fr 6rem 4rem;
 	--grid-template-columns-tablet: 2rem 6rem 1fr 6rem 2rem;
-	--grid-template-columns-mobile: 2rem 2rem calc(100vw - 8rem) 2rem 2rem;
+	--grid-template-columns-mobile: 2rem 2rem min(auto, calc(100vw - 8rem)) 2rem 2rem;
 	--grmid-row-1-desktop: var(--space-7);
 	--grid-row-1-tablet: 16rem;
 	--grid-row-1-mobile: 9.6rem;

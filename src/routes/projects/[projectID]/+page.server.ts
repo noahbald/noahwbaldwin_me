@@ -10,7 +10,7 @@ export const load: PageServerLoad = async (event) => {
 	)) as ProjectsPageData;
 	const project = projectData.record.find((item) => item.href.endsWith(params.projectID));
 	if (!project) {
-		throw error(404, '');
+		throw error(404, 'Project not found');
 	}
 
 	const markdownResponse = await fetch(project?.markdown);
