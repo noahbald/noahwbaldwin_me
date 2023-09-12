@@ -1,3 +1,0 @@
-/media/* https://storage.googleapis.com//:splat 200!
-/api/projects https://api.jsonbin.io/v3/b/ 200! X-Access-Key=$VITE_JSON_BIN_KEY Content-Type="application/json"
-/api/resume https://api.jsonbin.io/v3/b/ 200! X-Access-Key=$VITE_JSON_BIN_KEY Content-Type="application/json"
