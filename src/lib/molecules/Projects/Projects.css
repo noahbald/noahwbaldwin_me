@@ -1,0 +1,13 @@
+.projects {
+	display: grid;
+	width: 100%;
+
+	> .button {
+		z-index: 1;
+	}
+
+	.gallery {
+		grid-column: 2 / 5;
+		grid-row: 3;
+	}
+}

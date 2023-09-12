@@ -1,0 +1,56 @@
+@import '$lib/../routes/custom-media.css';
+
+.footer {
+	grid-template-rows: min-content(var(--size-5) auto) auto auto;
+	grid-auto-flow: column;
+	margin-bottom: var(--size-8);
+
+	& h2 {
+		grid-column: 3;
+		grid-row: 2;
+		justify-self: baseline;
+
+		@media (--bp-tablet) {
+			margin-bottom: var(--size-5);
+		}
+
+		@media (--bp-desktop) {
+			margin-bottom: var(--size-8);
+		}
+	}
+
+	& h3 {
+		margin: var(--space-2) 0;
+	}
+
+	.button {
+		grid-row: 1;
+		grid-column: 3;
+		justify-self: baseline;
+		transform: translateX(var(--size-3));
+
+		@media (--bp-tablet) {
+			grid-row: 2;
+			justify-self: end;
+			align-self: end;
+			margin-bottom: var(--size-1);
+			transform: translateX(var(--size-1));
+		}
+	}
+
+	.external-links {
+		margin: 0;
+	}
+
+	> :where(.links) {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		grid-column: 3;
+		grid-row: 3;
+
+		@media (--bp-tablet) {
+			flex-direction: row;
+		}
+	}
+}

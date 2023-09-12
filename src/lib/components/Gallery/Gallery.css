@@ -1,0 +1,107 @@
+@import '$lib/../routes/custom-media.css';
+
+.gallery {
+	--gallery__content-margin: var(--size-7);
+	--gallery__image-height: var(--space-7);
+	--gallery__card-padding: var(--size-5);
+	--gallery__shadow-depth: 5.6rem;
+	--_gallery-transition: opacity 1s, box-shadow 0.2s;
+	overflow-x: hidden;
+	position: relative;
+	min-height: calc(
+		(var(--line-height) * 3em) +
+			(
+				var(--gallery__content-margin) + var(--gallery__image-height) +
+					(2 * var(--gallery__card-padding)) + var(--gallery__shadow-depth)
+			)
+	);
+	margin: calc(-1 * --gallery__content-margin) var(--space-1);
+
+	> :where(.content) {
+		position: absolute;
+		display: inline-flex;
+		flex-direction: column;
+		width: calc(100% - var(--space-6));
+		margin-top: var(--gallery__content-margin);
+		border-radius: var(--space-1);
+		opacity: 0;
+		transform: translateX(
+			calc(var(--drag-distance, 0) + var(--space-5) + (100% + var(--space-5)) * var(--i-position))
+		);
+		transition: var(--_gallery-transition);
+
+		&:hover {
+			box-shadow: var(--shadow-soft-deep);
+			cursor: pointer;
+
+			.card-highlight {
+				height: var(--space-2);
+			}
+		}
+
+		&:active {
+			.card-highlight {
+				height: calc(var(--space-2) + 0.2rem);
+			}
+		}
+
+		&:active,
+		&:focus {
+			box-shadow: var(--shadow-soft-shallow);
+			outline: none;
+		}
+
+		&:where(.in) {
+			opacity: 1;
+
+			+ :where(.in) {
+				opacity: 0;
+
+				@media (--bp-tablet) {
+					opacity: 1;
+				}
+			}
+		}
+
+		&:where(:not(.dragging)) {
+			transition: transform 1s ease-in-out, var(--_gallery-transition);
+		}
+
+		@media (--bp-tablet) {
+			width: calc(50% - 9.6rem);
+		}
+	}
+
+	:where(.image.of-gallery) {
+		display: inline-flex;
+		height: var(--gallery__image-height);
+		border-radius: var(--space-1) var(--space-1) 0 0;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		object-fit: cover;
+	}
+
+	.card {
+		border-radius: 0 0 var(--space-1) var(--space-1);
+
+		& hgroup {
+			height: calc(var(--line-height) * 3em);
+			overflow: hidden;
+		}
+	}
+
+	.button {
+		z-index: 1;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:first-child {
+			left: 0;
+		}
+		&:last-child {
+			right: 0;
+		}
+	}
+}
