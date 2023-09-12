@@ -11,6 +11,7 @@ interface IProjects {
 			featured: boolean;
 		};
 		src: string;
+		alt?: string;
 		subtitle: string;
 		title: string;
 		type: string;

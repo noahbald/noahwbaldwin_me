@@ -18,8 +18,8 @@
 </script>
 
 <svelte:head>
-    <title>Noah Baldwin | Project - ${data.project.title}</title>
-    <meta name="Description" content={data.project.subtitle} />
+	<title>Noah Baldwin | Project - ${data.project.title}</title>
+	<meta name="Description" content={data.project.subtitle} />
 </svelte:head>
 
 <Header

@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-    <title>Noah Baldwin | Projects</title>
+	<title>Noah Baldwin | Projects</title>
 </svelte:head>
 
 <section class="project-list">
