@@ -1,0 +1,6 @@
+@custom-media --bp-desktop (min-width: 1200px);
+@custom-media --bp-desktop-max (max-width: 1200px);
+@custom-media --bp-tablet (min-width: 768px);
+@custom-media --bp-tablet-max (max-width: 768px);
+@custom-media --bp-mobile (min-width: 480px);
+@custom-media --bp-mobile-max (max-width: 480px);
