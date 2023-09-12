@@ -5,6 +5,11 @@
 	import Button from '$lib/components/Button/Button.svelte';
 </script>
 
+<svelte:head>
+    <title>Noah Baldwin | 404 ${page.error.message}</title>
+    <meta name="Description" content={page.error.message} />
+</svelte:head>
+
 <Header
 	src="/404.webm"
 	heading="404 Error"

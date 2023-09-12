@@ -12,6 +12,10 @@
 	$: projects = data.projectData.record || [];
 </script>
 
+<svelte:head>
+    <title>Noah Baldwin | Projects</title>
+</svelte:head>
+
 <section class="project-list">
 	<h1 class="highlight secondary">Projects</h1>
 	<Button tag="a" variant="text" href="/">Return Home</Button>

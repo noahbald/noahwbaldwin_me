@@ -121,7 +121,7 @@
 			<img {src} {alt} class="image of-gallery" />
 			<Card {href} {title}>
 				<hgroup class="h4">
-					<h4>{title}</h4>
+					<h3 class="h4">{title}</h3>
 					<span>
 						&nbsp;&mdash;&nbsp;
 						{subtitle}
