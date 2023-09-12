@@ -1,27 +1,3 @@
 [build]
     command = "npm run build"
     publish = "build"
-
-[[redirects]]
-  from = "/media/*"
-  to = "https://storage.googleapis.com//:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/api/projects"
-  to = "https://api.jsonbin.io/v3/b/"
-  status = 200
-  force = true
-  [redirects.headers]
-    X-Access-Key = ""
-    Content-Type = "application/json"
-
-[[redirects]]
-  from = "/api/resume"
-  to = "https://api.jsonbin.io/v3/b/"
-  status = 200
-  force = true
-  [redirects.headers]
-    X-Access-Key = ""
-    Content-Type = "application/json"
