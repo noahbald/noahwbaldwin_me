@@ -10,6 +10,11 @@
 	$: handleClickOutsideLink = () => goto(href);
 </script>
 
+<!-- NOTE: Intentionally ignoring a11y warnings -->
+<!-- The div is not intended to be keyboard-interactive -->
+<!-- Keyboard interaction is provided by nested anchor -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="item of-feature-list" on:click={handleClickOutsideLink}>
 	<img class="image of-feature-list" {src} {alt} />
 	<Card {href} title={hrefDescription}>

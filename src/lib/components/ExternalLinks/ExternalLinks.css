@@ -2,7 +2,7 @@
 	display: flex;
 
 	> :where(.link) {
-		--icon: url('/undefined.svg');
+		--icon: url('/icons/undefined.svg');
 		width: var(--size-8);
 		height: var(--size-8);
 		margin: 0;
