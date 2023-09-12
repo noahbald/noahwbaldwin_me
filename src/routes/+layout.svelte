@@ -21,6 +21,10 @@
 	});
 </script>
 
+<svelte:head>
+    <title>Noah Baldwin | Frontend Engineer</title>
+</svelte:head>
+
 <main
 	class={clsx('page', {
 		[`${path}-page`]: path,

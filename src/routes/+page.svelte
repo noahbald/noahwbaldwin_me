@@ -15,6 +15,10 @@
 	$: resume = data.resumeData.record;
 </script>
 
+<svelte:head>
+    <meta name="Description" content={intro} />
+</svelte:head>
+
 <Header src="/media/profile.jpg" heading="Noah Baldwin" title="Hello!" subtitle={intro}>
 	<Button slot="call-to-action" tag="a" href="/projects" class="shoft-shadow">Show me more!</Button>
 </Header>
