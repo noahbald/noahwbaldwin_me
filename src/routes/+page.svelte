@@ -3,6 +3,7 @@
 	import Header from '$lib/components/Header/Header.svelte';
 	import Footer from '$lib/components/Footer/Footer.svelte';
 	import Button from '$lib/components/Button/Button.svelte';
+	import PageList from '$lib/molecules/PageList/PageList.svelte';
 	import Projects from '$lib/molecules/Projects/Projects.svelte';
 	import Resume from '$lib/molecules/Resume/Resume.svelte';
 
@@ -11,7 +12,8 @@
 	export let data: PageData;
 
 	$: intro = data.resumeData.record.intro;
-	$: projects = data.projectData.record;
+	$: blogs = data.blogsData.record.filter((record) => record.metadata.featured).slice(-1, 3);
+	$: projects = data.projectData.record.filter((record) => record.metadata.featured);
 	$: resume = data.resumeData.record;
 </script>
 
@@ -22,6 +24,11 @@
 <Header src="/media/profile.jpg" heading="Noah Baldwin" title="Hello!" subtitle={intro}>
 	<Button slot="call-to-action" tag="a" href="/projects" class="shoft-shadow">Show me more!</Button>
 </Header>
-<Projects {projects} />
+{#if blogs.length}
+	<PageList pages={blogs} heading="Blogs" ctaText="View More" ctaHref="/blogs" />
+{/if}
+{#if projects.length}
+	<Projects {projects} />
+{/if}
 <Resume {resume} />
 <Footer />

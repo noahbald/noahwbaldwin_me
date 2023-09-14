@@ -1,31 +1,24 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
-	import { marked } from 'marked';
-	import sanitizeHTML from 'sanitize-html';
+	import { browser } from '$app/environment';
 	import Button from '$lib/components/Button/Button.svelte';
+	import parseMarkdownSanitized from '$lib/utils/parseMarkdownSanitized';
 
 	import './Markdown.css';
 
 	export let markdown: string;
+	export let disablePeek: boolean | undefined;
 
 	let peek = writable(true);
 
-	$: dangerousHTML = markdown && marked.parse(markdown);
-	$: sanitizedHTML = sanitizeHTML(dangerousHTML, {
-		allowedTags: sanitizeHTML.defaults.allowedTags.concat('img', 'h1', 'h2', 'h3'),
-		allowedAttributes: {
-			img: ['src', 'alt'],
-			a: ['href', 'name', 'target', 'title'],
-		},
-		selfClosing: ['img'],
-	});
+	$: sanitizedHTML = parseMarkdownSanitized(markdown);
 </script>
 
-<div class="markdown" class:peek>
+<div class="markdown" class:peek={!disablePeek && peek}>
 	<article class="content of-markdown">
 		{@html sanitizedHTML}
 	</article>
-	{#if peek}
+	{#if !disablePeek && peek}
 		<Button on:click={() => (peek = false)} class="soft-shadow">Read More</Button>
 	{/if}
 </div>

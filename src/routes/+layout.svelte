@@ -4,6 +4,10 @@
 	import clsx from 'clsx';
 	import 'sanitize.css';
 	import './layout.css';
+	import '@fontsource/lato';
+	import '@fontsource/lato/700.css';
+	import '@fontsource/lato/900.css';
+	import '@fontsource/jetbrains-mono';
 
 	$: path = $page.url.pathname.split('/').slice(1).join(' ');
 

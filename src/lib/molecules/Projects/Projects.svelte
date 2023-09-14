@@ -11,5 +11,5 @@
 <section class="projects">
 	<h2 class="highlight secondary h1">Projects</h2>
 	<Button tag="a" variant="text" href="/projects">View More</Button>
-	<Gallery projects={projects.filter((project) => project.metadata.featured)} />
+	<Gallery {projects} />
 </section>
