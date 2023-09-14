@@ -1,4 +1,4 @@
-@import "$lib/../routes/custom-media.css";
+@import '$lib/../routes/custom-media.css';
 
 .projects {
 	display: grid;
@@ -13,7 +13,7 @@
 		grid-row: 3;
 	}
 
-    @media (--bp-tablet-max) {
-        margin-top: var(--size-8);
-    }
+	@media (--bp-tablet-max) {
+		margin-top: var(--size-8);
+	}
 }

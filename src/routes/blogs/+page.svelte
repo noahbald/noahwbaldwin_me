@@ -5,12 +5,12 @@
 
 	export let data: PageData;
 
-	$: projects = data.projectData.record.filter((project) => !project.metadata.hidden) || [];
+	$: blogs = data.blogsData.record || [];
 </script>
 
 <svelte:head>
-	<title>Noah Baldwin | Projects</title>
+	<title>Noah Baldwin | PageList</title>
 </svelte:head>
 
-<PageList pages={projects} heading="Projects" ctaText="Return Home" ctaHref="/" />
+<PageList pages={blogs} heading="Blogs" ctaText="Return Home" ctaHref="/" />
 <Footer homeButton={true} />

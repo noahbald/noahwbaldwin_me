@@ -113,7 +113,7 @@
 		width: 100%;
 		max-width: 10 * var(--size-7);
 		margin-top: calc(-1em - var(--size-5));
-        padding: calc(var(--size-5) + .2rem);
+		padding: calc(var(--size-5) + 0.2rem);
 		transform-origin: bottom;
 		animation: grow-fade-in 1s ease;
 

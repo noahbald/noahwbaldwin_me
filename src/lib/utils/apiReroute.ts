@@ -1,4 +1,4 @@
-const apiReroute = (request: Request, bin: 'PROJECTS' | 'RESUME') => {
+const apiReroute = (request: Request, bin: 'PROJECTS' | 'RESUME' | 'BLOGS') => {
 	const headers = new Headers(request.headers);
 	headers.set('X-Access-Key', import.meta.env.VITE_JSON_BIN_KEY);
 	headers.set('Content-Type', 'application/json');

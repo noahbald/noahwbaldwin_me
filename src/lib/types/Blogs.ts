@@ -1,13 +1,11 @@
-interface IProjects {
+interface IBlogs {
 	metadata: Record<string, any>;
 	record: {
-		externalLinks?: Record<string, string>;
 		href: string;
 		markdown: string;
 		metadata: {
 			year: number;
 			topics: string[];
-			client: string;
 			featured: boolean;
 			hidden?: boolean;
 		};
@@ -19,4 +17,4 @@ interface IProjects {
 		uid: string;
 	}[];
 }
-export default IProjects;
+export default IBlogs;

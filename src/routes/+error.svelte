@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-	<title>Noah Baldwin | 404 ${page.error.message}</title>
-	<meta name="Description" content={page.error.message} />
+	<title>Noah Baldwin | 404 ${$page.error.message}</title>
+	<meta name="Description" content={$page.error.message} />
 </svelte:head>
 
 <Header
