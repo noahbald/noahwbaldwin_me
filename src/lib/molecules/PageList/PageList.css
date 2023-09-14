@@ -1,6 +1,6 @@
-@import '../custom-media.css';
+@import '$lib/../routes/custom-media.css';
 
-.project-list {
+.page-list {
 	grid-template-rows: auto auto auto;
 	width: 100%;
 	font-size: var(--size-4);
@@ -9,7 +9,7 @@
 		grid-template-rows: auto auto;
 	}
 
-	& h1 {
+	> .h1 {
 		grid-column: 3;
 		grid-row: 1;
 		justify-self: baseline;
@@ -36,7 +36,8 @@
 		grid-column: 3;
 		grid-row: 3;
 
-		& h4 {
+		.h4 {
+			place-self: initial;
 			margin-bottom: var(--space-2);
 			font-size: var(--size-4);
 
@@ -50,16 +51,16 @@
 		}
 	}
 
-	:where(.subtitle.of-project-list) {
+	:where(.subtitle.of-blog-list) {
 		margin-bottom: var(--space-2);
 	}
 
-	:where(.type.of-project-list) {
+	:where(.type.of-blog-list) {
 		margin-bottom: var(--space-3);
 		color: var(--color-grey-dark);
 	}
 
-	:where(.metadata.of-project-list) {
+	:where(.metadata.of-blog-list) {
 		display: flex;
 		justify-content: space-between;
 		margin-top: auto;
