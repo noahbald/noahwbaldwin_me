@@ -1,11 +1,7 @@
 @import '../../custom-media.css';
 
-.project-page {
+.blog-page {
 	margin-top: var(--size-8);
-
-	@media (--bp-mobile) {
-		margin-top: var(--size-5);
-	}
 
 	.markdown {
 		grid-column: 3;

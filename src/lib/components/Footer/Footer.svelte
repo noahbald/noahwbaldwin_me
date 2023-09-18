@@ -18,6 +18,9 @@
 		</h3>
 		<ExternalLinks>
 			<ExternalLink href="https://github.com/noahbald" icon="github">GitHub</ExternalLink>
+			<ExternalLink href="https://mastodon.social/@noahbald" rel="me" icon="mastodon">
+				Mastodon
+			</ExternalLink>
 			<ExternalLink href="https://www.linkedin.com/in/noahwbaldwin/" icon="linkedin">
 				LinkedIn
 			</ExternalLink>

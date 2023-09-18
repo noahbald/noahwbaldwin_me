@@ -137,19 +137,24 @@ pre {
 	}
 
 	.keyword,
-	.build_in,
-	.property {
+	.built_in,
+	.property,
+	.selector-id {
 		color: var(--color-tertiary-light);
 	}
 
 	.params,
 	.variable,
-	.attr {
+	.attr,
+	.selector-class,
+	.attribute {
 		color: var(--color-primary-light);
 	}
 
 	.title,
-	.string {
+	.string,
+	.selector-tag,
+	.number {
 		color: var(--color-secondary-light);
 	}
 
