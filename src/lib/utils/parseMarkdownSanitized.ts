@@ -19,7 +19,7 @@ hljs.configure({
 const md = new MarkdownIt({
 	highlight(str, lang) {
 		if (!lang || !hljs.getLanguage(lang)) {
-			return '';
+			return hljs.highlightAuto(str, [lang]).value;
 		}
 		return hljs.highlight(str, { language: lang }).value;
 	},
@@ -44,6 +44,7 @@ function parseMarkdownSanitized(markdown: string) {
 			code: ['class'],
 			pre: ['class'],
 			span: ['class'],
+			ol: ['start'],
 		},
 		selfClosing: ['img'],
 	});

@@ -77,6 +77,7 @@
 
 		@media (--bp-mobile) {
 			margin-bottom: calc(0.5 * var(--_h1-margin-bottom));
+			white-space: nowrap;
 		}
 	}
 
