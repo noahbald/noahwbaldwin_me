@@ -22,7 +22,7 @@
 	cursor: pointer;
 	transition: color 0.2s, background-color 0.2s, transform 0.2s;
 
-	&:hover {
+	&:where(:hover) {
 		background-color: var(--button-background--hover);
 		transform: translateY(-0.1rem);
 	}
@@ -31,7 +31,7 @@
 		background-color: var(--button-background--disabled);
 	}
 
-	&:active {
+	&:where(:active) {
 		background-color: var(--button-background--active);
 		transform: translateY(-0.2rem);
 	}

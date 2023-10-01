@@ -82,6 +82,10 @@
 		object-fit: cover;
 	}
 
+    h3 {
+        display: inline;
+    }
+
 	.card {
 		border-radius: 0 0 var(--space-1) var(--space-1);
 
