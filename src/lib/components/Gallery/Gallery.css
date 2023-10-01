@@ -82,7 +82,7 @@
 		object-fit: cover;
 	}
 
-    h3 {
+    & h3 {
         display: inline;
     }
 
