@@ -1,15 +1,12 @@
 <script lang="ts">
 	import Card from '$lib/components/Card/Card.svelte';
-	import type Button from '$lib/components/Button/Button.svelte';
+	import Image from '$lib/components/Image/Image.svelte';
 
 	import './Header.css';
 
-	export interface $$Slots {
-		'call-to-action': typeof Button;
-	}
-
 	export let heading: string;
 	export let src: string;
+	export let srcTiny: string | undefined = undefined;
 	export let title: string;
 	export let subtitle: string;
 </script>
@@ -18,10 +15,17 @@
 	<div class="image soft-shadow">
 		{#if src.endsWith('.webm')}
 			<video {src} autoplay loop muted>
-				<source {src} alt="" />
+				<source {src} />
 			</video>
 		{:else}
-			<img {src} alt="" />
+			<Image
+				{src}
+				alt=""
+				width={1920}
+				height={1080}
+				fallbackQuality={10}
+				dataURLFallback={srcTiny}
+			/>
 		{/if}
 	</div>
 	<h1 class="highlight grey-light">{heading}</h1>

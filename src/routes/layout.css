@@ -37,6 +37,7 @@
 	--color-tertiary: #bd67cb;
 	--color-tertiary-dark: #894b93;
 
+	--color-white-a11y-only: #fff;
 	--color-grey-lightest: #f9f9fa;
 	--color-grey-light: #dfe0e6;
 	--color-grey: #c1c3cf;
@@ -256,7 +257,7 @@ h4,
 }
 
 a {
-	--link-color: var(--color-primary);
+	--link-color: var(--color-primary-dark);
 	--link-color--visited: var(--color-secondary);
 	--link-color--hover: var(--color-grey-darkest);
 	color: var(--link-color);

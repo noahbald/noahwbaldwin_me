@@ -57,7 +57,7 @@
 
 	:where(.type.of-blog-list) {
 		margin-bottom: var(--space-3);
-		color: var(--color-grey-dark);
+		color: color-mix(in srgb, var(--color-grey-dark) 67%, var(--color-grey-darkest));
 	}
 
 	:where(.metadata.of-blog-list) {

@@ -3,13 +3,14 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button/Button.svelte';
+	import Image from '$lib/components/Image/Image.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
 	import type Projects from '$lib/../__mocks__/api/projects';
 
 	import './Gallery.css';
 
 	// FIXME: This isn't very flexible, but it's not like we need it to be right now
-	export let projects: Projects['record'][];
+	export let projects: (typeof Projects)['record'];
 
 	const INTERVAL_TIMEOUT = 3000;
 
@@ -22,7 +23,7 @@
 	$: visibleProjects = projects.length
 		? Array.from({ length: 4 }, (_, i) =>
 				projects.at(((($position + i - 1) % projects.length) + projects.length) % projects.length)
-		  )
+		  ).filter((project): project is (typeof projects)[number] => !!project)
 		: [];
 
 	type TouchOrMouseEvent = MouseEvent | TouchEvent;
@@ -82,7 +83,7 @@
 
 	onMount(() => {
 		const newInterval = setInterval(() => ($position += 1), INTERVAL_TIMEOUT);
-		$interval = newInterval;
+		$interval = Number(newInterval);
 
 		return () => clearInterval($interval);
 	});
@@ -92,7 +93,10 @@
 	<Button
 		variant="text"
 		icon="arrow-left"
-		on:click={() => clearInterval($interval) || ($position -= 1)}
+		on:click={() => {
+			clearInterval($interval);
+			$position -= 1;
+		}}
 	>
 		<span class="sr-only">Previous item in gallery<span /></span></Button
 	>
@@ -116,9 +120,9 @@
 			on:mouseup={(e) => handleDragStop(e, href)}
 			on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && goto(href)}
 			role="presentation"
-			tab-index={opacity - 1}
+			tabindex={opacity - 1}
 		>
-			<img {src} {alt} class="image of-gallery" />
+			<Image {src} {alt} class="image of-gallery" width={624} height={256} />
 			<Card {href} {title}>
 				<hgroup class="h4">
 					<h3 class="h4"><strong>{title}</strong></h3>
@@ -133,7 +137,10 @@
 	<Button
 		variant="text"
 		icon="arrow-right"
-		on:click={() => clearInterval($interval) || ($position += 1)}
+		on:click={() => {
+			clearInterval($interval);
+			$position += 1;
+		}}
 	>
 		<span class="sr-only">Next item in gallery</span>
 	</Button>

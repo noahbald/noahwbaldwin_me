@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
 	import Button from '$lib/components/Button/Button.svelte';
+	import Image from '$lib/components/Image/Image.svelte';
 	import type Resume from '$lib/types/Resume';
 
 	import './FeatureBox.css';
@@ -15,7 +16,7 @@
 
 <div class="feature-box">
 	<div class="image">
-		<img src={image} alt={imageAlt} />
+		<Image src={image} alt={imageAlt} width={620} height={620} />
 	</div>
 	<div class="content">
 		<div class="titlebar">

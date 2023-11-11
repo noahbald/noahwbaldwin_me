@@ -21,7 +21,13 @@
 	<meta name="Description" content={intro} />
 </svelte:head>
 
-<Header src="/media/profile.jpg" heading="Noah Baldwin" title="Hello!" subtitle={intro}>
+<Header
+	src="/media/profile.jpg"
+	heading="Noah Baldwin"
+	title="Hello!"
+	subtitle={intro}
+	srcTiny={'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAJABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQIDBv/EACEQAAIBAwMFAAAAAAAAAAAAAAECAAMEERIysTM0QXOD/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAT/xAAYEQACAwAAAAAAAAAAAAAAAAAAAQIRQf/aAAwDAQACEQMRAD8AzFqUZlplwVJGcnxBVwa7acaRtUSNp1fm3BjjuR614EaWJ3FH/9k='}
+>
 	<Button slot="call-to-action" tag="a" href="/projects" class="shoft-shadow">Show me more!</Button>
 </Header>
 {#if blogs.length}

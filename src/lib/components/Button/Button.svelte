@@ -1,45 +1,35 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
-	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+	import type { SvelteHTMLElements } from 'svelte/elements';
 	import clsx from 'clsx';
 	import './Button.css';
 	import ButtonIcon from './ButtonIcon.svelte';
 
-	interface BaseProps {
+	type $$Props = SvelteHTMLElements[keyof SvelteHTMLElements] & {
 		variant?: 'solid' | 'outline' | 'text' | undefined;
-		icon: ComponentProps<ButtonIcon>['icon'];
-	}
-
-	interface ButtonProps extends HTMLButtonAttributes {
-		tag?: 'button';
-	}
-
-	interface AnchorProps extends HTMLAnchorAttributes {
-		tag: 'a';
-	}
-
-	type $$Props = (ButtonProps | AnchorProps) & BaseProps;
+		icon?: ComponentProps<ButtonIcon>['icon'];
+		tag: keyof SvelteHTMLElements;
+	};
 
 	/** Appearance of button */
-	export let variant: $$Props.variant;
+	export let variant: $$Props['variant'] = undefined;
 
 	/** Icon path */
-	export let icon: $$Props.icon;
+	export let icon: $$Props['icon'] = undefined;
 
 	/** Rendered tag */
-	export let tag: $$Props.tag;
+	export let tag: $$Props['tag'] = 'button';
 
-	export let href: $$Props.href;
+	$: role = tag !== 'button' && tag !== 'a' ? 'button' : undefined;
 </script>
 
-{#if !tag || tag === 'button'}
-	<button {...$$props} on:click class={clsx('button', { [variant]: variant })}>
-		<ButtonIcon {icon} />
-		<slot />
-	</button>
-{:else if tag === 'a'}
-	<a {...$$props} {href} class={clsx('button', { [variant]: variant })}>
-		<ButtonIcon {icon} />
-		<slot />
-	</a>
-{/if}
+<svelte:element
+	this={tag}
+	{...$$restProps}
+	class={clsx('button', { [variant || '']: variant })}
+	on:click
+	{role}
+>
+	<ButtonIcon {icon} />
+	<slot />
+</svelte:element>

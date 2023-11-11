@@ -2,8 +2,8 @@
 	import FeatureList from '$lib/components/FeatureList/FeatureList.svelte';
 	import FeatureListItem from '$lib/components/FeatureList/FeatureListItem.svelte';
 	import Button from '$lib/components/Button/Button.svelte';
-	import type { Blogs } from '$lib/types/Blogs';
-	import type { Projects } from '$lib/types/Projects';
+	import type Blogs from '$lib/types/Blogs';
+	import type Projects from '$lib/types/Projects';
 
 	import './PageList.css';
 

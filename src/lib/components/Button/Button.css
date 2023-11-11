@@ -3,7 +3,7 @@
 	--button-background--hover: var(--color-primary-light);
 	--button-background--active: var(--color-primary);
 	--button-background--disabled: var(--button-background--hover);
-	--button-color: var(--color-grey-lightest);
+	--button-color: var(--color-white-a11y-only);
 }
 
 .button {
@@ -55,7 +55,7 @@
 		--button-background: transparent;
 		--button-background--hover: color-mix(in srgb, var(--button-color) 10%, transparent);
 		--button-background--active: color-mix(in srgb var(--button-color) 30%, transparent);
-		--button-color: var(--color-primary);
+		--button-color: color-mix(in srgb, var(--color-primary-dark) 50%, var(--color-primary));
 	}
 
 	&:where(.outline) {

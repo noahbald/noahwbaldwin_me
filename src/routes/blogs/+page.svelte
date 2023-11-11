@@ -10,6 +10,10 @@
 
 <svelte:head>
 	<title>Noah Baldwin | PageList</title>
+	<meta
+		name="Description"
+		content="Blogs of Noah Baldwin around the front-end tech space and any other interesting tid-bits"
+	/>
 </svelte:head>
 
 <PageList pages={blogs} heading="Blogs" ctaText="Return Home" ctaHref="/" />

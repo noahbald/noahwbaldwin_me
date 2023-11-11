@@ -23,6 +23,10 @@
 		margin: var(--space-2) 0;
 	}
 
+	& a {
+		color: color-mix(in srgb, var(--color-primary) 50%, var(--color-primary-dark));
+	}
+
 	.button {
 		grid-row: 1;
 		grid-column: 3;

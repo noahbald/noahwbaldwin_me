@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Gallery from '$lib/components/Gallery/Gallery.svelte';
 	import Button from '$lib/components/Button/Button.svelte';
-	import type { Projects } from '$lib/types/Projects';
+	import type Projects from '$lib/types/Projects';
 
 	import './Projects.css';
 

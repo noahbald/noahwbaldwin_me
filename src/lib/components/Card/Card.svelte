@@ -3,12 +3,12 @@
 	import './Card.css';
 
 	/** Navigation link for the card */
-	export let href: string | undefined;
+	export let href: string | undefined = undefined;
 
 	/** Accessible title for card link */
-	export let title: string | undefined;
+	export let title: string | undefined = undefined;
 
-	let className: string = undefined;
+	let className: string | undefined = undefined;
 	export { className as class };
 </script>
 

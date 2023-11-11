@@ -14,7 +14,7 @@
 <Story name="Default">
 	<FeatureList>
 		{#each projects.record as { href, title, src, alt, uid } (uid)}
-			<FeatureListItem {href} hrefDescription={title} {src} {alt}>
+			<FeatureListItem {href} hrefDescription={title} {src} alt={alt || ''}>
 				<p>{title}</p>
 			</FeatureListItem>
 		{/each}

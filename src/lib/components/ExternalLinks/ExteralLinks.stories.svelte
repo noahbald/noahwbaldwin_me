@@ -12,8 +12,8 @@
 
 <Story name="Default">
 	<ExternalLinks>
-		<ExternalLink href="#">Example Link</ExternalLink>
-		<ExternalLink href="#">Example Link 1</ExternalLink>
-		<ExternalLink href="#">Example Link 2</ExternalLink>
+		<ExternalLink href="#" icon="placeholder">Example Link</ExternalLink>
+		<ExternalLink href="#" icon="placeholder">Example Link 1</ExternalLink>
+		<ExternalLink href="#" icon="placeholder">Example Link 2</ExternalLink>
 	</ExternalLinks>
 </Story>

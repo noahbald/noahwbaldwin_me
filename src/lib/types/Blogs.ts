@@ -1,5 +1,5 @@
 interface IBlogs {
-	metadata: Record<string, any>;
+	metadata: Record<string, unknown>;
 	record: {
 		href: string;
 		markdown: string;
