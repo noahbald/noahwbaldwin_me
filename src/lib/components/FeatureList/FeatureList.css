@@ -3,6 +3,7 @@
 .feature-list {
 	display: inline-flex;
 	flex-direction: column;
+	view-transition-name: feature-list;
 
 	> :where(.item) {
 		width: 100%;
