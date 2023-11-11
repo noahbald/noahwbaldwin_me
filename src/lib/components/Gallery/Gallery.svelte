@@ -19,6 +19,7 @@
 	let dragInitialX = writable(0);
 	let dragDeltaX = writable(0);
 	let interval = writable(-1);
+	let transitioningImageName = writable<string>();
 
 	$: visibleProjects = projects.length
 		? Array.from({ length: 4 }, (_, i) =>
@@ -111,7 +112,10 @@
 			class:dragging={$dragging}
 			style:--drag-distance={`${$dragDeltaX - $dragInitialX}px`}
 			style:--i-position={iPosition}
-			on:click={() => goto(href)}
+			on:click={() => {
+				$transitioningImageName = 'header';
+				goto(href);
+			}}
 			on:touchstart={handleDragStart}
 			on:mousedown={handleDragStart}
 			on:touchmove={handleDrag}
@@ -122,7 +126,14 @@
 			role="presentation"
 			tabindex={opacity - 1}
 		>
-			<Image {src} {alt} class="image of-gallery" width={624} height={256} />
+			<Image
+				{src}
+				{alt}
+				transitionName={$transitioningImageName}
+				class="image of-gallery"
+				width={624}
+				height={256}
+			/>
 			<Card {href} {title}>
 				<hgroup class="h4">
 					<h3 class="h4"><strong>{title}</strong></h3>

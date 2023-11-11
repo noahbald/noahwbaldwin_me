@@ -27,6 +27,7 @@
 	title="Hello!"
 	subtitle={intro}
 	srcTiny={'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAJABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQIDBv/EACEQAAIBAwMFAAAAAAAAAAAAAAECAAMEERIysTM0QXOD/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAT/xAAYEQACAwAAAAAAAAAAAAAAAAAAAQIRQf/aAAwDAQACEQMRAD8AzFqUZlplwVJGcnxBVwa7acaRtUSNp1fm3BjjuR614EaWJ3FH/9k='}
+	transitionName="header-main"
 >
 	<Button slot="call-to-action" tag="a" href="/projects" class="shoft-shadow">Show me more!</Button>
 </Header>

@@ -9,6 +9,7 @@
 	export let srcTiny: string | undefined = undefined;
 	export let title: string;
 	export let subtitle: string;
+	export let transitionName = 'header';
 </script>
 
 <header class="header h1">
@@ -25,6 +26,7 @@
 				height={1080}
 				fallbackQuality={10}
 				dataURLFallback={srcTiny}
+				{transitionName}
 			/>
 		{/if}
 	</div>

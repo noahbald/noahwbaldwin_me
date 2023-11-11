@@ -14,7 +14,7 @@
 </script>
 
 <section class="page-list">
-	<h2 class="highlight secondary h1">{heading}</h2>
+	<h2 class="highlight secondary h1" style:view-transition-name={heading}>{heading}</h2>
 	<Button tag="a" variant="text" href={ctaHref}>{ctaText}</Button>
 	<FeatureList>
 		{#each pages as { src, alt, href, title, subtitle, type, metadata, uid } (uid)}

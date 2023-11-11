@@ -6,6 +6,7 @@
 		tag?: T;
 		fallbackQuality?: number;
 		dataURLFallback?: string;
+		transitionName?: string;
 	};
 
 	/** Appearance of button */
@@ -16,6 +17,8 @@
 
 	/** Rendered tag */
 	export let dataURLFallback: $$Props['dataURLFallback'] = undefined;
+
+	export let transitionName: $$Props['transitionName'] = undefined;
 
 	let backgroundImage = '';
 	let fallbackImage = '';
@@ -44,6 +47,7 @@
 <svelte:element
 	this={tag || 'img'}
 	style:background-image={backgroundImage}
+	style:view-transition-name={transitionName}
 	{...$$restProps}
 	src={mainImage}
 >
