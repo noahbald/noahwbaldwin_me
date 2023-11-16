@@ -12,8 +12,9 @@
 	export let data: PageData;
 
 	$: intro = data.resumeData.record.intro;
-	$: blogs = data.blogsData.record.filter((record) => record.metadata.featured).slice(-1, 3);
-	$: projects = data.projectData.record.filter((record) => record.metadata.featured);
+	$: blogs = data.blogsData.record.filter((record) => record.metadata.featured).slice(0, 3);
+	$: projects = data.projectData.record.filter((record) => record.metadata.featured).slice(0, 3);
+
 	$: resume = data.resumeData.record;
 </script>
 

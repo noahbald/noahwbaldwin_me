@@ -24,6 +24,19 @@ const md = new MarkdownIt({
 		return hljs.highlight(str, { language: lang }).value;
 	},
 });
+md.use(function resizeImage(md) {
+	const imageRenderer = md.renderer.rules.image;
+	if (!imageRenderer) {
+		return;
+	}
+
+	md.renderer.rules.image = (tokens, index, options, env, self) => {
+		const src = tokens[index].attrGet('src');
+		tokens[index].attrSet('src', `${src}?cloudinary=c_scale,w_680`);
+
+		return imageRenderer(tokens, index, options, env, self);
+	};
+});
 
 function parseMarkdownSanitized(markdown: string) {
 	const dangerousHTML = md.render(markdown);
@@ -39,7 +52,7 @@ function parseMarkdownSanitized(markdown: string) {
 			'code'
 		),
 		allowedAttributes: {
-			img: ['src', 'alt'],
+			img: ['src', 'alt', 'width', 'height', 'style'],
 			a: ['href', 'name', 'target', 'title'],
 			code: ['class'],
 			pre: ['class'],
