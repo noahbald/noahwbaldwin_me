@@ -10,4 +10,4 @@
 	<FeatureBox {...args} />
 </Template>
 
-<Story name="Default" args={{ items: mockResume.record.items }} />
+<Story name="Default" args={{ items: mockResume.items }} />

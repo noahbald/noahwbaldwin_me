@@ -13,11 +13,11 @@
 	$: sanitizedHTML = parseMarkdownSanitized(markdown);
 </script>
 
-<div class="markdown" class:peek={!disablePeek && peek}>
+<div class="markdown" class:peek={!disablePeek && $peek}>
 	<article class="content of-markdown">
 		{@html sanitizedHTML}
 	</article>
-	{#if !disablePeek && peek}
+	{#if !disablePeek && $peek}
 		<Button on:click={() => ($peek = false)} class="soft-shadow">Read More</Button>
 	{/if}
 </div>

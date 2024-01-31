@@ -8,7 +8,7 @@ export const load: PageServerLoad = async (event) => {
 	const { projectData } = (await projectsLoad(
 		event as unknown as Parameters<typeof projectsLoad>[0]
 	)) as ProjectsPageData;
-	const project = projectData.record.find((item) => item.href.endsWith(params.projectID));
+	const project = projectData.find((item) => item.href.endsWith(params.projectID));
 	if (!project) {
 		throw error(404, 'Project not found');
 	}

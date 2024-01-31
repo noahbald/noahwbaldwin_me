@@ -4,7 +4,7 @@
 	import Button from '$lib/components/Button/Button.svelte';
 	import Header from './Header.svelte';
 
-	const project = projects.record[0];
+	const project = projects[0];
 </script>
 
 <Meta title="Components/Header" component={Header} />

@@ -5,7 +5,7 @@
 
 	import './Projects.css';
 
-	export let projects: Projects['record'];
+	export let projects: Projects;
 </script>
 
 <section class="projects">

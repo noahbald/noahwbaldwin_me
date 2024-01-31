@@ -3,7 +3,7 @@
 	import projects from '$lib/../__mocks__/api/projects';
 	import Image from './Image.svelte';
 
-	const project = projects.record[0];
+	const project = projects[0];
 </script>
 
 <Meta title="Components/Image" component={Image} />

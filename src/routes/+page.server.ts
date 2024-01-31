@@ -3,11 +3,12 @@ import type Blogs from '$lib/types/Blogs';
 import type Projects from '$lib/types/Projects';
 import type Resume from '$lib/types/Resume';
 import type { PageServerLoad } from './$types';
+import apiReroute from '$lib/utils/apiReroute';
 
-export const load: PageServerLoad = async ({ fetch }) => {
-	let blogsResponse: Promise<Response> | Response = fetch('/api/blogs');
-	let projectResponse: Promise<Response> | Response = fetch('/api/projects');
-	let resumeResponse: Promise<Response> | Response = fetch('/api/resume');
+export const load: PageServerLoad = async () => {
+	let blogsResponse: Promise<Response> | Response = apiReroute('blogs');
+	let projectResponse: Promise<Response> | Response = apiReroute('projects');
+	let resumeResponse: Promise<Response> | Response = apiReroute('resume');
 	await Promise.allSettled([blogsResponse, projectResponse, resumeResponse]);
 
 	blogsResponse = await blogsResponse;
@@ -20,7 +21,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	if (projectResponse.status >= 400) {
 		throw error(projectResponse.status, `/api/projects: ${projectResponse.statusText}`);
 	}
-	let projectData: Promise<unknown> | Projects = await projectResponse.json();
+	let projectData: Promise<unknown> | Projects = projectResponse.json();
 
 	resumeResponse = await resumeResponse;
 	if (resumeResponse.status >= 400) {

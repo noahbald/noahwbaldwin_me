@@ -10,4 +10,4 @@
 	<Gallery {...args} />
 </Template>
 
-<Story name="Default" args={{ projects: projects.record }} />
+<Story name="Default" args={{ projects }} />

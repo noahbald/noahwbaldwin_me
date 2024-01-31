@@ -7,7 +7,7 @@
 
 	import './PageList.css';
 
-	export let pages: Blogs['record'] | Projects['record'];
+	export let pages: Blogs | Projects;
 	export let heading: string;
 	export let ctaText: string;
 	export let ctaHref: string;
