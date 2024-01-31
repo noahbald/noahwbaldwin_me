@@ -10,7 +10,7 @@
 	import './Gallery.css';
 
 	// FIXME: This isn't very flexible, but it's not like we need it to be right now
-	export let projects: (typeof Projects)['record'];
+	export let projects: Projects;
 
 	const INTERVAL_TIMEOUT = 3000;
 

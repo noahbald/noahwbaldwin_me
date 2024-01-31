@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 
-	$: projects = data.projectData.record.filter((project) => !project.metadata.hidden) || [];
+	$: projects = data.projectData.filter((project) => !project.metadata.hidden) || [];
 </script>
 
 <svelte:head>

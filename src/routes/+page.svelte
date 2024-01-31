@@ -11,11 +11,11 @@
 
 	export let data: PageData;
 
-	$: intro = data.resumeData.record.intro;
-	$: blogs = data.blogsData.record.filter((record) => record.metadata.featured).slice(0, 3);
-	$: projects = data.projectData.record.filter((record) => record.metadata.featured).slice(0, 3);
+	$: intro = data.resumeData.intro;
+	$: blogs = data.blogsData.filter((record) => record.metadata.featured).slice(0, 3);
+	$: projects = data.projectData.filter((record) => record.metadata.featured).slice(0, 3);
 
-	$: resume = data.resumeData.record;
+	$: resume = data.resumeData;
 </script>
 
 <svelte:head>

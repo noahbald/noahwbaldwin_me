@@ -1,8 +1,7 @@
-const apiReroute = (request: Request, bin: 'PROJECTS' | 'RESUME' | 'BLOGS') => {
-	const headers = new Headers(request.headers);
-	headers.set('X-Access-Key', import.meta.env.VITE_JSON_BIN_KEY);
+const apiReroute = (bin: 'projects' | 'resume' | 'blogs', headers: Headers = new Headers()) => {
+	headers = new Headers(headers);
 	headers.set('Content-Type', 'application/json');
 
-	return fetch(import.meta.env[`VITE_JSON_BIN_${bin}`], new Request(request, { headers }));
+	return fetch(`${import.meta.env.VITE_BUCKET}/bins/${bin}.json`, { headers });
 };
 export default apiReroute;

@@ -5,7 +5,7 @@
 
 	import './Resume.css';
 
-	export let resume: Resume['record'];
+	export let resume: Resume;
 </script>
 
 <section class="resume">

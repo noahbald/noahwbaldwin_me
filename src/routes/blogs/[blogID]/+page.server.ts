@@ -8,7 +8,7 @@ export const load: PageServerLoad = async (event) => {
 	const { blogsData } = (await blogsLoad(
 		event as unknown as Parameters<typeof blogsLoad>[0]
 	)) as BlogsPageData;
-	const blog = blogsData.record.find((item) => item.href.endsWith(params.blogID));
+	const blog = blogsData.find((item) => item.href.endsWith(params.blogID));
 	if (!blog) {
 		throw error(404, 'Blog not found');
 	}

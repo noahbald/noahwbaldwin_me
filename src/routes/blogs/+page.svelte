@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 
-	$: blogs = data.blogsData.record || [];
+	$: blogs = data.blogsData || [];
 </script>
 
 <svelte:head>

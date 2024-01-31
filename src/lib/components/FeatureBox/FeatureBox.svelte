@@ -6,7 +6,7 @@
 
 	import './FeatureBox.css';
 
-	export let items: Resume['record']['items'];
+	export let items: Resume['items'];
 
 	let currentItemIndex = writable(0);
 	$: ({ title, image, imageAlt, contents } = items[$currentItemIndex] || { contents: [] });
